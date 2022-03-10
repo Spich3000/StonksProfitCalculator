@@ -8,64 +8,58 @@ import SwiftUI
 
 struct ContentView: View {
     
-    //probuem ubrat' keyboard
-//    enum Field: Hashable {
-//            case myField
-//        }
-    
     @State private var selectedView = 1
     
-    //probuem ubrat' keyboard
-//    @FocusState private var focusedField: Field?
+    @FocusState private var focus: Bool
     
-    // Tab1 var
+    // Replace "," with "." function
+    
+    func convert(text: String) -> String {
+        
+        let conversion = Double(text.replacingOccurrences(of: ",", with: ".")) ?? 0
+        
+        return String(conversion)
+        
+    }
+    
+    // Variable for Tab#1
     
     @State private var quantityOfToken = ""
-    
-    // I tried to make some value check
-    
-//    func didSet() -> String {
-//        if Double(quantityOfToken) ?? 0 <= 0 {
-//            quantityOfToken = "Insert Value"
-//        }
-//        return quantityOfToken
-//    }
-    
     @State private var boughtPrice = ""
     @State private var iWantPercentage = ""
     
-    //Tab2 var
+    // Variable for Tab#2
     
     @State private var sellValue2 = ""
     @State private var boughtValue2 = ""
     
-    //Tab3 var
+    // Variable for Tab#3
     
     @State private var quantityOfTokenFirstBuy = ""
     @State private var boughtPriceFirstBuy = ""
     @State private var quantityOfTokenSecondBuy = ""
     @State private var boughtPriceSecondBuy = ""
     
-    // Tab1 form
+    // Tab#1 calculation
     
     var boughtValue: Double {
         
-        let boughtValue = ((Double(quantityOfToken) ?? 0) * (Double(boughtPrice) ?? 0) * 1.001)
+        let boughtValue = ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * 1.001)
         
         return boughtValue
-     
+        
     }
     
     var sellPrice: Double {
         
-        let sellPrice = ((Double(boughtPrice) ?? 0) * ((1 + (Double(iWantPercentage) ?? 0) / 100) + 0.001))
+        let sellPrice = ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + 0.001))
         
         return sellPrice
     }
     
     var sellValue: Double {
         
-        let sellValue = (Double(quantityOfToken) ?? 0) * sellPrice
+        let sellValue = (Double(convert(text: quantityOfToken)) ?? 0) * sellPrice
         
         return sellValue
     }
@@ -77,25 +71,25 @@ struct ContentView: View {
         return profitValue
     }
     
-    // Tab2 form
+    // Tab#2 calculation
     
     var percentageDifference: Double {
         
-        let percentageDifference = ((Double(sellValue2) ?? 0) - (Double(boughtValue2) ?? 0)) / (Double(boughtValue2) ?? 0) * 100
+        let percentageDifference = ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 0) * 100
         
         return percentageDifference
         
     }
     
-    // Tab3 form
+    // Tab#3 calculation
     
     var averagePrice: Double {
         
-        let totalQuantity: Double = (Double(quantityOfTokenFirstBuy) ?? 0) + (Double(quantityOfTokenSecondBuy) ?? 0)
+        let totalQuantity: Double = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0)
         
-        let v1 = (Double(quantityOfTokenFirstBuy) ?? 0) * (Double(boughtPriceFirstBuy) ?? 0)
+        let v1 = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) * (Double(convert(text: boughtPriceFirstBuy)) ?? 0)
         
-        let v2 = (Double(quantityOfTokenSecondBuy) ?? 0) * (Double(boughtPriceSecondBuy) ?? 0)
+        let v2 = (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0) * (Double(convert(text: boughtPriceSecondBuy)) ?? 0)
         
         let totalValue = ( v1 + v2 ) * 1.001
         
@@ -105,11 +99,7 @@ struct ContentView: View {
         
     }
     
-    //    let formatter: NumberFormatter = {
-    //           let formatter = NumberFormatter()
-    //           formatter.numberStyle = .decimal
-    //           return formatter
-    //       }()
+    // TextField modifier
     
     struct Title: ViewModifier {
         
@@ -121,9 +111,12 @@ struct ContentView: View {
                 .padding(.horizontal, 35.0)
                 .padding(.bottom, 20.0)
                 .shadow(radius: 2)
+                .keyboardType(.decimalPad)
         }
         
     }
+    
+    // ClearButton modifier
     
     struct TitleClear: ViewModifier {
         
@@ -135,6 +128,8 @@ struct ContentView: View {
         }
         
     }
+    
+    // TextFieldClearButton
     
     struct TextFieldClearButton: ViewModifier {
         
@@ -162,7 +157,7 @@ struct ContentView: View {
     
     
     var body: some View {
-                
+        
         TabView(selection: $selectedView) {
             
             ZStack {
@@ -171,27 +166,21 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                                        
+                    
                     TextField("Enter quantity of token", text: $quantityOfToken)
                         .modifier(TextFieldClearButton(text: $quantityOfToken))
                         .modifier(Title())
-//                        .focused($focusedField, equals: .myField)
-//                        .keyboardType(.numberPad)
-//                        .toolbar {
-//                                ToolbarItemGroup(placement: .keyboard) {
-//                                        Button("Done") {
-//                                           focusedField = nil
-//                                        }
-//                                    }
-//                                }
-                        
+                        .focused($focus)
+                    
                     TextField("Enter bought price", text: $boughtPrice)
                         .modifier(TextFieldClearButton(text: $boughtPrice))
                         .modifier(Title())
+                        .focused($focus)
                     
                     TextField("Enter wanted profit %", text: $iWantPercentage)
                         .modifier(TextFieldClearButton(text: $iWantPercentage))
                         .modifier(Title())
+                        .focused($focus)
                     
                     Text("Your bought value:")
                         .foregroundColor(.black)
@@ -217,12 +206,7 @@ struct ContentView: View {
                         .foregroundColor(.black)
                         .padding()
                     
-//                    Button("Dismiss") {
-//                               focusedField = nil
-//                    }
                 }
-                    
-                
                 
                 Button(action: {
                     quantityOfToken = ""
@@ -231,12 +215,12 @@ struct ContentView: View {
                 }) {
                     Text("Clear")
                         .modifier(TitleClear())
-                }  .padding(.top, 450.0)
-                   .shadow(radius: 2)
+                }  .padding(.top, 500.0)
+                    .shadow(radius: 2)
                 
                 Text("Sell price included maker/taker fee 0.1%")
                     .foregroundColor(.black)
-                    .padding(.top, 550.0)
+                    .padding(.top, 600.0)
                 
             }
             .tabItem {
@@ -254,10 +238,12 @@ struct ContentView: View {
                     TextField("Enter sell value", text: $sellValue2)
                         .modifier(TextFieldClearButton(text: $sellValue2))
                         .modifier(Title())
+                        .focused($focus)
                     
                     TextField("Enter bought value", text: $boughtValue2)
                         .modifier(TextFieldClearButton(text: $boughtValue2))
                         .modifier(Title())
+                        .focused($focus)
                     
                     Text("Difference is:")
                         .foregroundColor(.black)
@@ -275,7 +261,7 @@ struct ContentView: View {
                     Text("Clear")
                         .modifier(TitleClear())
                 } .padding(.top, 500)
-                  .shadow(radius: 2)
+                    .shadow(radius: 2)
                 
             }
             
@@ -294,18 +280,22 @@ struct ContentView: View {
                     TextField("Enter amount of token: first buy", text: $quantityOfTokenFirstBuy)
                         .modifier(TextFieldClearButton(text: $quantityOfTokenFirstBuy))
                         .modifier(Title())
+                        .focused($focus)
                     
                     TextField("Enter price: first buy", text: $boughtPriceFirstBuy)
                         .modifier(TextFieldClearButton(text: $boughtPriceFirstBuy))
                         .modifier(Title())
+                        .focused($focus)
                     
                     TextField("Enter amount of token: second buy", text: $quantityOfTokenSecondBuy)
                         .modifier(TextFieldClearButton(text: $quantityOfTokenSecondBuy))
                         .modifier(Title())
+                        .focused($focus)
                     
                     TextField("Enter price: second buy", text: $boughtPriceSecondBuy)
                         .modifier(TextFieldClearButton(text: $boughtPriceSecondBuy))
                         .modifier(Title())
+                        .focused($focus)
                     
                     Text("Your average price is:")
                         .foregroundColor(.black)
@@ -363,18 +353,26 @@ struct ContentView: View {
             
             UITabBar.appearance().barTintColor = .gray
             
+        } .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Button("Done") {
+                    focus = false
+                } .foregroundColor(.yellow)
+            }
         }
         
         .accentColor(.black)
         
     }
-
+    
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ZStack {
+            ContentView()
+        }
     }
 }
 
