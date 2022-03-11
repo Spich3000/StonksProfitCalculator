@@ -155,7 +155,6 @@ struct ContentView: View {
         }
     }
     
-    
     var body: some View {
         
         TabView(selection: $selectedView) {
@@ -331,12 +330,11 @@ struct ContentView: View {
                 
                 VStack {
                     
-                    Text("This is app for my crypto blog in telegram.")
+                    Text("This is app for my crypto blog in telegram. Link is on my bio: @spich3000")
+                        .lineSpacing(10)
                         .foregroundColor(.black)
-                        .padding(.bottom, 1)
-                    
-                    Text("Link is on my bio: @spich3000")
-                        .foregroundColor(.black)
+                        .frame(width: 350, height: 200, alignment: .center)
+                        .multilineTextAlignment(.center)
                     
                 }
                 
