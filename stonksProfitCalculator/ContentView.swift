@@ -6,13 +6,17 @@
 
 import SwiftUI
 
+import MobileCoreServices
+
 struct ContentView: View {
     
     @State private var selectedView = 1
     
     @FocusState private var focus: Bool
     
-    //    var adress: String = "12314ffsd"
+    @State private var showingAlert = false
+    
+    var BTCAdress: String = "1HuiBQEFGLCBgtKsfWjZG2as3NdkVKdeBA"
     
     // Replace "," with "." function
     
@@ -161,9 +165,9 @@ struct ContentView: View {
     
     @State private var putin = false
     
-    let ru: Array = ["Цена продажи", "Разница", "Средняя цена", "Настройки", "Очистить", "Готово", "Введи количество монет", "Введи стоимость", "Введи желаемый профит %", "Сумма покупки:", "Поставь ордер по цене:", "Профит составит:", "Цена продажи учитывает комиссию 0,1%", "Введи суммму продажи", "Введи сумму покупки", "Разница составляет:", "Введи количество монет 1ой покупки", "Введи цену 1ой покупки", "Введи количество монет 2ой покупки", "Введи цену 2ой покупки", "Средняя цена:", "Это приложение для моего крипто канала в telegram. Ссылка в описании: @spich3000" ]
+    let ru: Array = ["Цена продажи", "Разница", "Средняя цена", "Настройки", "Удалить", "Готово", "Введи количество монет", "Введи стоимость", "Введи желаемый профит %", "Сумма покупки:", "Поставь ордер по цене:", "Профит составит:", "Цена продажи учитывает комиссию 0,1%", "Введи суммму продажи", "Введи сумму покупки", "Разница составляет:", "Введи количество монет 1ой покупки", "Введи цену 1ой покупки", "Введи количество монет 2ой покупки", "Введи цену 2ой покупки", "Средняя цена:", "Это приложение для моего крипто канала в telegram. Cледите за новостями!", "Донаты приветствуются (ВТС):", "Информация:", "Адрес скопирован!", "Спасибо, Товарищ!"]
     
-    let eng: Array = ["Sell Price", "Difference", "Average Price", "Settings", "Clear", "Done", "Enter quantity of token", "Enter bought price", "Enter wanted profit", "Your bought value:", "Set limit order at:", "Your profit:", "Sell price included maker/taker fee 0,1%", "Enter sell value", "Enter bought value", "Difference is:", "Enter amount of token: first buy", "Enter price: first buy", "Enter amount of token: second buy", "Enter price: second buy", "Your average is:", "This is app for my crypto blog in telegram. Link is on my bio: @spich3000"]
+    let eng: Array = ["Sell Price", "Difference", "Average Price", "Settings", "Clear", "Done", "Enter quantity of token", "Enter bought price", "Enter wanted profit", "Your bought value:", "Set limit order at:", "Your profit:", "Sell price included maker/taker fee 0,1%", "Enter sell value", "Enter bought value", "Difference is:", "Enter amount of token: first buy", "Enter price: first buy", "Enter amount of token: second buy", "Enter price: second buy", "Your average is:", "This is app for my crypto blog in telegram. Stay tuned for new features!", "Feel free for donate (BTC):", "About:", "Copied!", "Thank You!"]
     
     func localization(index: Int) -> String {
         switch putin {
@@ -231,12 +235,12 @@ struct ContentView: View {
                 }) {
                     Text(localization(index: 4))
                         .modifier(TitleClear())
-                }  .padding(.top, 500.0)
+                }  .padding(.top, 450.0)
                     .shadow(radius: 2)
                 
                 Text(localization(index: 12))
                     .foregroundColor(.black)
-                    .padding(.top, 600.0)
+                    .padding(.top, 570.0)
                 
             }
             .tabItem {
@@ -276,7 +280,7 @@ struct ContentView: View {
                 }) {
                     Text(localization(index: 4))
                         .modifier(TitleClear())
-                } .padding(.top, 500)
+                } .padding(.top, 450)
                     .shadow(radius: 2)
                 
             }
@@ -330,7 +334,7 @@ struct ContentView: View {
                 }) {
                     Text(localization(index: 4))
                         .modifier(TitleClear())
-                } .padding(.top, 500)
+                } .padding(.top, 450)
                     .shadow(radius: 2)
                 
             }
@@ -347,26 +351,59 @@ struct ContentView: View {
                 
                 VStack {
                     
-                    Toggle(isOn: $putin) {
-                        Text("Putin mode")
-                            .foregroundColor(.black)
-                    } .padding()
+                    // About
+                    
+                    Text(localization(index: 23))
+                        .font(.largeTitle)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 10)
                     
                     Text(localization(index: 21))
                         .lineSpacing(10)
                         .foregroundColor(.black)
-                        .frame(width: 350, height: 200, alignment: .center)
+                        .frame(width: 350, height: 60, alignment: .center)
                         .multilineTextAlignment(.center)
+                        .padding(.bottom, 30)
                     
-                    //                    Text(adress)
-                    //                        .contextMenu {
-                    //                            Button(action: {
-                    //                                UIPasteboard.general.string = adress
-                    //                            }) {
-                    //                                Text("Copy to clipboard")
-                    //                                Image(systemName: "doc.on.doc")
-                    //                            }
-                    //                        }
+                    // Telegram redirect
+                    
+                    Link(destination: URL(string: "https://t.me/stonks_signals")!, label: {
+                        HStack {
+                            Text("Telegram:")
+                                .foregroundColor(.black)
+                            Image(systemName: "paperplane")
+                        }
+                    }) .padding(.bottom, 30)
+                    
+                    // Donate clipboard with alert
+                    
+                    Text(localization(index: 22))
+                        .foregroundColor(.black)
+                        .padding(.bottom, 3)
+                    
+                    Button(action: {
+                        UIPasteboard.general.string = BTCAdress
+                        showingAlert = true
+                    }) {
+                        HStack {
+                            Text(BTCAdress)
+                            Image(systemName: "doc.on.clipboard")
+                        }
+                    } .padding(.bottom, 30)
+                        .alert(isPresented: $showingAlert) {
+                            Alert(
+                                title: Text(localization(index: 24)),
+                                message: Text(localization(index: 25)),
+                                dismissButton: .default(Text("Ok")))
+                        }
+                    
+                    // Localization on/off
+                    
+                    Toggle(isOn: $putin) {
+                        Text("Русский язык")
+                            .foregroundColor(.black)
+                    } .padding()
+                    
                 }
                 
             }
