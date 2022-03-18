@@ -22,9 +22,9 @@ struct ContentView: View {
     
     func convert(text: String) -> String {
         
-        let conversion = Double(text.replacingOccurrences(of: ",", with: ".")) ?? 0
+        let conversion = text.replacingOccurrences(of: ",", with: ".")
         
-        return String(conversion)
+        return conversion
         
     }
     
@@ -81,7 +81,7 @@ struct ContentView: View {
     
     var percentageDifference: Double {
         
-        let percentageDifference = ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 0) * 100
+        let percentageDifference = ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 100) * 100
         
         return percentageDifference
         
@@ -91,7 +91,7 @@ struct ContentView: View {
     
     var averagePrice: Double {
         
-        let totalQuantity: Double = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0)
+        let totalQuantity: Double = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? 1)
         
         let v1 = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) * (Double(convert(text: boughtPriceFirstBuy)) ?? 0)
         
@@ -119,7 +119,6 @@ struct ContentView: View {
                 .shadow(radius: 2)
                 .keyboardType(.decimalPad)
         }
-        
     }
     
     // ClearButton modifier
@@ -132,7 +131,6 @@ struct ContentView: View {
                 .background(.gray)
                 .cornerRadius(10)
         }
-        
     }
     
     // TextFieldClearButton
@@ -165,9 +163,9 @@ struct ContentView: View {
     
     @State private var putin = false
     
-    let ru: Array = ["Цена продажи", "Разница", "Средняя цена", "Настройки", "Удалить", "Готово", "Введи количество монет", "Введи стоимость", "Введи желаемый профит %", "Сумма покупки:", "Поставь ордер по цене:", "Профит составит:", "Цена продажи учитывает комиссию 0,1%", "Введи суммму продажи", "Введи сумму покупки", "Разница составляет:", "Введи количество монет 1ой покупки", "Введи цену 1ой покупки", "Введи количество монет 2ой покупки", "Введи цену 2ой покупки", "Средняя цена:", "Это приложение для моего крипто канала в telegram. Cледите за новостями!", "Донаты приветствуются (ВТС):", "Информация:", "Адрес скопирован!", "Спасибо, Товарищ!"]
+    let ru: Array = ["Цена продажи", "Разница", "Средняя цена", "Настройки", "Удалить", "Готово", "Введи количество монет", "Введи стоимость", "Введи желаемый профит %", "Сумма покупки:", "Поставь ордер по цене:", "Профит составит:", "Цена продажи учитывает комиссию 0,1%", "Введи суммму продажи", "Введи сумму покупки", "Разница составляет:", "Введи количество монет: покупка №1", "Введи цену: покупка №1", "Введи количество монет: покупка №2", "Введи цену: покупка №2", "Средняя цена:", "Это приложение для моего крипто-канала в Telegram. Cледите за новостями!", "Донаты приветствуются (ВТС):", "Информация:", "Адрес скопирован!", "Спасибо, Товарищ!"]
     
-    let eng: Array = ["Sell Price", "Difference", "Average Price", "Settings", "Clear", "Done", "Enter quantity of token", "Enter bought price", "Enter profit you want to receive %", "Your bought value:", "Set limit order at:", "Your profit:", "Sell price included maker/taker fee 0,1%", "Enter sell value", "Enter bought value", "Difference is:", "Enter amount of token: first buy", "Enter price: first buy", "Enter amount of token: second buy", "Enter price: second buy", "Your average is:", "This is app for my crypto blog in telegram. Stay tuned for new features!", "Feel free for donate (BTC):", "About:", "Copied!", "Thank You!"]
+    let eng: Array = ["Sell Price", "Difference", "Average Price", "Settings", "Clear", "Done", "Enter quantity of token", "Enter bought price", "Enter profit you want to receive %", "Your bought value:", "Set limit order at:", "Your profit:", "Sell price included maker/taker fee 0,1%", "Enter sell value", "Enter bought value", "Difference is:", "Enter amount of token: first buy", "Enter price: first buy", "Enter amount of token: second buy", "Enter price: second buy", "Your average price is:", "This is app for my crypto-blog in Telegram. Stay tuned for new features!", "Feel free for donate (BTC):", "About:", "Copied!", "Thank You!"]
     
     func localization(index: Int) -> String {
         switch putin {
@@ -413,20 +411,18 @@ struct ContentView: View {
                         Text("Русский язык")
                             .foregroundColor(.black)
                     } .padding()
-                      .frame(width: 370.0, height: 40.0)
-                      .background(.gray)
-                      .cornerRadius(10)
-                      .shadow(radius: 2)
-                      .padding(30)
-
+                        .frame(width: 370.0, height: 40.0)
+                        .background(.gray)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
+                        .padding(30)
+                    
                 }
-                
             }
             .tabItem {
                 Image(systemName: "gear")
                 Text(localization(index: 3))
             } .tag(4)
-            
         }
         
         .onAppear() {
@@ -441,7 +437,6 @@ struct ContentView: View {
             }
         }
         .accentColor(.black)
-        
     }
 }
 
