@@ -167,7 +167,7 @@ struct ContentView: View {
     
     let ru: Array = ["Цена продажи", "Разница", "Средняя цена", "Настройки", "Удалить", "Готово", "Введи количество монет", "Введи стоимость", "Введи желаемый профит %", "Сумма покупки:", "Поставь ордер по цене:", "Профит составит:", "Цена продажи учитывает комиссию 0,1%", "Введи суммму продажи", "Введи сумму покупки", "Разница составляет:", "Введи количество монет 1ой покупки", "Введи цену 1ой покупки", "Введи количество монет 2ой покупки", "Введи цену 2ой покупки", "Средняя цена:", "Это приложение для моего крипто канала в telegram. Cледите за новостями!", "Донаты приветствуются (ВТС):", "Информация:", "Адрес скопирован!", "Спасибо, Товарищ!"]
     
-    let eng: Array = ["Sell Price", "Difference", "Average Price", "Settings", "Clear", "Done", "Enter quantity of token", "Enter bought price", "Enter wanted profit", "Your bought value:", "Set limit order at:", "Your profit:", "Sell price included maker/taker fee 0,1%", "Enter sell value", "Enter bought value", "Difference is:", "Enter amount of token: first buy", "Enter price: first buy", "Enter amount of token: second buy", "Enter price: second buy", "Your average is:", "This is app for my crypto blog in telegram. Stay tuned for new features!", "Feel free for donate (BTC):", "About:", "Copied!", "Thank You!"]
+    let eng: Array = ["Sell Price", "Difference", "Average Price", "Settings", "Clear", "Done", "Enter quantity of token", "Enter bought price", "Enter profit you want to receive %", "Your bought value:", "Set limit order at:", "Your profit:", "Sell price included maker/taker fee 0,1%", "Enter sell value", "Enter bought value", "Difference is:", "Enter amount of token: first buy", "Enter price: first buy", "Enter amount of token: second buy", "Enter price: second buy", "Your average is:", "This is app for my crypto blog in telegram. Stay tuned for new features!", "Feel free for donate (BTC):", "About:", "Copied!", "Thank You!"]
     
     func localization(index: Int) -> String {
         switch putin {
@@ -235,12 +235,8 @@ struct ContentView: View {
                 }) {
                     Text(localization(index: 4))
                         .modifier(TitleClear())
-                }  .padding(.top, 450.0)
+                }  .padding(.top, 500.0)
                     .shadow(radius: 2)
-                
-                Text(localization(index: 12))
-                    .foregroundColor(.black)
-                    .padding(.top, 570.0)
                 
             }
             .tabItem {
@@ -280,7 +276,7 @@ struct ContentView: View {
                 }) {
                     Text(localization(index: 4))
                         .modifier(TitleClear())
-                } .padding(.top, 450)
+                } .padding(.top, 500)
                     .shadow(radius: 2)
                 
             }
@@ -334,7 +330,7 @@ struct ContentView: View {
                 }) {
                     Text(localization(index: 4))
                         .modifier(TitleClear())
-                } .padding(.top, 450)
+                } .padding(.top, 500)
                     .shadow(radius: 2)
                 
             }
@@ -358,6 +354,11 @@ struct ContentView: View {
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
+                    Text(localization(index: 12))
+                        .foregroundColor(.black)
+                        .frame(width: 350, height: 60, alignment: .center)
+                        .padding(30)
+                    
                     Text(localization(index: 21))
                         .lineSpacing(10)
                         .foregroundColor(.black)
@@ -373,13 +374,17 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                             Image(systemName: "paperplane")
                         }
-                    }) .padding(.bottom, 30)
+                    }) .frame(width: 120.0, height: 30.0)
+                        .background(.gray)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
+                        .padding(.bottom, 30)
                     
                     // Donate clipboard with alert
                     
                     Text(localization(index: 22))
                         .foregroundColor(.black)
-                        .padding(.bottom, 3)
+                        .padding(.bottom)
                     
                     Button(action: {
                         UIPasteboard.general.string = BTCAdress
@@ -389,7 +394,12 @@ struct ContentView: View {
                             Text(BTCAdress)
                             Image(systemName: "doc.on.clipboard")
                         }
-                    } .padding(.bottom, 30)
+                    } .frame(width: 370.0, height: 40.0)
+                        .background(.gray)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
+                        .padding(.bottom, 30)
+                    
                         .alert(isPresented: $showingAlert) {
                             Alert(
                                 title: Text(localization(index: 24)),
@@ -403,7 +413,12 @@ struct ContentView: View {
                         Text("Русский язык")
                             .foregroundColor(.black)
                     } .padding()
-                    
+                      .frame(width: 370.0, height: 40.0)
+                      .background(.gray)
+                      .cornerRadius(10)
+                      .shadow(radius: 2)
+                      .padding(30)
+
                 }
                 
             }
