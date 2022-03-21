@@ -9,7 +9,7 @@ import SwiftUI
 import MobileCoreServices
 
 struct ContentView: View {
-    @State private var selectedView = 1
+    @SceneStorage("selectedView") var selectedView = 1
 
     @FocusState private var focus: Bool
 
