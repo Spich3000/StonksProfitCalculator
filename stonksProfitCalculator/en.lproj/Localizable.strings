@@ -1,0 +1,35 @@
+/* 
+ Localizable .strings
+ stonksProfitCalculator
+
+ Created by Nigel Gee on 21/03/2022.
+
+ */
+
+"Sell Price" = "Sell Price";
+"Difference" = "Difference";
+"Average Price" = "Average Price";
+"Settings" = "Settings";
+"Clear" = "Clear";
+"Done" = "Done";
+"Enter quantity of token" = "Enter quantity of token";
+"Enter bought price" = "Enter bought price";
+"Enter profit you want to receive %" = "Enter profit you want to receive %";
+"Your bought value:" = "Your bought value:";
+"Set limit order at:" = "Set limit order at:";
+"Your profit:" = "Your profit:";
+"Sell price included maker/taker fee 0,1%" = "Sell price included maker/taker fee 0,1%";
+"Enter sell value" = "Enter sell value";
+"Enter bought value" = "Enter bought value";
+"Difference is:" = "Difference is:";
+"Enter amount of token: first buy" = "Enter amount of token: first buy";
+"Enter price: first buy" = "Enter price: first buy";
+"Enter amount of token: second buy" = "Enter amount of token: second buy";
+"Enter price: second buy" = "Enter price: second buy";
+"Your average price is:" = "Your average price is:";
+"This is app for my crypto-blog in Telegram. Stay tuned for new features!" = "This is app for my crypto-blog in Telegram. Stay tuned for new features!";
+"Telegram:" = "Telegram:";
+"Feel free for donate (BTC):" = "Feel free for donate (BTC):";
+"About:" = "About:";
+"Copied!" = "Copied!";
+"Thank You!" = "Thank You!";

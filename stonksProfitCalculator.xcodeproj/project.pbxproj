@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B51A1D527E8095B00DAB19B /* SellPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1D427E8095B00DAB19B /* SellPriceView.swift */; };
+		8B51A1D727E8096900DAB19B /* DifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1D627E8096900DAB19B /* DifferenceView.swift */; };
+		8B51A1DD27E8097B00DAB19B /* TextClear-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1D827E8097A00DAB19B /* TextClear-Modifier.swift */; };
+		8B51A1DE27E8097B00DAB19B /* TextFieldClearButton-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1D927E8097A00DAB19B /* TextFieldClearButton-Modifier.swift */; };
+		8B51A1DF27E8097B00DAB19B /* Title-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1DA27E8097A00DAB19B /* Title-Modifier.swift */; };
+		8B51A1E027E8097B00DAB19B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1DB27E8097A00DAB19B /* SettingsView.swift */; };
+		8B51A1E127E8097B00DAB19B /* AveragePriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A1DC27E8097A00DAB19B /* AveragePriceView.swift */; };
+		8B51A1E427E8106800DAB19B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B51A1E627E8106800DAB19B /* Localizable.strings */; };
 		A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F489027CFE99900A2F623 /* stonksProfitCalculatorApp.swift */; };
 		A21F489327CFE99900A2F623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F489227CFE99900A2F623 /* ContentView.swift */; };
 		A21F489527CFE99C00A2F623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489427CFE99C00A2F623 /* Assets.xcassets */; };
@@ -14,6 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B51A1D427E8095B00DAB19B /* SellPriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellPriceView.swift; sourceTree = "<group>"; };
+		8B51A1D627E8096900DAB19B /* DifferenceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferenceView.swift; sourceTree = "<group>"; };
+		8B51A1D827E8097A00DAB19B /* TextClear-Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextClear-Modifier.swift"; sourceTree = "<group>"; };
+		8B51A1D927E8097A00DAB19B /* TextFieldClearButton-Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextFieldClearButton-Modifier.swift"; sourceTree = "<group>"; };
+		8B51A1DA27E8097A00DAB19B /* Title-Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Title-Modifier.swift"; sourceTree = "<group>"; };
+		8B51A1DB27E8097A00DAB19B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8B51A1DC27E8097A00DAB19B /* AveragePriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AveragePriceView.swift; sourceTree = "<group>"; };
+		8B51A1E527E8106800DAB19B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8B51A1E727E814B400DAB19B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A21F488D27CFE99900A2F623 /* stonksProfitCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stonksProfitCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21F489027CFE99900A2F623 /* stonksProfitCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stonksProfitCalculatorApp.swift; sourceTree = "<group>"; };
 		A21F489227CFE99900A2F623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +70,14 @@
 			children = (
 				A21F489027CFE99900A2F623 /* stonksProfitCalculatorApp.swift */,
 				A21F489227CFE99900A2F623 /* ContentView.swift */,
+				8B51A1D427E8095B00DAB19B /* SellPriceView.swift */,
+				8B51A1D627E8096900DAB19B /* DifferenceView.swift */,
+				8B51A1DC27E8097A00DAB19B /* AveragePriceView.swift */,
+				8B51A1DB27E8097A00DAB19B /* SettingsView.swift */,
+				8B51A1D827E8097A00DAB19B /* TextClear-Modifier.swift */,
+				8B51A1D927E8097A00DAB19B /* TextFieldClearButton-Modifier.swift */,
+				8B51A1DA27E8097A00DAB19B /* Title-Modifier.swift */,
+				8B51A1E627E8106800DAB19B /* Localizable.strings */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
 			);
@@ -108,6 +133,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 				Base,
 			);
 			mainGroup = A21F488427CFE99900A2F623;
@@ -126,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A21F489827CFE99C00A2F623 /* Preview Assets.xcassets in Resources */,
+				8B51A1E427E8106800DAB19B /* Localizable.strings in Resources */,
 				A21F489527CFE99C00A2F623 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,18 +164,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B51A1DE27E8097B00DAB19B /* TextFieldClearButton-Modifier.swift in Sources */,
+				8B51A1E027E8097B00DAB19B /* SettingsView.swift in Sources */,
+				8B51A1DD27E8097B00DAB19B /* TextClear-Modifier.swift in Sources */,
 				A21F489327CFE99900A2F623 /* ContentView.swift in Sources */,
+				8B51A1E127E8097B00DAB19B /* AveragePriceView.swift in Sources */,
+				8B51A1D727E8096900DAB19B /* DifferenceView.swift in Sources */,
+				8B51A1D527E8095B00DAB19B /* SellPriceView.swift in Sources */,
 				A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */,
+				8B51A1DF27E8097B00DAB19B /* Title-Modifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8B51A1E627E8106800DAB19B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B51A1E527E8106800DAB19B /* en */,
+				8B51A1E727E814B400DAB19B /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A21F489927CFE99C00A2F623 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -210,6 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -269,7 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"stonksProfitCalculator/Preview Content\"";
-				DEVELOPMENT_TEAM = 5XJCC23FML;
+				DEVELOPMENT_TEAM = 5SYZQ266RF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -299,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"stonksProfitCalculator/Preview Content\"";
-				DEVELOPMENT_TEAM = 5XJCC23FML;
+				DEVELOPMENT_TEAM = 5SYZQ266RF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
