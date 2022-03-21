@@ -1,0 +1,33 @@
+"Sell price" = "Цена продажи";
+"Difference" = "Разница";
+"Average Price" = "Средняя цена";
+"Settings" = "Настройки";
+
+"Clear" = "Сброс";
+"Done" = "Готово";
+
+"Enter quantity of token" = "Введи количество монет";
+"Enter bought price" = "Введи стоимость";
+"Enter profit you want to receive %" = "Введи желаемый профит %";
+"Your bought value:" = "Сумма покупки:";
+"Set limit order at:" = "Поставь ордер по цене:";
+"Your profit:" = "Профит составит:";
+
+"Enter sell value" = "Введи сумму продажи";
+"Enter bought value" = "Введи сумму покупки";
+"Difference is:" = "Разница составляет:";
+
+"Enter amount of token: first buy" = "Введи количество монет: покупка №1";
+"Enter price: first buy" = "Введи цену: покупка №1";
+"Enter amount of token: second buy" = "Введи количество монет: покупка №2";
+"Enter price: second buy" = "Введи цену: покупка №2";
+"Your average price is:" = "Средняя цена";
+
+"About:" = "Информация:";
+"Sell price included maker/taker fee 0,1%" = "Цена продажи учитывает комиссию 0,1%";
+"This is app for my crypto-blog in Telegram. Stay tuned for new features!" = "Это приложение для моего крипто-канала в Telegram. Следите за новостями!";
+"Feel free for donate (BTC):" = "Донаты приветствуются (ВТС):";
+"Copied!" = "Адрес скопирован!";
+"Thank You!" = "Спасибо, Товарищ!";
+
+

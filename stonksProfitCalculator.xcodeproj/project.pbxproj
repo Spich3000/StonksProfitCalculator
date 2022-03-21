@@ -11,6 +11,7 @@
 		A21F489327CFE99900A2F623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F489227CFE99900A2F623 /* ContentView.swift */; };
 		A21F489527CFE99C00A2F623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489427CFE99C00A2F623 /* Assets.xcassets */; };
 		A21F489827CFE99C00A2F623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */; };
+		A2313FCB27E8630D006F9F0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2313FCD27E8630D006F9F0C /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,9 @@
 		A21F489227CFE99900A2F623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A21F489427CFE99C00A2F623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2313FCC27E8630D006F9F0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A2313FCE27E8630F006F9F0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A2313FD527E88EA1006F9F0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 				A21F489227CFE99900A2F623 /* ContentView.swift */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
+				A2313FCD27E8630D006F9F0C /* Localizable.strings */,
 			);
 			path = stonksProfitCalculator;
 			sourceTree = "<group>";
@@ -108,7 +113,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
+				uk,
 			);
 			mainGroup = A21F488427CFE99900A2F623;
 			productRefGroup = A21F488E27CFE99900A2F623 /* Products */;
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A21F489827CFE99C00A2F623 /* Preview Assets.xcassets in Resources */,
+				A2313FCB27E8630D006F9F0C /* Localizable.strings in Resources */,
 				A21F489527CFE99C00A2F623 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +150,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A2313FCD27E8630D006F9F0C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2313FCC27E8630D006F9F0C /* en */,
+				A2313FCE27E8630F006F9F0C /* ru */,
+				A2313FD527E88EA1006F9F0C /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A21F489927CFE99C00A2F623 /* Debug */ = {
