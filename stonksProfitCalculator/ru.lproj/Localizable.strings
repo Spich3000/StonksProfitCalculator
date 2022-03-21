@@ -18,7 +18,7 @@
 "Your bought value:" = "Сумма покупки:";
 "Set limit order at:" = "Поставь ордер по цене:";
 "Your profit:" = "Профит составит:";
-"Sell price included maker/taker fee 0,1%" = "Цена продажи учитывает комиссию 0,1%";
+"Sell price included maker/taker fee %@" = "Цена продажи учитывает комиссию %@";
 "Enter sell value" = "Введи сумму продажи";
 "Enter bought value" = "Введи сумму покупки";
 "Difference is:" = "Разница составляет:";
@@ -34,6 +34,7 @@
 "Copied!" = "Адрес скопирован!";
 "Thank You!" = "Спасибо, Товарищ!";
 
+"%@" = "%@";
 "%@$" = "%@$";
 "%.2f$" = "%.2f$";
 "%.2f%%" = "%.2f%%";

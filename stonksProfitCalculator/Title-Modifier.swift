@@ -11,6 +11,7 @@ struct Title: ViewModifier {
     func body(content: Content) -> some View {
         content
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .multilineTextAlignment(.center)
             .colorInvert()
             .accentColor(.gray)
             .padding(.horizontal, 35.0)

@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-fileprivate struct TextFieldClearButton: ViewModifier {
-    @Binding var text: String
+fileprivate struct NumberFieldClearButton: ViewModifier {
+    @Binding var number: Double
 
     func body(content: Content) -> some View {
         ZStack(alignment: .trailing) {
 
             content
 
-            if !text.isEmpty {
-
+            if number != 0 {
                 Button(
-                    action: { text = "" },
+                    action: { number = 0.0 },
                     label: {
                         Image(systemName: "multiply.circle")
                             .padding(.trailing)
@@ -30,7 +29,7 @@ fileprivate struct TextFieldClearButton: ViewModifier {
 }
 
 extension View {
-    func textFieldClearButton(text: Binding<String>) -> some View {
-        modifier(TextFieldClearButton(text: text))
+    func textFieldClearButton(for number: Binding<Double>) -> some View {
+        modifier(NumberFieldClearButton(number: number))
     }
 }

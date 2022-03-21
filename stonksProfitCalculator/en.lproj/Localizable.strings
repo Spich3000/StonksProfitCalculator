@@ -18,7 +18,7 @@
 "Your bought value:" = "Your bought value:";
 "Set limit order at:" = "Set limit order at:";
 "Your profit:" = "Your profit:";
-"Sell price included maker/taker fee 0,1%" = "Sell price included maker/taker fee 0,1%";
+"Sell price included maker/taker fee %@" = "Sell price included maker/taker fee %@";
 "Enter sell value" = "Enter sell value";
 "Enter bought value" = "Enter bought value";
 "Difference is:" = "Difference is:";
@@ -34,6 +34,7 @@
 "Copied!" = "Copied!";
 "Thank You!" = "Thank You!";
 
+"%@" = "%@";
 "%@$" = "%@$";
 "%.2f$" = "%.2f$";
 "%.2f%%" = "%.2f%%";

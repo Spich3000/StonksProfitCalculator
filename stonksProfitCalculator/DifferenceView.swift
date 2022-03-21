@@ -10,22 +10,23 @@ import SwiftUI
 struct DifferenceView: View {
     @FocusState private var focus: Bool
 
-    @State private var sellValue2 = ""
-    @State private var boughtValue2 = ""
+    @State private var sellValue2 = 0.0
+    @State private var boughtValue2 = 0.0
     
     var body: some View {
         ZStack {
             Color.yellow
                 .ignoresSafeArea()
 
-            VStack {
-                TextField("Enter sell value", text: $sellValue2)
-                    .textFieldClearButton(text: $sellValue2)
+            VStack(spacing: 2) {
+                Text("Enter sell value")
+                TextField("Enter sell value", value: $sellValue2, format: .number)
+                    .textFieldClearButton(for: $sellValue2)
                     .title
                     .focused($focus)
-
-                TextField("Enter bought value", text: $boughtValue2)
-                    .textFieldClearButton(text: $boughtValue2)
+                Text("Enter bought value")
+                TextField("Enter bought value", value: $boughtValue2, format: .number)
+                    .textFieldClearButton(for: $boughtValue2)
                     .title
                     .focused($focus)
 
@@ -33,13 +34,13 @@ struct DifferenceView: View {
                     .foregroundColor(.black)
                     .padding(.bottom, -1)
 
-                Text("\(percentageDifference, specifier: "%.2f")%")
+                Text("\(percentageDifference, format: .percent)")
                     .foregroundColor(.black)
             }
 
             Button {
-                sellValue2 = ""
-                boughtValue2 = ""
+                sellValue2 = 0
+                boughtValue2 = 0
             } label: {
                 Text("Clear")
                     .titleClear
@@ -50,12 +51,8 @@ struct DifferenceView: View {
     }
 
     var percentageDifference: Double {
-       ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 100) * 100
-    }
-
-    // Replace "," with "." function
-    func convert(text: String) -> String {
-         text.replacingOccurrences(of: ",", with: ".")
+        guard boughtValue2 > 0 else { return 0 }
+        return (sellValue2 - boughtValue2) / boughtValue2
     }
 }
 

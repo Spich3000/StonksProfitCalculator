@@ -10,9 +10,9 @@ import SwiftUI
 struct SellPriceView: View {
     @FocusState private var focus: Bool
     
-    @State private var quantityOfToken = ""
-    @State private var boughtPrice = ""
-    @State private var iWantPercentage = ""
+    @State private var quantityOfToken = 0.0
+    @State private var boughtPrice = 0.0
+    @State private var iWantPercentage = 0.0
     
     var body: some View {
         ZStack {
@@ -20,27 +20,31 @@ struct SellPriceView: View {
                 .ignoresSafeArea()
 
             VStack {
+                VStack(spacing: 2) {
+                    Text("Enter quantity of token")
+                    TextField("Enter quantity of token", value: $quantityOfToken, format: .number)
+                        .textFieldClearButton(for: $quantityOfToken)
+                        .title
+                        .focused($focus)
 
-                TextField("Enter quantity of token", text: $quantityOfToken)
-                    .textFieldClearButton(text: $quantityOfToken)
-                    .title
-                    .focused($focus)
+                    Text("Enter bought price")
+                    TextField("Enter bought price", value: $boughtPrice ,format: .number)
+                        .textFieldClearButton(for: $boughtPrice)
+                        .title
+                        .focused($focus)
 
-                TextField("Enter bought price", text: $boughtPrice)
-                    .textFieldClearButton(text: $boughtPrice)
-                    .title
-                    .focused($focus)
-
-                TextField("Enter profit you want to receive %", text: $iWantPercentage)
-                    .textFieldClearButton(text: $iWantPercentage)
-                    .title
-                    .focused($focus)
+                    Text("Enter profit you want to receive %")
+                    TextField("Enter profit you want to receive %", value: $iWantPercentage, format: .number)
+                        .textFieldClearButton(for: $iWantPercentage)
+                        .title
+                        .focused($focus)
+                }
 
                 Text("Your bought value:")
                     .foregroundColor(.black)
                     .padding(.bottom, -20)
 
-                Text("\(boughtValue, specifier: "%.2f")$")
+                Text("\(boughtValue, format: .currency(code: "USD"))")
                     .foregroundColor(.black)
                     .padding()
 
@@ -48,7 +52,7 @@ struct SellPriceView: View {
                     .foregroundColor(.black)
                     .padding(.bottom, -20)
 
-                Text("\((sellPrice).formatted())$")
+                Text("\((sellPrice), format: .currency(code: "USD"))")
                     .foregroundColor(.black)
                     .padding()
 
@@ -56,16 +60,16 @@ struct SellPriceView: View {
                     .foregroundColor(.black)
                     .padding(.bottom, -20)
 
-                Text("\(profitValue, specifier: "%.2f")$")
+                Text("\(profitValue, format: .currency(code: "USD"))")
                     .foregroundColor(.black)
                     .padding()
 
             }
 
             Button {
-                quantityOfToken = ""
-                boughtPrice = ""
-                iWantPercentage = ""
+                quantityOfToken = 0.0
+                boughtPrice = 0.0
+                iWantPercentage = 0.0
             } label: {
                 Text("Clear")
                     .titleClear
@@ -76,24 +80,19 @@ struct SellPriceView: View {
     }
 
     var boughtValue: Double {
-        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * 1.001)
+        quantityOfToken * (boughtPrice * 1.001)
     }
 
     var sellPrice: Double {
-        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + 0.001))
+        boughtPrice * ((1 + (iWantPercentage) / 100) + 0.001)
     }
 
     var sellValue: Double {
-        (Double(convert(text: quantityOfToken)) ?? 0) * sellPrice
+        quantityOfToken * sellPrice
     }
 
     var profitValue: Double {
         sellValue - boughtValue
-    }
-
-    // Replace "," with "." function
-    func convert(text: String) -> String {
-         text.replacingOccurrences(of: ",", with: ".")
     }
 }
 

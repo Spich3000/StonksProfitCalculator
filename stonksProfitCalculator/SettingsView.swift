@@ -24,7 +24,7 @@ struct SettingsView: View {
                     .foregroundColor(.black)
                     .padding(.bottom, 10)
 
-                Text("Sell price included maker/taker fee 0,1%")
+                Text("Sell price included maker/taker fee \(0.001, format: .percent)")
                     .foregroundColor(.black)
                     .frame(width: 350, height: 60, alignment: .center)
                     .padding(30)
@@ -78,61 +78,6 @@ struct SettingsView: View {
             }
         }
     }
-
-
-    let ru: Array = ["Цена продажи",
-                     "Разница",
-                     "Средняя цена",
-                     "Настройки",
-                     "Удалить",
-                     "Готово",
-                     "Введи количество монет",
-                     "Введи стоимость",
-                     "Введи желаемый профит %",
-                     "Сумма покупки:",
-                     "Поставь ордер по цене:",
-                     "Профит составит:",
-                     "Цена продажи учитывает комиссию 0,1%",
-                     "Введи сумму продажи",
-                     "Введи сумму покупки",
-                     "Разница составляет:",
-                     "Введи количество монет: покупка №1",
-                     "Введи цену: покупка №1",
-                     "Введи количество монет: покупка №2",
-                     "Введи цену: покупка №2",
-                     "Средняя цена:",
-                     "Это приложение для моего крипто-канала в Telegram. Cледите за новостями!",
-                     "Донаты приветствуются (ВТС):",
-                     "Информация:",
-                     "Адрес скопирован!",
-                     "Спасибо, Товарищ!"
-    ]
-
-    let eng: Array = ["Sell Price",
-                      "Difference",
-                      "Average Price",
-                      "Settings",
-                      "Clear",
-                      "Done",
-                      "Enter quantity of token",
-                      "Enter bought price",
-                      "Enter profit you want to receive %",
-                      "Your bought value:", "Set limit order at:",
-                      "Your profit:",
-                      "Sell price included maker/taker fee 0,1%",
-                      "Enter sell value", "Enter bought value",
-                      "Difference is:",
-                      "Enter amount of token: first buy",
-                      "Enter price: first buy",
-                      "Enter amount of token: second buy",
-                      "Enter price: second buy",
-                      "Your average price is:",
-                      "This is app for my crypto-blog in Telegram. Stay tuned for new features!",
-                      "Feel free for donate (BTC):",
-                      "About:",
-                      "Copied!",
-                      "Thank You!"
-    ]
 }
 
 struct SettingsView_Previews: PreviewProvider {

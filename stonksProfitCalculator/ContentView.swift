@@ -6,8 +6,6 @@
 
 import SwiftUI
 
-import MobileCoreServices
-
 struct ContentView: View {
     @SceneStorage("selectedView") var selectedView = 1
 
@@ -44,6 +42,7 @@ struct ContentView: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
                 Button("Done") {
                     focus = false
                 }
