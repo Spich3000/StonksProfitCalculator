@@ -33,3 +33,7 @@
 "About:" = "About:";
 "Copied!" = "Copied!";
 "Thank You!" = "Thank You!";
+
+"%@$" = "%@$";
+"%.2f$" = "%.2f$";
+"%.2f%%" = "%.2f%%";
