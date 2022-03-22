@@ -1,33 +1,33 @@
-"Sell price" = "Цена продажи";
-"Difference" = "Разница";
-"Average Price" = "Средняя цена";
-"Settings" = "Настройки";
+"Sell price" = "Цiна продажу";
+"Difference" = "Рiзниця";
+"Average Price" = "Середня цiна";
+"Settings" = "Налаштування";
 
-"Clear" = "Сброс";
+"Clear" = "Скидання";
 "Done" = "Готово";
 
-"Enter quantity of token" = "Введи количество монет";
-"Enter bought price" = "Введи стоимость";
-"Enter profit you want to receive %" = "Введи желаемый профит %";
-"Your bought value:" = "Сумма покупки:";
-"Set limit order at:" = "Поставь ордер по цене:";
-"Your profit:" = "Профит составит:";
+"Enter quantity of token" = "Введи кiлькiсть монет";
+"Enter bought price" = "Введи вартiсть";
+"Enter profit you want to receive %" = "Введи бажаний профiт %";
+"Your bought value:" = "Сума покупки:";
+"Set limit order at:" = "Постав ордер за цiною:";
+"Your profit:" = "Профiт складаэ:";
 
-"Enter sell value" = "Введи сумму продажи";
-"Enter bought value" = "Введи сумму покупки";
-"Difference is:" = "Разница составляет:";
+"Enter sell value" = "Введи суму продажу";
+"Enter bought value" = "Введи суму покупки";
+"Difference is:" = "Рiзница складаэ:";
 
-"Enter amount of token: first buy" = "Введи количество монет: покупка №1";
-"Enter price: first buy" = "Введи цену: покупка №1";
-"Enter amount of token: second buy" = "Введи количество монет: покупка №2";
-"Enter price: second buy" = "Введи цену: покупка №2";
-"Your average price is:" = "Средняя цена";
+"Enter amount of token: first buy" = "Введи кількість монет: купівля №1";
+"Enter price: first buy" = "Введи ціну: купівля №1";
+"Enter amount of token: second buy" = "Введи кількість монет: купівля №2";
+"Enter price: second buy" = "Введи ціну: купівля №2";
+"Your average price is:" = "Середня ціна:";
 
-"About:" = "Информация:";
-"Sell price included maker/taker fee 0,1%" = "Цена продажи учитывает комиссию 0,1%";
-"This is app for my crypto-blog in Telegram. Stay tuned for new features!" = "Это приложение для моего крипто-канала в Telegram. Следите за новостями!";
-"Feel free for donate (BTC):" = "Донаты приветствуются (ВТС):";
-"Copied!" = "Адрес скопирован!";
-"Thank You!" = "Спасибо, Товарищ!";
+"About:" = "Інформація:";
+"Sell price included maker/taker fee 0,1%" = "Ціна продажу враховує комісію 0,1%";
+"This is app for my crypto-blog in Telegram. Stay tuned for new features!" = "Ця програма для мого крипто-каналу в Telegram. Слідкуйте за новинами!";
+"Feel free for donate (BTC):" = "Донати вітаються (ВТС):";
+"Copied!" = "Адреса скопійовано!";
+"Thank You!" = "Спасибі!";
 
 
