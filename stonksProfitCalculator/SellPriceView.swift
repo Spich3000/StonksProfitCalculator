@@ -87,7 +87,8 @@ struct SellPriceView: View {
     }
     
     var profitValue: Double {
-        sellValue - boughtValue
+        guard Double(convert(text: iWantPercentage)) ?? 0 > 0 else { return 0 }
+        return sellValue - boughtValue
     }
     
     func convert(text: String) -> String {
