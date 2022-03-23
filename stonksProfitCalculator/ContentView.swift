@@ -11,7 +11,6 @@ import MobileCoreServices
 struct ContentView: View {
     
     @State private var selectedView = 1
-    @FocusState private var focus: Bool
         
     var body: some View {
         
@@ -45,8 +44,7 @@ struct ContentView: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
-                Button("Done") {
-                    focus = false
+               .hideKeyboard
                 }
                 .foregroundColor(.yellow)
             }
