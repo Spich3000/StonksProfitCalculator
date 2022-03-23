@@ -20,6 +20,7 @@
 		A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9C27E9B9E00077382C /* DifferenceView.swift */; };
 		A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9E27E9BB510077382C /* SellPriceView.swift */; };
 		A2950BA127EA4DF10077382C /* LinkButton-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */; };
+		A2950BA927EB5B970077382C /* Converter-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950BA827EB5B970077382C /* Converter-Modifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		A2950B9C27E9B9E00077382C /* DifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferenceView.swift; sourceTree = "<group>"; };
 		A2950B9E27E9BB510077382C /* SellPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellPriceView.swift; sourceTree = "<group>"; };
 		A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkButton-Modifier.swift"; sourceTree = "<group>"; };
+		A2950BA827EB5B970077382C /* Converter-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Converter-Modifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton-Modifier.swift */,
 				A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */,
 				A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */,
+				A2950BA827EB5B970077382C /* Converter-Modifier.swift */,
 				A2313FCD27E8630D006F9F0C /* Localizable.strings */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
@@ -170,6 +173,7 @@
 			files = (
 				A21F489327CFE99900A2F623 /* ContentView.swift in Sources */,
 				A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */,
+				A2950BA927EB5B970077382C /* Converter-Modifier.swift in Sources */,
 				A2950BA127EA4DF10077382C /* LinkButton-Modifier.swift in Sources */,
 				A2313FDD27E9A99E006F9F0C /* ClearButton-Modifier.swift in Sources */,
 				A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */,

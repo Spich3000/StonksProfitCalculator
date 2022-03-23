@@ -90,11 +90,6 @@ struct SellPriceView: View {
         guard Double(convert(text: iWantPercentage)) ?? 0 > 0 else { return 0 }
         return sellValue - boughtValue
     }
-    
-    func convert(text: String) -> String {
-        text.replacingOccurrences(of: ",", with: ".")
-    }
-    
 }
 
 struct SellPriceView_Previews: PreviewProvider {

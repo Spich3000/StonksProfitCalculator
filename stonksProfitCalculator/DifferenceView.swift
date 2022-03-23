@@ -56,10 +56,6 @@ struct DifferenceView: View {
         guard Double(convert(text: boughtValue2)) ?? 0 > 0 else { return 0 }
         return ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 100) * 100
     }
-    
-    func convert(text: String) -> String {
-        text.replacingOccurrences(of: ",", with: ".")
-    }
 }
 
 struct DifferenceView_Previews: PreviewProvider {

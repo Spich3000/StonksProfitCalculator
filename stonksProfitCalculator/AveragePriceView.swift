@@ -75,10 +75,6 @@ struct AveragePriceView: View {
         guard Double(convert(text: boughtPriceSecondBuy)) ?? 0 > 0 else { return 0 }
         return averagePrice
     }
-    
-    func convert(text: String) -> String {
-        text.replacingOccurrences(of: ",", with: ".")
-    }
 }
 
 struct AveragePriceView_Previews: PreviewProvider {
