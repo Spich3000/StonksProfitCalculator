@@ -18,7 +18,6 @@ struct TextFieldClearButton: ViewModifier {
             content
             
             if !text.isEmpty {
-                
                 Button(
                     action: { self.text = "" },
                     label: {

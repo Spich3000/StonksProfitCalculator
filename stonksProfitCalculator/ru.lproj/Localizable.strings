@@ -1,10 +1,16 @@
+// TabViewTitles
+
 "Sell price" = "Цена продажи";
 "Difference" = "Разница";
 "Average Price" = "Средняя цена";
 "Settings" = "Настройки";
 
+// Buttons
+
 "Clear" = "Сброс";
 "Done" = "Готово";
+
+// SellPriceView
 
 "Enter quantity of token" = "Введи количество монет";
 "Enter bought price" = "Введи стоимость";
@@ -13,15 +19,21 @@
 "Set limit order at:" = "Поставь ордер по цене:";
 "Your profit:" = "Профит составит:";
 
+// DifferenceView
+
 "Enter sell value" = "Введи сумму продажи";
 "Enter bought value" = "Введи сумму покупки";
 "Difference is:" = "Разница составляет:";
+
+// AveragePriceView
 
 "Enter amount of token: first buy" = "Введи количество монет: покупка №1";
 "Enter price: first buy" = "Введи цену: покупка №1";
 "Enter amount of token: second buy" = "Введи количество монет: покупка №2";
 "Enter price: second buy" = "Введи цену: покупка №2";
-"Your average price is:" = "Средняя цена";
+"Your average price is:" = "Средняя цена:";
+
+// SettingsView
 
 "About:" = "Информация:";
 "Sell price included maker/taker fee 0,1%" = "Цена продажи учитывает комиссию 0,1%";

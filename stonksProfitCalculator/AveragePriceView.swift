@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AveragePriceView: View {
     
-    @FocusState private var focus: Bool
-    
     @State private var quantityOfTokenFirstBuy = ""
     @State private var boughtPriceFirstBuy = ""
     @State private var quantityOfTokenSecondBuy = ""
@@ -28,22 +26,18 @@ struct AveragePriceView: View {
                 TextField("Enter amount of token: first buy", text: $quantityOfTokenFirstBuy)
                     .textFieldClearButton(text: $quantityOfTokenFirstBuy)
                     .title
-                    .focused($focus)
                 
                 TextField("Enter price: first buy", text: $boughtPriceFirstBuy)
                     .textFieldClearButton(text: $boughtPriceFirstBuy)
                     .title
-                    .focused($focus)
                 
                 TextField("Enter amount of token: second buy", text: $quantityOfTokenSecondBuy)
                     .textFieldClearButton(text: $quantityOfTokenSecondBuy)
                     .title
-                    .focused($focus)
                 
                 TextField("Enter price: second buy", text: $boughtPriceSecondBuy)
                     .textFieldClearButton(text: $boughtPriceSecondBuy)
                     .title
-                    .focused($focus)
                 
                 Text("Your average price is:")
                     .foregroundColor(.black)
@@ -72,34 +66,25 @@ struct AveragePriceView: View {
     
     var averagePrice: Double {
         
-        let totalQuantity: Double = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? 1)
-        
+        let totalQuantity = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0)
         let v1 = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) * (Double(convert(text: boughtPriceFirstBuy)) ?? 0)
-        
         let v2 = (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0) * (Double(convert(text: boughtPriceSecondBuy)) ?? 0)
-        
         let totalValue = ( v1 + v2 ) * 1.001
-        
         let averagePrice = (totalValue / totalQuantity)
         
+        guard Double(convert(text: boughtPriceSecondBuy)) ?? 0 > 0 else { return 0 }
         return averagePrice
-        
     }
-    
-    // Replace "," with "." function
     
     func convert(text: String) -> String {
-        
-       text.replacingOccurrences(of: ",", with: ".")
-        
+        text.replacingOccurrences(of: ",", with: ".")
     }
-    
 }
 
 struct AveragePriceView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-        AveragePriceView()
+            AveragePriceView()
         }
     }
 }

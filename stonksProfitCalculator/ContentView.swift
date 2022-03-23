@@ -11,14 +11,13 @@ import MobileCoreServices
 struct ContentView: View {
     
     @State private var selectedView = 1
-    @FocusState private var focus: Bool
-        
+    
     var body: some View {
         
         TabView(selection: $selectedView) {
             SellPriceView()
                 .tabItem {
-                  Label("Sell price", systemImage: "dollarsign.circle")
+                    Label("Sell price", systemImage: "dollarsign.circle")
                 }
                 .tag(1)
             
@@ -45,8 +44,9 @@ struct ContentView: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
                 Button("Done") {
-                    focus = false
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
                 .foregroundColor(.yellow)
             }
