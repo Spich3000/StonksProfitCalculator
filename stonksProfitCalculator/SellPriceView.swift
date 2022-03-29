@@ -14,13 +14,11 @@ struct SellPriceView: View {
     @State private var iWantPercentage = ""
     
     var body: some View {
-        
         ZStack {
-            
             Color.yellow
                 .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 30) {
                 
                 TextField("Enter quantity of token", text: $quantityOfToken)
                     .textFieldClearButton(text: $quantityOfToken)
@@ -34,58 +32,49 @@ struct SellPriceView: View {
                     .textFieldClearButton(text: $iWantPercentage)
                     .title
                 
-                Text("Your bought value:")
-                    .foregroundColor(.black)
-                    .padding(.bottom, -20)
+                VStack(spacing: 15) {
+                    VStack(spacing: 10) {
+                        Text("Your bought value:")
+                            .foregroundColor(.black)
+                        Text("\(boughtValue, specifier: "%.2f") $")
+                            .foregroundColor(.black)
+                    }
+                    VStack(spacing: 10) {
+                        Text("Set limit order at:")
+                            .foregroundColor(.black)
+                        Text("\((sellPrice).formatted()) $")
+                            .foregroundColor(.black)
+                    }
+                    VStack(spacing: 10) {
+                        Text("Your profit:")
+                            .foregroundColor(.black)
+                        Text("\(profitValue, specifier: "%.2f") $")
+                            .foregroundColor(.black)
+                    }
+                }
                 
-                Text("\(boughtValue, specifier: "%.2f") $")
-                    .foregroundColor(.black)
-                    .padding()
-                
-                Text("Set limit order at:")
-                    .foregroundColor(.black)
-                    .padding(.bottom, -20)
-                
-                Text("\((sellPrice).formatted()) $")
-                    .foregroundColor(.black)
-                    .padding()
-                
-                Text("Your profit:")
-                    .foregroundColor(.black)
-                    .padding(.bottom, -20)
-                
-                Text("\(profitValue, specifier: "%.2f") $")
-                    .foregroundColor(.black)
-                    .padding()
+                Button(action: {
+                    quantityOfToken = ""
+                    boughtPrice = ""
+                    iWantPercentage = ""
+                }) {
+                    Text("Clear")
+                        .clearButton
+                } .shadow(radius: 2)
             }
-            
-            Button(action: {
-                quantityOfToken = ""
-                boughtPrice = ""
-                iWantPercentage = ""
-            }) {
-                Text("Clear")
-                    .clearButton
-            }  .padding(.top, 500.0)
-                .shadow(radius: 2)
         }
     }
     
-    // Tab#1 calculation
-    
-    
+    // Calculation
     var boughtValue: Double {
         ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * 1.001)
     }
-    
     var sellPrice: Double {
         ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + 0.001))
     }
-    
     var sellValue: Double {
         (Double(convert(text: quantityOfToken)) ?? 0) * sellPrice
     }
-    
     var profitValue: Double {
         guard Double(convert(text: iWantPercentage)) ?? 0 > 0 else { return 0 }
         return sellValue - boughtValue

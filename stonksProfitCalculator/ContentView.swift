@@ -21,21 +21,21 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            DifferenceView()
-                .tabItem {
-                    Label("Difference", systemImage: "align.vertical.bottom")
-                }
-                .tag(2)
-            
             AveragePriceView()
                 .tabItem {
                     Label("Average Price", systemImage: "chart.xyaxis.line")
                 }
-                .tag(3)
+                .tag(2)
             
+            DifferenceView()
+                .tabItem {
+                    Label("Difference", systemImage: "align.vertical.bottom")
+                }
+                .tag(3)
+                        
             SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gear")
+                    Label("About", systemImage: "info.circle")
                 }
                 .tag(4)
         }

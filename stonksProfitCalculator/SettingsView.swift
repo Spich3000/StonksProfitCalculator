@@ -14,35 +14,28 @@ struct SettingsView: View {
     var BTCAdress: String = "1HuiBQEFGLCBgtKsfWjZG2as3NdkVKdeBA"
     
     var body: some View {
-        
         ZStack {
-            
             Color.yellow
                 .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 30) {
                 
                 // About
-                
                 Text("About:")
                     .font(.largeTitle)
                     .foregroundColor(.black)
-                    .padding(.bottom, 10)
                 
                 Text("Sell price included maker/taker fee 0,1%")
                     .foregroundColor(.black)
-                    .frame(width: 350, height: 60, alignment: .center)
-                    .padding(10)
+                    .frame(width: 350, height: 30, alignment: .center)
                 
                 Text("This is app for my crypto-blog in Telegram. Stay tuned for new features!")
                     .lineSpacing(10)
                     .foregroundColor(.black)
                     .frame(width: 350, height: 60, alignment: .center)
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 30)
                 
                 // Telegram redirect
-                
                 Link(destination: URL(string: "https://t.me/stonks_signals")!, label: {
                     HStack {
                         Text("Telegram:")
@@ -51,13 +44,10 @@ struct SettingsView: View {
                     }
                 }) .frame(width: 120.0, height: 30.0)
                     .linkButton
-                    .padding(.bottom, 30)
                 
                 // Donate clipboard with alert
-                
                 Text("Feel free for donate (BTC):")
                     .foregroundColor(.black)
-                    .padding(.bottom, 30)
                 
                 Button(action: {
                     UIPasteboard.general.string = BTCAdress
@@ -71,8 +61,6 @@ struct SettingsView: View {
                     }
                 } .frame(width: 370.0, height: 40.0)
                     .linkButton
-                    .padding(.bottom, 30)
-                
                     .alert(isPresented: $showingAlert) {
                         Alert(
                             title: Text("Copied!"),
@@ -84,11 +72,11 @@ struct SettingsView: View {
     }
 }
 
-    struct SettingsView_Previews: PreviewProvider {
-        static var previews: some View {
-            ZStack {
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
             SettingsView()
-            }
         }
     }
+}
 

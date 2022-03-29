@@ -19,7 +19,7 @@ struct DifferenceView: View {
             Color.yellow
                 .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 30) {
                 
                 TextField("Enter sell value", text: $sellValue2)
                     .textFieldClearButton(text: $sellValue2)
@@ -29,29 +29,24 @@ struct DifferenceView: View {
                     .textFieldClearButton(text: $boughtValue2)
                     .title
                 
-                Text("Difference is:")
-                    .foregroundColor(.black)
-                    .padding(.bottom, -1)
+                VStack(spacing: 10) {
+                    Text("Difference is:")
+                        .foregroundColor(.black)
+                    Text("\(percentageDifference, specifier: "%.2f") %")
+                        .foregroundColor(.black)
+                }
                 
-                Text("\(percentageDifference, specifier: "%.2f") %")
-                    .foregroundColor(.black)
-                
+                Button(action: {
+                    sellValue2 = ""
+                    boughtValue2 = ""
+                }) {
+                    Text("Clear")
+                        .clearButton
+                } .shadow(radius: 2)
             }
-            
-            Button(action: {
-                sellValue2 = ""
-                boughtValue2 = ""
-            }) {
-                Text("Clear")
-                    .clearButton
-                
-            } .padding(.top, 500)
-                .shadow(radius: 2)
         }
     }
-    
-    // Tab#2 calculation
-    
+    // Difference calculation
     var percentageDifference: Double {
         guard Double(convert(text: boughtValue2)) ?? 0 > 0 else { return 0 }
         return ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 100) * 100

@@ -12,11 +12,8 @@ struct TextFieldClearButton: ViewModifier {
     @Binding var text: String
     
     func body(content: Content) -> some View {
-        
         ZStack(alignment: .trailing) {
-            
             content
-            
             if !text.isEmpty {
                 Button(
                     action: { self.text = "" },

@@ -14,7 +14,6 @@ struct Title: ViewModifier {
             .colorInvert()
             .accentColor(.gray)
             .padding(.horizontal, 35.0)
-            .padding(.bottom, 20.0)
             .shadow(radius: 2)
             .keyboardType(.decimalPad)
     }

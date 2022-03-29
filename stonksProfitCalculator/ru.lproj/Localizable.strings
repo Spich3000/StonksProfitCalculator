@@ -3,12 +3,19 @@
 "Sell price" = "Цена продажи";
 "Difference" = "Разница";
 "Average Price" = "Средняя цена";
-"Settings" = "Настройки";
+//"Settings" = "Настройки";
+"About" = "Информация";
 
 // Buttons
 
 "Clear" = "Сброс";
 "Done" = "Готово";
+"Add buy" = "Добавить покупку";
+
+// Picker
+"Select input value:" = "Выбери вводимые данные:";
+"Amount of token" = "Количество монет";
+"Bought Value" = "Сумма покупки";
 
 // SellPriceView
 
@@ -29,9 +36,17 @@
 
 "Enter amount of token: first buy" = "Введи количество монет: покупка №1";
 "Enter price: first buy" = "Введи цену: покупка №1";
+"Enter bought value: first buy" = "Введи сумму: покупка №1";
+
 "Enter amount of token: second buy" = "Введи количество монет: покупка №2";
 "Enter price: second buy" = "Введи цену: покупка №2";
+"Enter bought value: second buy" = "Введи сумму: покупка №2";
+
 "Your average price is:" = "Средняя цена:";
+
+"Enter amount of token: third buy" = "Введи количество монет: покупка №3";
+"Enter price: third buy" = "Введи цену: покупка №3";
+"Enter bought value: third buy" = "Введи сумму: покупка №3";
 
 // SettingsView
 

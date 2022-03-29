@@ -3,12 +3,19 @@
 "Sell price" = "Цiна продажу";
 "Difference" = "Рiзниця";
 "Average Price" = "Середня цiна";
-"Settings" = "Налаштування";
+//"Settings" = "Налаштування";
+"About" = "Iнформацiя";
 
 // Buttons
 
 "Clear" = "Скидання";
 "Done" = "Готово";
+"Add buy" = "Додати покупку";
+
+// Picker
+"Select input value:" = "Вибери дані, що вводяться:";
+"Amount of token" = "Кiлькiсть монет";
+"Bought Value" = "Сума покупки";
 
 // SellPriceView
 
@@ -29,9 +36,17 @@
 
 "Enter amount of token: first buy" = "Введи кількість монет: купівля №1";
 "Enter price: first buy" = "Введи ціну: купівля №1";
+"Enter bought value: first buy" = "Введи суму: купівля №1";
+
 "Enter amount of token: second buy" = "Введи кількість монет: купівля №2";
 "Enter price: second buy" = "Введи ціну: купівля №2";
+"Enter bought value: second buy" = "Введи суму: купівля №2";
+
 "Your average price is:" = "Середня ціна:";
+
+"Enter amount of token: third buy" = "Введи кількість монет: купівля №3";
+"Enter price: third buy" = "Введи ціну: купівля №3";
+"Enter bought value: third buy" = "Введи суму: купівля №3";
 
 // SettingsView
 
