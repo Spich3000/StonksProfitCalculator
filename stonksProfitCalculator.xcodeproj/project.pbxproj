@@ -13,7 +13,7 @@
 		A21F489827CFE99C00A2F623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */; };
 		A2313FCB27E8630D006F9F0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2313FCD27E8630D006F9F0C /* Localizable.strings */; };
 		A2313FDD27E9A99E006F9F0C /* ClearButton-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */; };
-		A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton-Modifier.swift */; };
+		A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */; };
 		A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */; };
 		A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE227E9AB4F006F9F0C /* SettingsView.swift */; };
 		A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9A27E9B8C60077382C /* AveragePriceView.swift */; };
@@ -35,7 +35,7 @@
 		A2313FCE27E8630F006F9F0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2313FD527E88EA1006F9F0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClearButton-Modifier.swift"; sourceTree = "<group>"; };
-		A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldClearButton-Modifier.swift"; sourceTree = "<group>"; };
+		A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButton.swift; sourceTree = "<group>"; };
 		A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Title-Modifier.swift"; sourceTree = "<group>"; };
 		A2313FE227E9AB4F006F9F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A2950B9A27E9B8C60077382C /* AveragePriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePriceView.swift; sourceTree = "<group>"; };
@@ -79,17 +79,9 @@
 			children = (
 				A21F489027CFE99900A2F623 /* stonksProfitCalculatorApp.swift */,
 				A21F489227CFE99900A2F623 /* ContentView.swift */,
-				A2950B9E27E9BB510077382C /* SellPriceView.swift */,
-				A2950B9A27E9B8C60077382C /* AveragePriceView.swift */,
-				A2950B9C27E9B9E00077382C /* DifferenceView.swift */,
-				A2313FE227E9AB4F006F9F0C /* SettingsView.swift */,
-				A2B50DB027F238D1004720F4 /* AddBuyView.swift */,
-				A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */,
-				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton-Modifier.swift */,
-				A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */,
-				A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */,
-				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
-				A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */,
+				A2B85E0327F4DFF4002FBB12 /* Views */,
+				A2B85E0227F4DFC9002FBB12 /* Modifiers */,
+				A2B85E0427F4E233002FBB12 /* Functions */,
 				A2313FCD27E8630D006F9F0C /* Localizable.strings */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
@@ -103,6 +95,38 @@
 				A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A2B85E0227F4DFC9002FBB12 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */,
+				A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */,
+				A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */,
+				A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		A2B85E0327F4DFF4002FBB12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2950B9E27E9BB510077382C /* SellPriceView.swift */,
+				A2950B9A27E9B8C60077382C /* AveragePriceView.swift */,
+				A2950B9C27E9B9E00077382C /* DifferenceView.swift */,
+				A2313FE227E9AB4F006F9F0C /* SettingsView.swift */,
+				A2B50DB027F238D1004720F4 /* AddBuyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2B85E0427F4E233002FBB12 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
+				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +211,7 @@
 				A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */,
 				A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */,
 				A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */,
-				A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton-Modifier.swift in Sources */,
+				A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */,
 				A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */,
 				A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */,
 			);

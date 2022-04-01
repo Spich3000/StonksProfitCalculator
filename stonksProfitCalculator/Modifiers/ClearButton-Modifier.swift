@@ -14,6 +14,7 @@ struct ClearButton: ViewModifier {
             .background(.gray)
             .cornerRadius(10)
             .foregroundColor(.black)
+//            .opacity(0.7)
     }
 }
 

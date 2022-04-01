@@ -30,10 +30,8 @@ struct AddBuyView: View {
             
             VStack(spacing: 30) {
                 TextField(selectInput == 0 ? "Enter amount of token: third buy" : "Enter bought value: third buy",
-                          text:
-                            (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
-                    .textFieldClearButton(text:
-                                            (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
+                          text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
+                    .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
                     .title
                 
                 TextField("Enter price: third buy", text: $boughtPriceThirdBuy)
@@ -55,7 +53,6 @@ struct AddBuyView: View {
                     Text("Clear")
                         .clearButton
                 } .shadow(radius: 2)
-                
             }
         }
     }

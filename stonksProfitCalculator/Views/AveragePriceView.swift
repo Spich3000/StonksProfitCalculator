@@ -45,10 +45,8 @@ struct AveragePriceView: View {
                 .padding()
                 
                 TextField(selectInput == 0 ? "Enter amount of token: first buy" : "Enter bought value: first buy",
-                          text:
-                            (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
-                    .textFieldClearButton(text:
-                                            (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
+                          text: (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
+                    .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
                     .title
                 
                 TextField("Enter price: first buy", text: $boughtPriceFirstBuy)
@@ -56,10 +54,8 @@ struct AveragePriceView: View {
                     .title
                 
                 TextField(selectInput == 0 ? "Enter amount of token: second buy" : "Enter bought value: second buy",
-                          text:
-                            (selectInput == 0 ? $quantityOfTokenSecondBuy : $boughtValueSecondBuy))
-                    .textFieldClearButton(text:
-                                            (selectInput == 0 ? $quantityOfTokenSecondBuy : $boughtValueSecondBuy))
+                          text: (selectInput == 0 ? $quantityOfTokenSecondBuy : $boughtValueSecondBuy))
+                    .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenSecondBuy : $boughtValueSecondBuy))
                     .title
                 
                 TextField("Enter price: second buy", text: $boughtPriceSecondBuy)
@@ -96,7 +92,6 @@ struct AveragePriceView: View {
                     Text("Clear")
                         .clearButton
                 } .shadow(radius: 2)
-                
             }
         }
     }
