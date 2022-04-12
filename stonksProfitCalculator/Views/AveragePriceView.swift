@@ -33,17 +33,22 @@ struct AveragePriceView: View {
             VStack(spacing: 30) {
                 
                 Text("Select input value:")
-                    .padding(-10)
+//                    .fontWeight(.semibold)
+//                    .padding(-10)
                     .foregroundColor(.black)
+                    .blockView
+                    .padding(.horizontal, 20)
                 
                 Picker(selection: $selectInput, label: Text("Picker"), content: {
                     Text("Amount of token").tag(0)
                     Text("Bought Value").tag(1)
                 })
                 .pickerStyle(SegmentedPickerStyle())
-                .shadow(radius: 1)
-                .padding()
-                
+                .shadow(color: Color.black.opacity(0.3), radius: 10,
+                        x: 0.0,
+                        y: 10)
+                .padding(.horizontal, 20)
+
                 TextField(selectInput == 0 ? "Enter amount of token: first buy" : "Enter bought value: first buy",
                           text: (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
                     .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
@@ -74,13 +79,14 @@ struct AveragePriceView: View {
                     AddBuyView(selectInput: $selectInput, averageTokens: averageTokens, totalQuantity: totalQuantity, averageDollars: averageDollars, totalAmount: totalAmount)
                 }
                 
-                VStack(spacing: 10) {
+                VStack(spacing: 20) {
+                    VStack(spacing: 5) {
                     Text("Your average price is:")
+//                        .fontWeight(.semibold)
                         .foregroundColor(.black)
                     Text("\((selectInput == 0 ? averageTokens : averageDollars ).formatted()) $")
                         .foregroundColor(.black)
-                }
-                                
+                    }
                 Button(action: {
                     quantityOfTokenFirstBuy = ""
                     boughtPriceFirstBuy = ""
@@ -91,7 +97,11 @@ struct AveragePriceView: View {
                 }) {
                     Text("Clear")
                         .clearButton
-                } .shadow(radius: 2)
+                } //.shadow(radius: 2)
+                } .blockView
+                    .padding(.horizontal, 20)
+
+
             }
         }
     }

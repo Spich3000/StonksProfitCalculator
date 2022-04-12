@@ -10,13 +10,14 @@ Tab1:
   App will calculate spended value of dollars, show you sell price to earn your target profit, and show how much is your profit in dollars.
   
 Tab 2:
-
-  This is simple difference between two values. For example: you bought some token on 50 dollars, then selled for 67 dollars. 
-  This function shows you how much percentage is your gain.
-  
-Tab 3:
-
-  Imagine, you bought some token and price goes down. You bought again and want to know what is your average price is now.
+ Imagine, you bought some token and price goes down. You bought again and want to know what is your average price is now.
   Enter amount of token and price of first and second buy. App will calculate your new price.
   
+
+Tab 3:
+
+ This is simple difference between two values. For example: you bought some token on 50 dollars, then selled for 67 dollars. 
+  This function shows you how much percentage is your gain.
+  
+
 Hope you will enjoy this app!

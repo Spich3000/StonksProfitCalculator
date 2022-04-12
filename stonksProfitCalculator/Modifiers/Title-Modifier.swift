@@ -10,12 +10,15 @@ import SwiftUI
 struct Title: ViewModifier {
     func body(content: Content) -> some View {
         content
+            .background(.white)
+            .cornerRadius(7)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .colorInvert()
+//            .colorInvert()
             .accentColor(.gray)
-            .padding(.horizontal, 35.0)
-            .shadow(radius: 2)
+            .padding(.horizontal, 20.0)
+            .shadow(radius: 3)
             .keyboardType(.decimalPad)
+        
     }
 }
 

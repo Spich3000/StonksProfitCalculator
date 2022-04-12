@@ -26,12 +26,6 @@
 "Set limit order at:" = "Постав ордер за цiною:";
 "Your profit:" = "Профiт складаэ:";
 
-// DifferenceView
-
-"Enter sell value" = "Введи суму продажу";
-"Enter bought value" = "Введи суму покупки";
-"Difference is:" = "Рiзница складаэ:";
-
 // AveragePriceView
 
 "Enter amount of token: first buy" = "Введи кількість монет: купівля №1";
@@ -47,6 +41,12 @@
 "Enter amount of token: third buy" = "Введи кількість монет: купівля №3";
 "Enter price: third buy" = "Введи ціну: купівля №3";
 "Enter bought value: third buy" = "Введи суму: купівля №3";
+
+// DifferenceView
+
+"Enter sell value" = "Введи суму продажу";
+"Enter bought value" = "Введи суму покупки";
+"Difference is:" = "Рiзница складаэ:";
 
 // SettingsView
 

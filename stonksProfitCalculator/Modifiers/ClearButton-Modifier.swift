@@ -11,10 +11,16 @@ struct ClearButton: ViewModifier {
         func body(content: Content) -> some View {
         content
             .frame(width: 80.0, height: 25.0)
-            .background(.gray)
+//            .background(.gray)
             .cornerRadius(10)
             .foregroundColor(.black)
-//            .opacity(0.7)
+            .background(
+                Color.gray
+                    .cornerRadius(10)
+                    .shadow(color: Color.black.opacity(0.5), radius: 10,
+                            x: 0.0,
+                            y: 10)
+            ) .opacity(0.85)
     }
 }
 

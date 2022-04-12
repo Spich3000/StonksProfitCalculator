@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DifferenceView: View {
     
-    @State private var sellValue2 = ""
-    @State private var boughtValue2 = ""
+    @State private var sellValue = ""
+    @State private var boughtValue = ""
     
     var body: some View {
         
@@ -21,35 +21,38 @@ struct DifferenceView: View {
             
             VStack(spacing: 30) {
                 
-                TextField("Enter sell value", text: $sellValue2)
-                    .textFieldClearButton(text: $sellValue2)
+                TextField("Enter sell value", text: $sellValue)
+                    .textFieldClearButton(text: $sellValue)
                     .title
                 
-                TextField("Enter bought value", text: $boughtValue2)
-                    .textFieldClearButton(text: $boughtValue2)
+                TextField("Enter bought value", text: $boughtValue)
+                    .textFieldClearButton(text: $boughtValue)
                     .title
                 
-                VStack(spacing: 10) {
+                VStack(spacing: 20) {
+                    VStack(spacing: 5) {
                     Text("Difference is:")
                         .foregroundColor(.black)
                     Text("\(percentageDifference, specifier: "%.2f") %")
                         .foregroundColor(.black)
-                }
-                
+                    }
                 Button(action: {
-                    sellValue2 = ""
-                    boughtValue2 = ""
+                    sellValue = ""
+                    boughtValue = ""
                 }) {
                     Text("Clear")
                         .clearButton
-                } .shadow(radius: 2)
+                } //.shadow(radius: 2)
+                } .blockView
+                    .padding(.horizontal, 20)
+
             }
         }
     }
     // Difference calculation
     var percentageDifference: Double {
-        guard Double(convert(text: boughtValue2)) ?? 0 > 0 else { return 0 }
-        return ((Double(convert(text: sellValue2)) ?? 0) - (Double(convert(text: boughtValue2)) ?? 0)) / (Double(convert(text: boughtValue2)) ?? 100) * 100
+        guard Double(convert(text: boughtValue)) ?? 0 > 0 else { return 0 }
+        return ((Double(convert(text: sellValue)) ?? 0) - (Double(convert(text: boughtValue)) ?? 0)) / (Double(convert(text: boughtValue)) ?? 100) * 100
     }
 }
 

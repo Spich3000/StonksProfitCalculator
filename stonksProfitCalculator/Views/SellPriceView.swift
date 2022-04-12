@@ -17,50 +17,56 @@ struct SellPriceView: View {
         ZStack {
             Color.yellow
                 .ignoresSafeArea()
-            
             VStack(spacing: 30) {
-                
-                TextField("Enter quantity of token", text: $quantityOfToken)
-                    .textFieldClearButton(text: $quantityOfToken)
-                    .title
-                
-                TextField("Enter bought price", text: $boughtPrice)
-                    .textFieldClearButton(text: $boughtPrice)
-                    .title
-                
-                TextField("Enter profit you want to receive %", text: $iWantPercentage)
-                    .textFieldClearButton(text: $iWantPercentage)
-                    .title
-                
-                VStack(spacing: 15) {
-                    VStack(spacing: 10) {
-                        Text("Your bought value:")
-                            .foregroundColor(.black)
-                        Text("\(boughtValue, specifier: "%.2f") $")
-                            .foregroundColor(.black)
-                    }
-                    VStack(spacing: 10) {
-                        Text("Set limit order at:")
-                            .foregroundColor(.black)
-                        Text("\((sellPrice).formatted()) $")
-                            .foregroundColor(.black)
-                    }
-                    VStack(spacing: 10) {
-                        Text("Your profit:")
-                            .foregroundColor(.black)
-                        Text("\(profitValue, specifier: "%.2f") $")
-                            .foregroundColor(.black)
-                    }
+                VStack(spacing: 30) {
+                    
+                    TextField("Enter quantity of token", text: $quantityOfToken)
+                        .textFieldClearButton(text: $quantityOfToken)
+                        .title
+                    
+                    TextField("Enter bought price", text: $boughtPrice)
+                        .textFieldClearButton(text: $boughtPrice)
+                        .title
+                    
+                    TextField("Enter profit you want to receive %", text: $iWantPercentage)
+                        .textFieldClearButton(text: $iWantPercentage)
+                        .title
                 }
+                //                ZStack {
+                VStack(spacing: 20) {
+                    VStack(spacing: 15) {
+                        VStack(spacing: 5) {
+                            Text("Your bought value:")
+                                .foregroundColor(.black)
+                            Text("\(boughtValue, specifier: "%.2f") $")
+                                .foregroundColor(.black)
+                        }
+                        VStack(spacing: 5) {
+                            Text("Set limit order at:")
+                                .foregroundColor(.black)
+                            Text("\((sellPrice).formatted()) $")
+                                .foregroundColor(.black)
+                        }
+                        VStack(spacing: 5) {
+                            Text("Your profit:")
+                                .foregroundColor(.black)
+                            Text("\(profitValue, specifier: "%.2f") $")
+                                .foregroundColor(.black)
+                        }
+                    }
+                    
+                    Button(action: {
+                        quantityOfToken = ""
+                        boughtPrice = ""
+                        iWantPercentage = ""
+                    }) {
+                        Text("Clear")
+                            .clearButton
+                    } //.shadow(radius: 2)
+                } .blockView
+                    .padding(.horizontal, 20)
                 
-                Button(action: {
-                    quantityOfToken = ""
-                    boughtPrice = ""
-                    iWantPercentage = ""
-                }) {
-                    Text("Clear")
-                        .clearButton
-                } .shadow(radius: 2)
+                
             }
         }
     }

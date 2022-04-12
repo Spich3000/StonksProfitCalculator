@@ -31,28 +31,31 @@ struct AddBuyView: View {
             VStack(spacing: 30) {
                 TextField(selectInput == 0 ? "Enter amount of token: third buy" : "Enter bought value: third buy",
                           text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
-                    .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
-                    .title
+                .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
+                .title
                 
                 TextField("Enter price: third buy", text: $boughtPriceThirdBuy)
                     .textFieldClearButton(text: $boughtPriceThirdBuy)
                     .title
+                VStack(spacing: 20){
+                    VStack(spacing: 5) {
+                        Text("Your average price is:")
+                            .foregroundColor(.black)
+                        Text("\((selectInput == 0 ? averageTokensThird : averageDollarsThird ).formatted()) $")
+                            .foregroundColor(.black)
+                    }
+                    
+                    Button(action: {
+                        quantityOfTokenThirdBuy = ""
+                        boughtPriceThirdBuy = ""
+                        boughtValueThirdBuy = ""
+                    }) {
+                        Text("Clear")
+                            .clearButton
+                    } //.shadow(radius: 2)
+                }.blockView
+                    .padding(.horizontal, 20)
                 
-                VStack(spacing: 10) {
-                    Text("Your average price is:")
-                        .foregroundColor(.black)
-                    Text("\((selectInput == 0 ? averageTokensThird : averageDollarsThird ).formatted()) $")
-                        .foregroundColor(.black)
-                }
-                
-                Button(action: {
-                    quantityOfTokenThirdBuy = ""
-                    boughtPriceThirdBuy = ""
-                    boughtValueThirdBuy = ""
-                }) {
-                    Text("Clear")
-                        .clearButton
-                } .shadow(radius: 2)
             }
         }
     }
