@@ -24,6 +24,7 @@
 		A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */; };
 		A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DB027F238D1004720F4 /* AddBuyView.swift */; };
 		A2FEB75E2805F981004D770C /* BlockView-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB75D2805F981004D770C /* BlockView-Modifier.swift */; };
+		A2FEB76228074167004D770C /* CommissionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB76128074166004D770C /* CommissionRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker-Modifier.swift"; sourceTree = "<group>"; };
 		A2B50DB027F238D1004720F4 /* AddBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyView.swift; sourceTree = "<group>"; };
 		A2FEB75D2805F981004D770C /* BlockView-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockView-Modifier.swift"; sourceTree = "<group>"; };
+		A2FEB76128074166004D770C /* CommissionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
 				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
+				A2FEB76128074166004D770C /* CommissionRate.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				A2FEB75E2805F981004D770C /* BlockView-Modifier.swift in Sources */,
 				A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */,
 				A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */,
+				A2FEB76228074167004D770C /* CommissionRate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

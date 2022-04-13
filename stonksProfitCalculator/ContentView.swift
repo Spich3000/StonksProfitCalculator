@@ -11,24 +11,20 @@ import MobileCoreServices
 struct ContentView: View {
     
     @State private var selectedView = 1
-    
-//    var commissionRate: Double
+        
+    @StateObject var commission = CommissionRate()
     
     var body: some View {
         
         TabView(selection: $selectedView) {
-//            ZStack {
-//                VStack{
-            SellPriceView()
-//            Text("\(commissionRate)")
-//                }
-//            }
+
+            SellPriceView(commission: commission)
                 .tabItem {
                     Label("Sell price", systemImage: "dollarsign.circle")
                 }
                 .tag(1)
             
-            AveragePriceView()
+            AveragePriceView(commission: commission)
                 .tabItem {
                     Label("Average Price", systemImage: "chart.xyaxis.line")
                 }
@@ -40,9 +36,9 @@ struct ContentView: View {
                 }
                 .tag(3)
                         
-            SettingsView()
+            SettingsView(commission: commission)
                 .tabItem {
-                    Label("About", systemImage: "info.circle")
+                    Label("Settings", systemImage: "gear")
                 }
                 .tag(4)
         }
@@ -65,7 +61,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            ContentView()
+            ContentView(commission: CommissionRate())
         }
     }
 }

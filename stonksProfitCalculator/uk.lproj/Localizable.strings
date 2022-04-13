@@ -3,7 +3,7 @@
 "Sell price" = "Цiна продажу";
 "Difference" = "Рiзниця";
 "Average Price" = "Середня цiна";
-//"Settings" = "Налаштування";
+"Settings" = "Налаштування";
 "About" = "Iнформацiя";
 
 // Buttons
@@ -56,5 +56,5 @@
 "Feel free for donate (BTC):" = "Донати вітаються (ВТС):";
 "Copied!" = "Адреса скопійовано!";
 "Thank You!" = "Спасибі!";
-
+"Select exchange commission rate:" = "Обери комісію біржі:";
 

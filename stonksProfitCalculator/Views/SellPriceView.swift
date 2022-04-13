@@ -12,10 +12,8 @@ struct SellPriceView: View {
     @State private var quantityOfToken = ""
     @State private var boughtPrice = ""
     @State private var iWantPercentage = ""
-    
-//    @Binding var commission: Int
-//    @Binding var commissions: Double
-//    var commissionRate: Double
+
+    @ObservedObject var commission: CommissionRate
 
     var body: some View {
         ZStack {
@@ -73,16 +71,12 @@ struct SellPriceView: View {
     }
     
     // Calculation
-    
-//    var commissionRate: Double {
-//        $commissions[$commission]
-//    }
-    
+
     var boughtValue: Double {
-        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * (1))
+        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * (1 + commission.commission))
     }
     var sellPrice: Double {
-        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + (0)))
+        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + (commission.commission)))
     }
     var sellValue: Double {
         (Double(convert(text: quantityOfToken)) ?? 0) * sellPrice
@@ -96,7 +90,7 @@ struct SellPriceView: View {
 struct SellPriceView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            SellPriceView()
+            SellPriceView(commission: CommissionRate())
         }
     }
 }

@@ -11,16 +11,12 @@ struct SettingsView: View {
     
     @State private var showingAlert = false
     
-//    @State private var commission: Int = 0
-//
-//    let commissions = [0.0, 0.0005, 0.001, 0.002]
-//
-//    var commissionRate: Double {
-//        return Double(commissions[commission])
-//    }
+    @State private var pick: Int = 0
     
-    init() {PickerViewModifier()}
+    let commissions = [0.0, 0.0005, 0.001, 0.002]
     
+    @ObservedObject var commission: CommissionRate
+        
     var BTCAdress: String = "1HuiBQEFGLCBgtKsfWjZG2as3NdkVKdeBA"
     
     var body: some View {
@@ -81,20 +77,22 @@ struct SettingsView: View {
                 } //VStack Donate
                 .blockView
                 
-//                VStack {
-//                    Text("Select exchange commission rate:")
-//                        .foregroundColor(.black)
-//                    Picker("Select exchange commission rate", selection: $commission) {
-//                        ForEach(0..<commissions.count) {
-//                            Text("\((self.commissions[$0]).formatted()) %")
-//                        }
-//                    } .pickerModifier
-//
-//                    Text("\(commissionRate)")
-//                        .foregroundColor(.black)
-//
-//                } //VStack select commission
-//                .blockView
+                VStack {
+                    Text("Select exchange commission rate:")
+                        .foregroundColor(.black)
+                    Picker("Select exchange commission rate", selection: $pick) {
+                        ForEach(0..<commissions.count) {
+                            Text("\((self.commissions[$0]).formatted()) %")
+                        }
+                    } .pickerModifier
+                        .onAppear {
+                            PickerViewModifier()
+                        }
+                        .onChange(of: pick) { newValue in
+                            commission.commission = Double(commissions[pick])
+                        }
+                } //VStack select commission
+                .blockView
             }
         }
     }
@@ -103,7 +101,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            SettingsView()
+            SettingsView(commission: CommissionRate())
         }
     }
 }

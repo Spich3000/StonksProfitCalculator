@@ -20,8 +20,7 @@ struct AveragePriceView: View {
     @State var addBuy = false
     @State var selectInput = 0
     
-    // Change picker colors
-    init() {PickerViewModifier()}
+    @ObservedObject var commission: CommissionRate
     
     var body: some View {
         
@@ -40,6 +39,9 @@ struct AveragePriceView: View {
                         Text("Bought Value").tag(1)
                     })
                     .pickerModifier
+                    .onAppear {
+                        PickerViewModifier()
+                    }
                 }  .blockView
                 
                 TextField(selectInput == 0 ? "Enter amount of token: first buy" : "Enter bought value: first buy",
@@ -103,7 +105,7 @@ struct AveragePriceView: View {
     var averageTokens: Double {
         let value1 = (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) * (Double(convert(text: boughtPriceFirstBuy)) ?? 0)
         let value2 = (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0) * (Double(convert(text: boughtPriceSecondBuy)) ?? 0)
-        let totalValue = ( value1 + value2 ) * (1)
+        let totalValue = ( value1 + value2 ) * (1 + commission.commission)
         let averageTokens = totalValue / totalQuantity
         
         guard Double(convert(text: boughtPriceSecondBuy)) ?? 0 > 0 else { return 0 }
@@ -120,7 +122,7 @@ struct AveragePriceView: View {
     
     var averageDollars: Double {
         let value = (Double(convert(text: boughtValueFirstBuy)) ?? 0) + (Double(convert(text: boughtValueSecondBuy)) ?? 0)
-        let averageDollars = value / totalAmount * (1)
+        let averageDollars = value / totalAmount * (1 + commission.commission)
         
         guard Double(convert(text: boughtPriceSecondBuy)) ?? 0 > 0 else { return 0 }
         return averageDollars
@@ -131,7 +133,7 @@ struct AveragePriceView: View {
 struct AveragePriceView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            AveragePriceView()
+            AveragePriceView(commission: CommissionRate())
         }
     }
 }
