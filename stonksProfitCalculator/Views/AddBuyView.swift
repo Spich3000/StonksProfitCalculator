@@ -52,10 +52,8 @@ struct AddBuyView: View {
                     }) {
                         Text("Clear")
                             .clearButton
-                    } //.shadow(radius: 2)
-                }.blockView
-                    .padding(.horizontal, 20)
-                
+                    } 
+                } .blockView                
             }
         }
     }
@@ -63,7 +61,7 @@ struct AddBuyView: View {
     // Calculation for input 0
     var averageTokensThird: Double {
         let totalQuantity3 = totalQuantity + (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0)
-        let value3 = (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0) * (Double(convert(text: boughtPriceThirdBuy)) ?? 0) * 1.001
+        let value3 = (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0) * (Double(convert(text: boughtPriceThirdBuy)) ?? 0) * (1)
         let totalValue3 = (averageTokens * totalQuantity) + value3
         let averageTokensThird = totalValue3 / totalQuantity3
         
@@ -78,11 +76,20 @@ struct AddBuyView: View {
         let amount3 = (Double(convert(text: boughtValueThirdBuy)) ?? 0) / (Double(convert(text: boughtPriceThirdBuy)) ?? 0)
         let totalAmount3 = totalAmount + amount3
         let totalValue3 = (averageDollars * totalAmount) + (Double(convert(text: boughtValueThirdBuy)) ?? 0)
-        let averageDollarsThird = totalValue3 / totalAmount3 * 1.001
+        let averageDollarsThird = totalValue3 / totalAmount3 * (1)
         
         guard averageDollars > 0 else {return 0}
         guard Double(convert(text: boughtValueThirdBuy)) ?? 0 > 0 else {return 0}
         guard Double(convert(text: boughtPriceThirdBuy)) ?? 0 > 0 else {return 0}
         return averageDollarsThird
+    }
+}
+
+
+struct AddBuyView_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
+            AddBuyView(selectInput: .constant(1), averageTokens: 1, totalQuantity: 1, averageDollars: 1, totalAmount: 1)
+        }
     }
 }

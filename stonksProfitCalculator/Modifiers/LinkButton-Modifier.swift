@@ -10,9 +10,7 @@ import SwiftUI
 struct LinkButton_Modifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-//            .background(.gray)
             .cornerRadius(10)
-//            .shadow(radius: 2)
             .background(
                 Color.gray
                     .cornerRadius(10)

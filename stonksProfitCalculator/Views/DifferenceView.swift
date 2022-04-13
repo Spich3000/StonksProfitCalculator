@@ -15,7 +15,6 @@ struct DifferenceView: View {
     var body: some View {
         
         ZStack {
-            
             Color.yellow
                 .ignoresSafeArea()
             
@@ -44,8 +43,6 @@ struct DifferenceView: View {
                         .clearButton
                 } //.shadow(radius: 2)
                 } .blockView
-                    .padding(.horizontal, 20)
-
             }
         }
     }

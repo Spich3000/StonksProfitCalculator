@@ -13,16 +13,21 @@ struct SellPriceView: View {
     @State private var boughtPrice = ""
     @State private var iWantPercentage = ""
     
+//    @Binding var commission: Int
+//    @Binding var commissions: Double
+//    var commissionRate: Double
+
     var body: some View {
         ZStack {
             Color.yellow
                 .ignoresSafeArea()
+            
             VStack(spacing: 30) {
                 VStack(spacing: 30) {
-                    
                     TextField("Enter quantity of token", text: $quantityOfToken)
                         .textFieldClearButton(text: $quantityOfToken)
                         .title
+
                     
                     TextField("Enter bought price", text: $boughtPrice)
                         .textFieldClearButton(text: $boughtPrice)
@@ -32,7 +37,6 @@ struct SellPriceView: View {
                         .textFieldClearButton(text: $iWantPercentage)
                         .title
                 }
-                //                ZStack {
                 VStack(spacing: 20) {
                     VStack(spacing: 15) {
                         VStack(spacing: 5) {
@@ -53,8 +57,7 @@ struct SellPriceView: View {
                             Text("\(profitValue, specifier: "%.2f") $")
                                 .foregroundColor(.black)
                         }
-                    }
-                    
+                    } //Vstack TextFields
                     Button(action: {
                         quantityOfToken = ""
                         boughtPrice = ""
@@ -62,21 +65,24 @@ struct SellPriceView: View {
                     }) {
                         Text("Clear")
                             .clearButton
-                    } //.shadow(radius: 2)
-                } .blockView
-                    .padding(.horizontal, 20)
-                
-                
+                    }
+                } //VStack View
+                  .blockView
             }
         }
     }
     
     // Calculation
+    
+//    var commissionRate: Double {
+//        $commissions[$commission]
+//    }
+    
     var boughtValue: Double {
-        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * 1.001)
+        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * (1))
     }
     var sellPrice: Double {
-        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + 0.001))
+        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + (0)))
     }
     var sellValue: Double {
         (Double(convert(text: quantityOfToken)) ?? 0) * sellPrice

@@ -12,10 +12,17 @@ struct ContentView: View {
     
     @State private var selectedView = 1
     
+//    var commissionRate: Double
+    
     var body: some View {
         
         TabView(selection: $selectedView) {
+//            ZStack {
+//                VStack{
             SellPriceView()
+//            Text("\(commissionRate)")
+//                }
+//            }
                 .tabItem {
                     Label("Sell price", systemImage: "dollarsign.circle")
                 }
