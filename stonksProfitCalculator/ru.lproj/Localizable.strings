@@ -17,6 +17,10 @@
 "Amount of token" = "Количество монет";
 "Bought Value" = "Сумма покупки";
 
+"Color scheme:" = "Цветовая схема:";
+"Light" = "Светлая";
+"Dark" = "Темная";
+
 // SellPriceView
 
 "Enter quantity of token" = "Введи количество монет";

@@ -12,11 +12,17 @@ struct DifferenceView: View {
     @State private var sellValue = ""
     @State private var boughtValue = ""
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     var body: some View {
         
         ZStack {
-            Color.yellow
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
+                startPoint: UnitPoint(x: 0.2, y: 0.2),
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
             VStack(spacing: 30) {
                 
@@ -30,21 +36,20 @@ struct DifferenceView: View {
                 
                 VStack(spacing: 20) {
                     VStack(spacing: 5) {
-                    Text("Difference is:")
-                        .foregroundColor(.black)
-                    Text("\(percentageDifference, specifier: "%.2f") %")
-                        .foregroundColor(.black)
+                        Text("Difference is:")
+                        Text("\(percentageDifference, specifier: "%.2f") %")
                     }
-                Button(action: {
-                    sellValue = ""
-                    boughtValue = ""
-                }) {
-                    Text("Clear")
-                        .clearButton
-                } //.shadow(radius: 2)
-                } .blockView
+                    .text
+                    Button(action: {
+                        sellValue = ""
+                        boughtValue = ""
+                    }) {
+                        Text("Clear")
+                    }
+                    .buttonStyle(SimpleButtonStyle())
+                }
             }
-        }
+        } .preferredColorScheme(isDarkMode ? .dark : .light)
     }
     // Difference calculation
     var percentageDifference: Double {

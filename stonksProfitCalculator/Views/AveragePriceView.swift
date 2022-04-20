@@ -22,27 +22,32 @@ struct AveragePriceView: View {
     
     @ObservedObject var commission: CommissionRate
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     var body: some View {
         
         ZStack {
-            
-            Color.yellow
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
+                startPoint: UnitPoint(x: 0.2, y: 0.2),
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
             VStack(spacing: 30) {
                 VStack {
                     Text("Select input value:")
-                        .foregroundColor(.black)
-                    
+                        .text
                     Picker(selection: $selectInput, label: Text("Picker"), content: {
                         Text("Amount of token").tag(0)
                         Text("Bought Value").tag(1)
                     })
                     .pickerModifier
+                    .padding(.horizontal,20)
                     .onAppear {
                         PickerViewModifier()
                     }
-                }  .blockView
+                }
                 
                 TextField(selectInput == 0 ? "Enter amount of token: first buy" : "Enter bought value: first buy",
                           text: (selectInput == 0 ? $quantityOfTokenFirstBuy : $boughtValueFirstBuy))
@@ -71,16 +76,15 @@ struct AveragePriceView: View {
                     }
                 }
                 .sheet(isPresented: $addBuy) {
-                    AddBuyView(selectInput: $selectInput, averageTokens: averageTokens, totalQuantity: totalQuantity, averageDollars: averageDollars, totalAmount: totalAmount)
-                }
+                    AddBuyView(selectInput: $selectInput, commission: commission, averageTokens: averageTokens, totalQuantity: totalQuantity, averageDollars: averageDollars, totalAmount: totalAmount)
+                } .buttonStyle(SimpleButtonStyle())
                 
                 VStack(spacing: 20) {
                     VStack(spacing: 5) {
                         Text("Your average price is:")
-                            .foregroundColor(.black)
                         Text("\((selectInput == 0 ? averageTokens : averageDollars ).formatted()) $")
-                            .foregroundColor(.black)
                     }
+                    .text
                     Button(action: {
                         quantityOfTokenFirstBuy = ""
                         boughtPriceFirstBuy = ""
@@ -90,10 +94,10 @@ struct AveragePriceView: View {
                         boughtValueSecondBuy = ""
                     }) {
                         Text("Clear")
-                            .clearButton
                     }
-                } .blockView
-            }
+                    .buttonStyle(SimpleButtonStyle())
+                }
+            } .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
     

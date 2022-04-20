@@ -13,46 +13,50 @@ struct SettingsView: View {
     
     @State private var pick: Int = 0
     
-    let commissions = [0.0, 0.0005, 0.001, 0.002]
-    
     @ObservedObject var commission: CommissionRate
-        
+    
+    let commissions = [0, 0.00075, 0.001, 0.002, 0.005]
+    
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    
     var BTCAdress: String = "1HuiBQEFGLCBgtKsfWjZG2as3NdkVKdeBA"
     
     var body: some View {
         ZStack {
-            Color.yellow
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
+                startPoint: UnitPoint(x: 0.2, y: 0.2),
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
             VStack(spacing: 30) {
                 VStack(spacing: 25) {
                     // About
                     Text("About:")
                         .font(.largeTitle)
-                        .foregroundColor(.black)
                         .underline()
+                        .text
                     Text("This is app for my crypto-blog in Telegram. Stay tuned for new features!")
                         .lineSpacing(10)
-                        .foregroundColor(.black)
                         .multilineTextAlignment(.center)
+                        .padding(.horizontal,20)
+                        .text
                     // Telegram redirect
                     Link(destination: URL(string: "https://t.me/stonks_signals")!, label: {
                         HStack {
                             Text("Telegram:")
-                                .foregroundColor(.black)
                             Image(systemName: "paperplane")
                         }
-                    }) .frame(width: 120.0, height: 30.0)
-                        .linkButton
+                    })
+                    .buttonStyle(SimpleButtonStyle())
                 } //VStack About
-                .blockView
                 
                 //VStack Donate
                 VStack(spacing: 15) {
                     // Donate clipboard with alert
                     Text("Feel free for donate (BTC):")
-                        .foregroundColor(.black)
-                    
+                        .text
                     Button(action: {
                         UIPasteboard.general.string = BTCAdress
                         showingAlert = true
@@ -60,14 +64,13 @@ struct SettingsView: View {
                         HStack {
                             Text(BTCAdress)
                                 .multilineTextAlignment(.center)
-                                .foregroundColor(.black)
                                 .padding()
                             Image(systemName: "doc.on.clipboard")
-                                .foregroundColor(.black)
                                 .padding(.horizontal, 10)
                         }
                     }
-                    .linkButton
+                    .buttonStyle(SimpleButtonStyle())
+                    .padding(.horizontal,20)
                     .alert(isPresented: $showingAlert) {
                         Alert(
                             title: Text("Copied!"),
@@ -75,16 +78,19 @@ struct SettingsView: View {
                             dismissButton: .default(Text("Ok")))
                     }
                 } //VStack Donate
-                .blockView
                 
                 VStack {
                     Text("Select exchange commission rate:")
-                        .foregroundColor(.black)
-                    Picker("Select exchange commission rate", selection: $pick) {
-                        ForEach(0..<commissions.count) {
-                            Text("\((self.commissions[$0]).formatted()) %")
-                        }
-                    } .pickerModifier
+                        .text
+                    Picker(selection: $pick, label: Text("Commission picker"), content: {
+                        Text("0%").tag(0)
+                        Text("0.075%").tag(1)
+                        Text("0.1%").tag(2)
+                        Text("0.2%").tag(3)
+                        Text("0.5%").tag(4)
+                    })
+                        .pickerModifier
+                        .padding(.horizontal,20)
                         .onAppear {
                             PickerViewModifier()
                         }
@@ -92,9 +98,26 @@ struct SettingsView: View {
                             commission.commission = Double(commissions[pick])
                         }
                 } //VStack select commission
-                .blockView
+                
+                VStack {
+                    Text("Color scheme:")
+                        .text
+                    Picker(selection: $isDarkMode, label: Text("Dark mode"), content: {
+                        Text("Light").tag(false)
+                        Text("Dark").tag(true)
+                    })
+                        .pickerModifier
+                        .padding(.horizontal,20)
+                        .onAppear {
+                            PickerViewModifier()
+                        }
+//                        .onChange(of: pick) { newValue in
+//                            commission.commission = Double(commissions[pick])
+//                        }
+                } //VStack select DarkMode
+                
             }
-        }
+        } .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 

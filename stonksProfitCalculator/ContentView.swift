@@ -11,13 +11,13 @@ import MobileCoreServices
 struct ContentView: View {
     
     @State private var selectedView = 1
-        
+    
     @StateObject var commission = CommissionRate()
     
     var body: some View {
         
         TabView(selection: $selectedView) {
-
+            
             SellPriceView(commission: commission)
                 .tabItem {
                     Label("Sell price", systemImage: "dollarsign.circle")
@@ -35,7 +35,7 @@ struct ContentView: View {
                     Label("Difference", systemImage: "align.vertical.bottom")
                 }
                 .tag(3)
-                        
+            
             SettingsView(commission: commission)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
@@ -51,10 +51,9 @@ struct ContentView: View {
                 Button("Done") {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
-                .foregroundColor(.yellow)
             }
         }
-        .accentColor(.black)
+        .accentColor(Color("tabGray"))
     }
 }
 
@@ -63,5 +62,9 @@ struct ContentView_Previews: PreviewProvider {
         ZStack {
             ContentView(commission: CommissionRate())
         }
+        
+        
+        
+        
     }
 }

@@ -12,18 +12,17 @@
 		A21F489527CFE99C00A2F623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489427CFE99C00A2F623 /* Assets.xcassets */; };
 		A21F489827CFE99C00A2F623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */; };
 		A2313FCB27E8630D006F9F0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2313FCD27E8630D006F9F0C /* Localizable.strings */; };
-		A2313FDD27E9A99E006F9F0C /* ClearButton-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */; };
 		A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */; };
 		A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */; };
 		A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE227E9AB4F006F9F0C /* SettingsView.swift */; };
+		A244E996280DE09000F0044A /* Text-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A244E995280DE09000F0044A /* Text-Modifier.swift */; };
+		A244E998280DE40200F0044A /* NeuromorphismStyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */; };
 		A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9A27E9B8C60077382C /* AveragePriceView.swift */; };
 		A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9C27E9B9E00077382C /* DifferenceView.swift */; };
 		A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9E27E9BB510077382C /* SellPriceView.swift */; };
-		A2950BA127EA4DF10077382C /* LinkButton-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */; };
 		A2950BA927EB5B970077382C /* ConverterComa-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */; };
 		A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */; };
 		A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DB027F238D1004720F4 /* AddBuyView.swift */; };
-		A2FEB75E2805F981004D770C /* BlockView-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB75D2805F981004D770C /* BlockView-Modifier.swift */; };
 		A2FEB76228074167004D770C /* CommissionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB76128074166004D770C /* CommissionRate.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,18 +35,17 @@
 		A2313FCC27E8630D006F9F0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2313FCE27E8630F006F9F0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2313FD527E88EA1006F9F0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClearButton-Modifier.swift"; sourceTree = "<group>"; };
 		A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButton.swift; sourceTree = "<group>"; };
 		A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Title-Modifier.swift"; sourceTree = "<group>"; };
 		A2313FE227E9AB4F006F9F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A244E995280DE09000F0044A /* Text-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Modifier.swift"; sourceTree = "<group>"; };
+		A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphismStyleButton.swift; sourceTree = "<group>"; };
 		A2950B9A27E9B8C60077382C /* AveragePriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePriceView.swift; sourceTree = "<group>"; };
 		A2950B9C27E9B9E00077382C /* DifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferenceView.swift; sourceTree = "<group>"; };
 		A2950B9E27E9BB510077382C /* SellPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellPriceView.swift; sourceTree = "<group>"; };
-		A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkButton-Modifier.swift"; sourceTree = "<group>"; };
 		A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConverterComa-Modifier.swift"; sourceTree = "<group>"; };
 		A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker-Modifier.swift"; sourceTree = "<group>"; };
 		A2B50DB027F238D1004720F4 /* AddBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyView.swift; sourceTree = "<group>"; };
-		A2FEB75D2805F981004D770C /* BlockView-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockView-Modifier.swift"; sourceTree = "<group>"; };
 		A2FEB76128074166004D770C /* CommissionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +84,7 @@
 				A2B85E0327F4DFF4002FBB12 /* Views */,
 				A2B85E0227F4DFC9002FBB12 /* Modifiers */,
 				A2B85E0427F4E233002FBB12 /* Functions */,
+				A2FEB764280856A5004D770C /* Classes */,
 				A2313FCD27E8630D006F9F0C /* Localizable.strings */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
@@ -104,10 +103,9 @@
 		A2B85E0227F4DFC9002FBB12 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				A2313FDC27E9A99E006F9F0C /* ClearButton-Modifier.swift */,
+				A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */,
 				A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */,
-				A2FEB75D2805F981004D770C /* BlockView-Modifier.swift */,
-				A2950BA027EA4DF10077382C /* LinkButton-Modifier.swift */,
+				A244E995280DE09000F0044A /* Text-Modifier.swift */,
 				A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */,
 			);
 			path = Modifiers;
@@ -130,9 +128,16 @@
 			children = (
 				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
 				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
-				A2FEB76128074166004D770C /* CommissionRate.swift */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		A2FEB764280856A5004D770C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A2FEB76128074166004D770C /* CommissionRate.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,14 +217,13 @@
 				A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */,
 				A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */,
 				A2950BA927EB5B970077382C /* ConverterComa-Modifier.swift in Sources */,
-				A2950BA127EA4DF10077382C /* LinkButton-Modifier.swift in Sources */,
-				A2313FDD27E9A99E006F9F0C /* ClearButton-Modifier.swift in Sources */,
+				A244E996280DE09000F0044A /* Text-Modifier.swift in Sources */,
 				A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */,
 				A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */,
 				A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */,
 				A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */,
 				A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */,
-				A2FEB75E2805F981004D770C /* BlockView-Modifier.swift in Sources */,
+				A244E998280DE40200F0044A /* NeuromorphismStyleButton.swift in Sources */,
 				A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */,
 				A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */,
 				A2FEB76228074167004D770C /* CommissionRate.swift in Sources */,
@@ -383,7 +387,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Spich.stonksProfitCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -416,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Spich.stonksProfitCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

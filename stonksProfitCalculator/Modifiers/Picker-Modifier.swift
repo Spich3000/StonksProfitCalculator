@@ -8,18 +8,17 @@
 import SwiftUI
 
 func PickerViewModifier() {
-    UISegmentedControl.appearance().selectedSegmentTintColor = .gray
-    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+    UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color("selectedPicker"))
+    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color("tabGray"))], for: .selected)
+    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.gray)], for: .normal)
 }
 
 struct PickerModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .pickerStyle(SegmentedPickerStyle())
-            .shadow(color: Color.black.opacity(0.3), radius: 10,
-                    x: 0.0,
-                    y: 10)        
+//            .shadow(color: Color("tabGray").opacity(0.3), radius: 10, x: 4, y: 4)
+//            .shadow(color: Color("topWhite").opacity(1), radius: 10, x: -5, y: -5)
     }
 }
 

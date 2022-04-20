@@ -15,6 +15,10 @@ struct AddBuyView: View {
     
     @Binding var selectInput: Int
     
+    @ObservedObject var commission: CommissionRate
+    
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     var averageTokens: Double
     var totalQuantity: Double
     
@@ -23,10 +27,13 @@ struct AddBuyView: View {
     
     var body: some View {
         
-        ZStack{
-            
-            Color.yellow
-                .ignoresSafeArea()
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
+                startPoint: UnitPoint(x: 0.2, y: 0.2),
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
             VStack(spacing: 30) {
                 TextField(selectInput == 0 ? "Enter amount of token: third buy" : "Enter bought value: third buy",
@@ -37,13 +44,13 @@ struct AddBuyView: View {
                 TextField("Enter price: third buy", text: $boughtPriceThirdBuy)
                     .textFieldClearButton(text: $boughtPriceThirdBuy)
                     .title
+                
                 VStack(spacing: 20){
                     VStack(spacing: 5) {
                         Text("Your average price is:")
-                            .foregroundColor(.black)
                         Text("\((selectInput == 0 ? averageTokensThird : averageDollarsThird ).formatted()) $")
-                            .foregroundColor(.black)
                     }
+                    .text
                     
                     Button(action: {
                         quantityOfTokenThirdBuy = ""
@@ -51,17 +58,16 @@ struct AddBuyView: View {
                         boughtValueThirdBuy = ""
                     }) {
                         Text("Clear")
-                            .clearButton
-                    } 
-                } .blockView                
+                    }
+                    .buttonStyle(SimpleButtonStyle())
+                }
             }
-        }
+        } .preferredColorScheme(isDarkMode ? .dark : .light)
     }
-    
     // Calculation for input 0
     var averageTokensThird: Double {
         let totalQuantity3 = totalQuantity + (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0)
-        let value3 = (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0) * (Double(convert(text: boughtPriceThirdBuy)) ?? 0) * (1)
+        let value3 = (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0) * (Double(convert(text: boughtPriceThirdBuy)) ?? 0) * (1 + commission.commission)
         let totalValue3 = (averageTokens * totalQuantity) + value3
         let averageTokensThird = totalValue3 / totalQuantity3
         
@@ -70,13 +76,12 @@ struct AddBuyView: View {
         guard Double(convert(text: boughtPriceThirdBuy)) ?? 0 > 0 else {return 0}
         return averageTokensThird
     }
-    
     // Calculation for input 1
     var averageDollarsThird: Double {
         let amount3 = (Double(convert(text: boughtValueThirdBuy)) ?? 0) / (Double(convert(text: boughtPriceThirdBuy)) ?? 0)
         let totalAmount3 = totalAmount + amount3
         let totalValue3 = (averageDollars * totalAmount) + (Double(convert(text: boughtValueThirdBuy)) ?? 0)
-        let averageDollarsThird = totalValue3 / totalAmount3 * (1)
+        let averageDollarsThird = totalValue3 / totalAmount3 * (1 + commission.commission)
         
         guard averageDollars > 0 else {return 0}
         guard Double(convert(text: boughtValueThirdBuy)) ?? 0 > 0 else {return 0}
@@ -89,7 +94,7 @@ struct AddBuyView: View {
 struct AddBuyView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            AddBuyView(selectInput: .constant(1), averageTokens: 1, totalQuantity: 1, averageDollars: 1, totalAmount: 1)
+            AddBuyView( selectInput: .constant(1), commission: CommissionRate(), averageTokens: 1, totalQuantity: 1, averageDollars: 1, totalAmount: 1)
         }
     }
 }
