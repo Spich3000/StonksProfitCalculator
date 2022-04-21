@@ -62,9 +62,5 @@ struct ContentView_Previews: PreviewProvider {
         ZStack {
             ContentView(commission: CommissionRate())
         }
-        
-        
-        
-        
     }
 }

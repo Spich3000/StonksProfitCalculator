@@ -52,31 +52,18 @@ struct SettingsView: View {
                     .buttonStyle(SimpleButtonStyle())
                 } //VStack About
                 
-                //VStack Donate
                 VStack(spacing: 15) {
                     // Donate clipboard with alert
-                    Text("Feel free for donate (BTC):")
+                    Text("Feel free for donate:")
                         .text
-                    Button(action: {
-                        UIPasteboard.general.string = BTCAdress
-                        showingAlert = true
-                    }) {
+                    
+                    // DonationAlerts redirect
+                    Link(destination: URL(string: "https://www.donationalerts.com/r/spich59")!, label: {
                         HStack {
-                            Text(BTCAdress)
-                                .multilineTextAlignment(.center)
-                                .padding()
-                            Image(systemName: "doc.on.clipboard")
-                                .padding(.horizontal, 10)
+                            Text("Donate")
                         }
-                    }
+                    })
                     .buttonStyle(SimpleButtonStyle())
-                    .padding(.horizontal,20)
-                    .alert(isPresented: $showingAlert) {
-                        Alert(
-                            title: Text("Copied!"),
-                            message: Text("Thank You!"),
-                            dismissButton: .default(Text("Ok")))
-                    }
                 } //VStack Donate
                 
                 VStack {
@@ -111,11 +98,7 @@ struct SettingsView: View {
                         .onAppear {
                             PickerViewModifier()
                         }
-//                        .onChange(of: pick) { newValue in
-//                            commission.commission = Double(commissions[pick])
-//                        }
                 } //VStack select DarkMode
-                
             }
         } .preferredColorScheme(isDarkMode ? .dark : .light)
     }
