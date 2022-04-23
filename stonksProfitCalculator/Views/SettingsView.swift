@@ -18,9 +18,7 @@ struct SettingsView: View {
     let commissions = [0, 0.00075, 0.001, 0.002, 0.005]
     
     @AppStorage("isDarkMode") private var isDarkMode = false
-    
-    var BTCAdress: String = "1HuiBQEFGLCBgtKsfWjZG2as3NdkVKdeBA"
-    
+        
     var body: some View {
         ZStack {
             LinearGradient(
@@ -53,10 +51,9 @@ struct SettingsView: View {
                 } //VStack About
                 
                 VStack(spacing: 15) {
-                    // Donate clipboard with alert
+                    // Donate with alert
                     Text("Feel free for donate:")
                         .text
-                    
                     // DonationAlerts redirect
                     Link(destination: URL(string: "https://www.donationalerts.com/r/spich59")!, label: {
                         HStack {

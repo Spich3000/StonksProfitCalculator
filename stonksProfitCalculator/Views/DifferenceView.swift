@@ -25,11 +25,9 @@ struct DifferenceView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 30) {
-                
                 TextField("Enter sell value", text: $sellValue)
                     .textFieldClearButton(text: $sellValue)
                     .title
-                
                 TextField("Enter bought value", text: $boughtValue)
                     .textFieldClearButton(text: $boughtValue)
                     .title
