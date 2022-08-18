@@ -98,6 +98,7 @@ struct SettingsView: View {
                 } //VStack select DarkMode
             }
         } .preferredColorScheme(isDarkMode ? .dark : .light)
+        
     }
 }
 

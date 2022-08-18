@@ -5,17 +5,14 @@
 //  Created by Дмитрий Спичаков on 02.03.2022.
 
 import SwiftUI
-
 import MobileCoreServices
 
 struct ContentView: View {
     
     @State private var selectedView = 1
-    
     @StateObject var commission = CommissionRate()
     
     var body: some View {
-        
         TabView(selection: $selectedView) {
             
             SellPriceView(commission: commission)
@@ -49,7 +46,7 @@ struct ContentView: View {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Done") {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    UIApplication.shared.endEditing()
                 }
             }
         }

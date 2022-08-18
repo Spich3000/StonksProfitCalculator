@@ -21,7 +21,6 @@ struct AveragePriceView: View {
     @State var selectInput = 0
     
     @ObservedObject var commission: CommissionRate
-    
     @AppStorage("isDarkMode") private var isDarkMode = false
 
     var body: some View {
@@ -30,8 +29,7 @@ struct AveragePriceView: View {
             LinearGradient(
                 gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
                 startPoint: UnitPoint(x: 0.2, y: 0.2),
-                endPoint: .bottomTrailing
-            )
+                endPoint: .bottomTrailing)
             .ignoresSafeArea()
             
             VStack(spacing: 30) {

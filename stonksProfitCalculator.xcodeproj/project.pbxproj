@@ -23,6 +23,7 @@
 		A2950BA927EB5B970077382C /* ConverterComa-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */; };
 		A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */; };
 		A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DB027F238D1004720F4 /* AddBuyView.swift */; };
+		A2B9FAD828AE8B3900C5C10A /* EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */; };
 		A2FEB76228074167004D770C /* CommissionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB76128074166004D770C /* CommissionRate.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConverterComa-Modifier.swift"; sourceTree = "<group>"; };
 		A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker-Modifier.swift"; sourceTree = "<group>"; };
 		A2B50DB027F238D1004720F4 /* AddBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyView.swift; sourceTree = "<group>"; };
+		A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndEditing.swift; sourceTree = "<group>"; };
 		A2FEB76128074166004D770C /* CommissionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			children = (
 				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
 				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
+				A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */,
 				A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */,
 				A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */,
+				A2B9FAD828AE8B3900C5C10A /* EndEditing.swift in Sources */,
 				A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */,
 				A244E998280DE40200F0044A /* NeuromorphismStyleButton.swift in Sources */,
 				A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */,
