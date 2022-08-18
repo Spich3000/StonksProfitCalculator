@@ -9,61 +9,37 @@ import SwiftUI
 
 struct AddBuyView: View {
     
+    // MARK: PROPERTIES
     @State private var quantityOfTokenThirdBuy = ""
     @State private var boughtPriceThirdBuy = ""
     @State private var boughtValueThirdBuy = ""
     
     @Binding var selectInput: Int
-    
     @ObservedObject var commission: CommissionRate
-    
     @AppStorage("isDarkMode") private var isDarkMode = false
-
+    
     var averageTokens: Double
     var totalQuantity: Double
     
     var averageDollars: Double
     var totalAmount: Double
     
+    // MARK: BODY
     var body: some View {
-        
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
-                startPoint: UnitPoint(x: 0.2, y: 0.2),
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
-            
+            background
             VStack(spacing: 30) {
-                TextField(selectInput == 0 ? "Enter amount of token: third buy" : "Enter bought value: third buy",
-                          text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
-                .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
-                .title
-                
-                TextField("Enter price: third buy", text: $boughtPriceThirdBuy)
-                    .textFieldClearButton(text: $boughtPriceThirdBuy)
-                    .title
-                
+                textFieldSection
                 VStack(spacing: 20){
-                    VStack(spacing: 5) {
-                        Text("Your average price is:")
-                        Text("\((selectInput == 0 ? averageTokensThird : averageDollarsThird ).formatted()) $")
-                    }
-                    .text
-                    
-                    Button(action: {
-                        quantityOfTokenThirdBuy = ""
-                        boughtPriceThirdBuy = ""
-                        boughtValueThirdBuy = ""
-                    }) {
-                        Text("Clear")
-                    }
-                    .buttonStyle(SimpleButtonStyle())
+                    information.text
+                    clearButton
                 }
             }
-        } .preferredColorScheme(isDarkMode ? .dark : .light)
+        }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
+    
+    // MARK: CALCULATIONS
     // Calculation for input 0
     var averageTokensThird: Double {
         let totalQuantity3 = totalQuantity + (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0)
@@ -90,11 +66,57 @@ struct AddBuyView: View {
     }
 }
 
-
+// MARK: PREVIEW
 struct AddBuyView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             AddBuyView( selectInput: .constant(1), commission: CommissionRate(), averageTokens: 1, totalQuantity: 1, averageDollars: 1, totalAmount: 1)
         }
     }
+}
+
+// MARK: VIEW COMPONENTS
+
+extension AddBuyView {
+    
+    private var background: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
+            startPoint: UnitPoint(x: 0.2, y: 0.2),
+            endPoint: .bottomTrailing
+        )
+        .ignoresSafeArea()
+    }
+    
+    private var textFieldSection: some View {
+        VStack(spacing: 30) {
+            TextField(selectInput == 0 ? "Enter amount of token: third buy" : "Enter bought value: third buy",
+                      text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
+            .textFieldClearButton(text: (selectInput == 0 ? $quantityOfTokenThirdBuy : $boughtValueThirdBuy))
+            .title
+            
+            TextField("Enter price: third buy", text: $boughtPriceThirdBuy)
+                .textFieldClearButton(text: $boughtPriceThirdBuy)
+                .title
+        }
+    }
+    
+    private var information: some View {
+        VStack(spacing: 5) {
+            Text("Your average price is:")
+            Text("\((selectInput == 0 ? averageTokensThird : averageDollarsThird ).formatted()) $")
+        }
+    }
+    
+    private var clearButton: some View {
+        Button(action: {
+            quantityOfTokenThirdBuy = ""
+            boughtPriceThirdBuy = ""
+            boughtValueThirdBuy = ""
+        }) {
+            Text("Clear")
+        }
+        .buttonStyle(SimpleButtonStyle())
+    }
+    
 }
