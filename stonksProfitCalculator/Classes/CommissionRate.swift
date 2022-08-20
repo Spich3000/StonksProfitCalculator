@@ -8,5 +8,7 @@
 import SwiftUI
 
 class CommissionRate: ObservableObject {
+    
     @Published var commission = 0.0
+    
 }

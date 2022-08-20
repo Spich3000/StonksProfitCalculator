@@ -16,17 +16,16 @@ struct ContentView: View {
     // MARK: BODY
     var body: some View {
         TabView(selection: $selectedView) {
+            PortfolioView()
+                .tabItem { Label("Portfolio", systemImage: "briefcase") }.tag(1)
             SellPriceView(commission: commission)
-                .tabItem { Label("Sell price", systemImage: "dollarsign.circle") }.tag(1)
+                .tabItem { Label("Sell price", systemImage: "dollarsign.circle") }.tag(2)
             AveragePriceView(commission: commission)
-                .tabItem { Label("Average Price", systemImage: "chart.xyaxis.line") }.tag(2)
+                .tabItem { Label("Average Price", systemImage: "chart.xyaxis.line") }.tag(3)
             DifferenceView()
-                .tabItem { Label("Difference", systemImage: "align.vertical.bottom") }.tag(3)
+                .tabItem { Label("Difference", systemImage: "align.vertical.bottom") }.tag(4)
             SettingsView(commission: commission)
-                .tabItem { Label("Settings", systemImage: "gear") }.tag(4)
-        }
-        .onAppear() {
-            UITabBar.appearance().barTintColor = .gray
+                .tabItem { Label("Settings", systemImage: "gear") }.tag(5)
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -43,6 +42,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             ContentView(commission: CommissionRate())
+                .environmentObject(dev.portfolioViewModel)
         }
     }
 }

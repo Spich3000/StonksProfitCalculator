@@ -24,6 +24,24 @@
 		A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */; };
 		A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B50DB027F238D1004720F4 /* AddBuyView.swift */; };
 		A2B9FAD828AE8B3900C5C10A /* EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */; };
+		A2B9FADA28AED04400C5C10A /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAD928AED04400C5C10A /* PortfolioView.swift */; };
+		A2B9FADD28AED4B300C5C10A /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FADC28AED4B300C5C10A /* PortfolioViewModel.swift */; };
+		A2B9FAE028AF89F100C5C10A /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FADF28AF89F100C5C10A /* CoinModel.swift */; };
+		A2B9FAE328AF8A5D00C5C10A /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAE128AF8A5D00C5C10A /* PortfolioContainer.xcdatamodeld */; };
+		A2B9FAE728AF8ADC00C5C10A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAE628AF8ADC00C5C10A /* NetworkingManager.swift */; };
+		A2B9FAE928AF8B1B00C5C10A /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAE828AF8B1B00C5C10A /* LocalFileManager.swift */; };
+		A2B9FAEB28AF8B4300C5C10A /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAEA28AF8B4300C5C10A /* HapticManager.swift */; };
+		A2B9FAED28AF8B8000C5C10A /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAEC28AF8B8000C5C10A /* CoinDataService.swift */; };
+		A2B9FAEF28AF8BC100C5C10A /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAEE28AF8BC100C5C10A /* CoinImageService.swift */; };
+		A2B9FAF128AF8BF400C5C10A /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAF028AF8BF400C5C10A /* PortfolioDataService.swift */; };
+		A2B9FAF328AF8E3900C5C10A /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAF228AF8E3900C5C10A /* PreviewProvider.swift */; };
+		A2B9FAF528AF922600C5C10A /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAF428AF922600C5C10A /* CoinRowView.swift */; };
+		A2B9FAF728AF926E00C5C10A /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAF628AF926E00C5C10A /* Double.swift */; };
+		A2B9FAF928AF92AD00C5C10A /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAF828AF92AD00C5C10A /* CoinImageView.swift */; };
+		A2B9FAFC28AF931900C5C10A /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFB28AF931900C5C10A /* CoinImageViewModel.swift */; };
+		A2B9FAFE28AF934200C5C10A /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */; };
+		A2B9FB0028AF9DCC00C5C10A /* EditPortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */; };
+		A2B9FB0228AF9E2800C5C10A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */; };
 		A2FEB76228074167004D770C /* CommissionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB76128074166004D770C /* CommissionRate.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +66,24 @@
 		A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker-Modifier.swift"; sourceTree = "<group>"; };
 		A2B50DB027F238D1004720F4 /* AddBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyView.swift; sourceTree = "<group>"; };
 		A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndEditing.swift; sourceTree = "<group>"; };
+		A2B9FAD928AED04400C5C10A /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
+		A2B9FADC28AED4B300C5C10A /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
+		A2B9FADF28AF89F100C5C10A /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		A2B9FAE228AF8A5D00C5C10A /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		A2B9FAE628AF8ADC00C5C10A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		A2B9FAE828AF8B1B00C5C10A /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		A2B9FAEA28AF8B4300C5C10A /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		A2B9FAEC28AF8B8000C5C10A /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
+		A2B9FAEE28AF8BC100C5C10A /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
+		A2B9FAF028AF8BF400C5C10A /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
+		A2B9FAF228AF8E3900C5C10A /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		A2B9FAF428AF922600C5C10A /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
+		A2B9FAF628AF926E00C5C10A /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		A2B9FAF828AF92AD00C5C10A /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
+		A2B9FAFB28AF931900C5C10A /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
+		A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
+		A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPortfolioView.swift; sourceTree = "<group>"; };
+		A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A2FEB76128074166004D770C /* CommissionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,10 +119,14 @@
 			children = (
 				A21F489027CFE99900A2F623 /* stonksProfitCalculatorApp.swift */,
 				A21F489227CFE99900A2F623 /* ContentView.swift */,
+				A2B9FADE28AED4FD00C5C10A /* Models */,
 				A2B85E0327F4DFF4002FBB12 /* Views */,
+				A2B9FADB28AED49200C5C10A /* ViewModels */,
 				A2B85E0227F4DFC9002FBB12 /* Modifiers */,
 				A2B85E0427F4E233002FBB12 /* Functions */,
 				A2FEB764280856A5004D770C /* Classes */,
+				A2B9FAE528AF8AA100C5C10A /* Services */,
+				A2B9FAE428AF8A9900C5C10A /* Utilities */,
 				A2313FCD27E8630D006F9F0C /* Localizable.strings */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
@@ -116,11 +156,16 @@
 		A2B85E0327F4DFF4002FBB12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2B9FAD928AED04400C5C10A /* PortfolioView.swift */,
+				A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */,
 				A2950B9E27E9BB510077382C /* SellPriceView.swift */,
 				A2950B9A27E9B8C60077382C /* AveragePriceView.swift */,
+				A2B50DB027F238D1004720F4 /* AddBuyView.swift */,
 				A2950B9C27E9B9E00077382C /* DifferenceView.swift */,
 				A2313FE227E9AB4F006F9F0C /* SettingsView.swift */,
-				A2B50DB027F238D1004720F4 /* AddBuyView.swift */,
+				A2B9FAF428AF922600C5C10A /* CoinRowView.swift */,
+				A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */,
+				A2B9FAFA28AF92E400C5C10A /* CoinImage */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,8 +176,57 @@
 				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
 				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
 				A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */,
+				A2B9FAF228AF8E3900C5C10A /* PreviewProvider.swift */,
+				A2B9FAF628AF926E00C5C10A /* Double.swift */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		A2B9FADB28AED49200C5C10A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9FADC28AED4B300C5C10A /* PortfolioViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A2B9FADE28AED4FD00C5C10A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9FADF28AF89F100C5C10A /* CoinModel.swift */,
+				A2B9FAE128AF8A5D00C5C10A /* PortfolioContainer.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2B9FAE428AF8A9900C5C10A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9FAE628AF8ADC00C5C10A /* NetworkingManager.swift */,
+				A2B9FAE828AF8B1B00C5C10A /* LocalFileManager.swift */,
+				A2B9FAEA28AF8B4300C5C10A /* HapticManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A2B9FAE528AF8AA100C5C10A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9FAEC28AF8B8000C5C10A /* CoinDataService.swift */,
+				A2B9FAEE28AF8BC100C5C10A /* CoinImageService.swift */,
+				A2B9FAF028AF8BF400C5C10A /* PortfolioDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A2B9FAFA28AF92E400C5C10A /* CoinImage */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9FAF828AF92AD00C5C10A /* CoinImageView.swift */,
+				A2B9FAFB28AF931900C5C10A /* CoinImageViewModel.swift */,
+				A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */,
+			);
+			path = CoinImage;
 			sourceTree = "<group>";
 		};
 		A2FEB764280856A5004D770C /* Classes */ = {
@@ -219,18 +313,36 @@
 				A21F489327CFE99900A2F623 /* ContentView.swift in Sources */,
 				A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */,
 				A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */,
+				A2B9FADD28AED4B300C5C10A /* PortfolioViewModel.swift in Sources */,
+				A2B9FAE328AF8A5D00C5C10A /* PortfolioContainer.xcdatamodeld in Sources */,
 				A2950BA927EB5B970077382C /* ConverterComa-Modifier.swift in Sources */,
+				A2B9FAF728AF926E00C5C10A /* Double.swift in Sources */,
+				A2B9FB0228AF9E2800C5C10A /* SearchBarView.swift in Sources */,
 				A244E996280DE09000F0044A /* Text-Modifier.swift in Sources */,
 				A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */,
+				A2B9FAEB28AF8B4300C5C10A /* HapticManager.swift in Sources */,
+				A2B9FAF528AF922600C5C10A /* CoinRowView.swift in Sources */,
 				A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */,
+				A2B9FAED28AF8B8000C5C10A /* CoinDataService.swift in Sources */,
+				A2B9FADA28AED04400C5C10A /* PortfolioView.swift in Sources */,
 				A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */,
+				A2B9FAFC28AF931900C5C10A /* CoinImageViewModel.swift in Sources */,
 				A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */,
+				A2B9FB0028AF9DCC00C5C10A /* EditPortfolioView.swift in Sources */,
 				A2B9FAD828AE8B3900C5C10A /* EndEditing.swift in Sources */,
+				A2B9FAFE28AF934200C5C10A /* CoinLogoView.swift in Sources */,
+				A2B9FAF128AF8BF400C5C10A /* PortfolioDataService.swift in Sources */,
+				A2B9FAE728AF8ADC00C5C10A /* NetworkingManager.swift in Sources */,
 				A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */,
 				A244E998280DE40200F0044A /* NeuromorphismStyleButton.swift in Sources */,
 				A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */,
 				A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */,
+				A2B9FAE028AF89F100C5C10A /* CoinModel.swift in Sources */,
 				A2FEB76228074167004D770C /* CommissionRate.swift in Sources */,
+				A2B9FAEF28AF8BC100C5C10A /* CoinImageService.swift in Sources */,
+				A2B9FAF928AF92AD00C5C10A /* CoinImageView.swift in Sources */,
+				A2B9FAE928AF8B1B00C5C10A /* LocalFileManager.swift in Sources */,
+				A2B9FAF328AF8E3900C5C10A /* PreviewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Spich.stonksProfitCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -424,7 +536,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Spich.stonksProfitCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -456,6 +568,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A2B9FAE128AF8A5D00C5C10A /* PortfolioContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A2B9FAE228AF8A5D00C5C10A /* PortfolioContainer.xcdatamodel */,
+			);
+			currentVersion = A2B9FAE228AF8A5D00C5C10A /* PortfolioContainer.xcdatamodel */;
+			path = PortfolioContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A21F488527CFE99900A2F623 /* Project object */;
 }

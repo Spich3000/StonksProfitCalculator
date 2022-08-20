@@ -11,8 +11,6 @@ struct TextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(Color("tabGray"))
-//            .shadow(color: Color("tabGray").opacity(0.3), radius: 10, x: 5, y: 5)
-//            .shadow(color: Color("topWhite").opacity(0.7), radius: 10, x: -5, y: -5)
     }
 }
 
