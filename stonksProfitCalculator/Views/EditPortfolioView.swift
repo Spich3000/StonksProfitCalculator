@@ -16,7 +16,7 @@ struct EditPortfolioView: View {
 
     @State private var  selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
-    @State private var showCheckmark = false
+    @State private var boughtPriceString: String = ""
     
     // MARK: BODY
     var body: some View {
@@ -96,18 +96,14 @@ extension EditPortfolioView {
     private func updateSelectedCoin(coin: CoinModel) {
         selectedCoin = coin
         if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }),
-           let amount = portfolioCoin.currentHoldings {
+           let amount = portfolioCoin.currentHoldings,
+           let boughtPrice = portfolioCoin.boughtPrice {
             quantityText = "\(amount)"
+            boughtPriceString = "\(boughtPrice)"
         } else {
             quantityText = ""
+            boughtPriceString = ""
         }
-    }
-    
-    private func getCurrentValue() -> Double {
-        if let quantity = Double(quantityText) {
-            return quantity * (selectedCoin?.currentPrice ?? 0)
-        }
-        return 0
     }
     
     private var portfolioInputSection: some View {
@@ -116,7 +112,15 @@ extension EditPortfolioView {
             HStack {
                 Text("Amount holding:")
                 Spacer()
-                TextField("Ex: 1.4", text: $quantityText)
+                TextField("Enter quantity of token", text: $quantityText)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
+            }
+            Divider()
+            HStack {
+                Text("Bought price:")
+                Spacer()
+                TextField("Enter bought price", text: $boughtPriceString)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.decimalPad)
             }
@@ -126,44 +130,40 @@ extension EditPortfolioView {
         .font(.headline)
     }
     
-    private var trailingNavBarButtons: some View {
-        HStack(spacing: 10) {
-            Image(systemName: "checkmark")
-                .opacity(showCheckmark ? 1.0 : 0)
+    private var saveButton: some View {
             Button {
                 savedButtonPressed()
             } label: {
                 Text("Save")
             }
-            .opacity((selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0 : 0.3))
-            .disabled((selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? false : true))
-        }
+            .opacity((selectedCoin != nil ? 1.0 : 0.3))
+            .disabled((selectedCoin != nil ? false : true))
+    }
+    
+    private var deleteButton: some View {
+            Button {
+                quantityText = "0"
+                savedButtonPressed()
+            } label: {
+                Text("Delete")
+            }
+            .opacity((selectedCoin != nil ? 1.0 : 0.3))
+            .disabled((selectedCoin != nil ? false : true))
     }
     
     private func savedButtonPressed() {
-        
         guard
             let coin = selectedCoin,
-            let amount = Double(quantityText)
+            let amount = Double(quantityText),
+            let boughtPrice = Double(boughtPriceString)
         else { return }
-        
         // save to portfolio
-        viewModel.updatePortfolio(coin: coin, amount: amount)
-        
-        // show chechmark
+        viewModel.updatePortfolio(coin: coin, amount: amount, boughtPrice: boughtPrice)
         withAnimation(.easeIn) {
-            showCheckmark = true
             removeSelectedCoin()
         }
         // hide keyboard
         UIApplication.shared.endEditing()
-        
-        // hide chechmark
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            withAnimation(.easeOut) {
-                showCheckmark = false
-            }
-        }
     }
     
     private func removeSelectedCoin() {
@@ -175,7 +175,9 @@ extension EditPortfolioView {
         HStack {
             dismissButton
             Spacer()
-            trailingNavBarButtons
+            deleteButton
+            Spacer()
+            saveButton
         }
         .buttonStyle(SimpleButtonStyle())
         .padding(.horizontal, 20)

@@ -13,8 +13,8 @@ struct PortfolioView: View {
     @EnvironmentObject private var viewModel: PortfolioViewModel
     @AppStorage("isDarkMode") private var isDarkMode = false
     @State private var showEditPortfolioView: Bool = false
-
-
+    
+    
     // MARK: BODY
     var body: some View {
         ZStack {
@@ -32,6 +32,7 @@ struct PortfolioView: View {
                 columnTitles
                 title
                 portfolioCoinsList
+                columnTotal
                 Spacer()
             }
         }
@@ -72,31 +73,32 @@ extension PortfolioView {
             }
             Spacer()
             HStack(spacing: 4.0) {
-                Text("Bought value")
-                Image(systemName: "chevron.down")
-                    .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1 : 0)
-                    .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
+                HStack {
+                    Image(systemName: "chevron.down")
+                        .opacity((viewModel.sortOption == .boughtValue || viewModel.sortOption == .boughtValueReversed) ? 1 : 0)
+                        .rotationEffect(Angle(degrees: viewModel.sortOption == .boughtValue ? 0 : 180))
+                    Text("Bought value")
+                }
             }
+            .onTapGesture {
+                withAnimation(.default) {
+                    viewModel.sortOption = viewModel.sortOption == .boughtValue ? .boughtValueReversed : .boughtValue
+                }
+            }
+            HStack(spacing: 4) {
+                    HStack {
+                        Image(systemName: "chevron.down")
+                            .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1 : 0)
+                            .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
+                        Text("Current value")
+                }
+            }
+            .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
             .onTapGesture {
                 withAnimation(.default) {
                     viewModel.sortOption = viewModel.sortOption == .holdings ? .holdingsReversed : .holdings
                 }
             }
-            
-            HStack(spacing: 4) {
-                Text("Current value")
-                Image(systemName: "chevron.down")
-                    .opacity((viewModel.sortOption == .price || viewModel.sortOption == .priceReversed) ? 1 : 0)
-                    .rotationEffect(Angle(degrees: viewModel.sortOption == .price ? 0 : 180))
-            }
-            .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
-            .onTapGesture {
-                withAnimation(.default) {
-                    viewModel.sortOption = viewModel.sortOption == .price ? .priceReversed : .price
-                }
-            }
-            
-            
         }
         .font(.caption)
         .padding(.horizontal)
@@ -153,6 +155,25 @@ extension PortfolioView {
                 .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
         }
         .buttonStyle(SimpleButtonStyle())
+        .padding()
+    }
+    
+    private var columnTotal: some View {
+        VStack(alignment: .center) {
+            HStack(spacing: 4) {
+                VStack {
+                    Text("Total bought value: \(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
+                }
+            }
+            HStack(spacing: 4) {
+                VStack(alignment: .center) {
+                    Text("Total Current value: \(viewModel.currentPortfolioValue.asCurrencyWith2DecimalsPortfolio())$")
+                    Text("\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
+                        .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
+                }
+            }
+        }
+        .font(.caption)
         .padding()
     }
     

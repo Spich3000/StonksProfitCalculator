@@ -57,19 +57,18 @@ extension CoinRowView {
     
     private var centerColumn: some View {
         VStack(alignment: .trailing) {
-            Text("$" + coin.currentHoldingsValue.asCurrencyWith6Decimals())
+            Text(coin.boughtValue.asCurrencyWith2Decimals() + "$")
                 .bold()
-            Text((coin.currentHoldings ?? 0).asNumberString())
+            Text((coin.currentHoldings ?? 0).asCurrencyWith6Decimals() + " " + coin.symbol.uppercased())
         }
     }
     
     private var rightColumn: some View {
         VStack(alignment: .trailing) {
-            Text("$" + coin.currentPrice.asCurrencyWith2Decimals())
+            Text(coin.currentHoldingsValue.asCurrencyWith6Decimals() + "$")
                 .bold()
-            Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
-                .foregroundColor(
-                    (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.green : Color.red)
+            Text(coin.gain.asCurrencyWith2DecimalsPortfolio() + "$")
+                .foregroundColor(coin.gain >= 0 ? Color.green : Color.red)
         }
         .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
     }

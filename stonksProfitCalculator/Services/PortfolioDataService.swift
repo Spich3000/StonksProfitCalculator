@@ -29,7 +29,7 @@ class PortfolioDataService {
     
     // MARK: PUBLIC
     
-    func updatePortfolio(coin: CoinModel, amount: Double) {
+    func updatePortfolio(coin: CoinModel, amount: Double, boughtPrice: Double) {
         // Check if coin is already in portfolio
         /*
         if let entity = savedEntities.first(where: { savedEntity in
@@ -41,12 +41,12 @@ class PortfolioDataService {
         
         if let entity = savedEntities.first(where: { $0.coinID == coin.id }) {
             if amount > 0 {
-                update(entity: entity, amount: amount)
+                update(entity: entity, amount: amount, boughtPrice: boughtPrice)
             } else {
                 delete(entity: entity)
             }
         } else {
-            add(coin: coin, amount: amount)
+            add(coin: coin, amount: amount, boughtPrice: boughtPrice)
         }
     }
     
@@ -61,18 +61,21 @@ class PortfolioDataService {
         }
     }
     
-    private func add(coin: CoinModel, amount: Double) {
+    private func add(coin: CoinModel, amount: Double, boughtPrice: Double) {
         let entity = Portfolio(context: container.viewContext)
         // Conver CoinModel to entity
         entity.coinID = coin.id
         entity.amount = amount
+        entity.boughtPrice = boughtPrice
+
         // Save and reload portfolio
         applyChanges()
     }
     
     // Update amount of coin
-    private func update(entity: Portfolio, amount: Double) {
+    private func update(entity: Portfolio, amount: Double, boughtPrice: Double) {
         entity.amount = amount
+        entity.boughtPrice = boughtPrice
         applyChanges()
     }
     

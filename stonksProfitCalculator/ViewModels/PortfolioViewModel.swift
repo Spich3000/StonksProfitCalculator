@@ -10,7 +10,6 @@ import Combine
 
 class PortfolioViewModel: ObservableObject {
     
-    //    @Published var statistics: [StatisticModel] = []
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
     
@@ -19,7 +18,6 @@ class PortfolioViewModel: ObservableObject {
     @Published var sortOption: SortOption = .holdings
     
     private let coinDataService = CoinDataService()
-    //    private let marketDataService = MarketDataService()
     private let portfolioDataService = PortfolioDataService()
     
     private var cancellables = Set<AnyCancellable>()
@@ -29,8 +27,8 @@ class PortfolioViewModel: ObservableObject {
              rankReversed,
              holdings,
              holdingsReversed,
-             price,
-             priceReversed
+             boughtValue,
+             boughtValueReversed
     }
     
     init() {
@@ -38,15 +36,6 @@ class PortfolioViewModel: ObservableObject {
     }
     
     func addSubscribers() {
-        // Sub just for coins
-        /*
-         dataService.$allCoins
-         .sink { [weak self] (returnedCoins) in
-         self?.allCoins = returnedCoins
-         }
-         .store(in: &cancellables)
-         */
-        
         // Combine coins and search subscriber (updates allCoins)
         $searchText
         // when allCoins is published code below is also running
@@ -62,17 +51,6 @@ class PortfolioViewModel: ObservableObject {
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
             .map(mapAllCoinsToPortfolioCoins)
-        /*
-         //            .map { (coinModels, portfolioEntities) -> [CoinModel] in
-         //                coinModels
-         //                    .compactMap { coin -> CoinModel? in
-         //                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
-         //                            return nil
-         //                        }
-         //                        return coin.updateHoldings(amount: entity.amount)
-         //                    }
-         //            }
-         */
             .sink { [weak self] returnedCoins in
                 guard let self = self else { return }
                 self.portfolioCoins = self.sortPortfolioIfNeeded(coins: returnedCoins)
@@ -80,27 +58,15 @@ class PortfolioViewModel: ObservableObject {
                 
             }
             .store(in: &cancellables)
-        
-        // Updates market data
-        //        marketDataService.$marketData
-        //            .combineLatest($portfolioCoins)
-        //            .map(mapGlobalMArketData)
-        //            .sink { [weak self] returnedStats in
-        //                self?.statistics = returnedStats
-        //                self?.isLoading = false
-        //            }
-        //            .store(in: &cancellables)
-        
     }
     
-    func updatePortfolio(coin: CoinModel, amount: Double) {
-        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    func updatePortfolio(coin: CoinModel, amount: Double, boughtPrice: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount, boughtPrice: boughtPrice)
     }
     
     func reloadData() {
         isLoading = true
         coinDataService.getCoins()
-        //        marketDataService.getData()
         HapticManager.notification(type: .success)
     }
     
@@ -126,14 +92,8 @@ class PortfolioViewModel: ObservableObject {
     
     private func sortCoins(sort: SortOption, coins: inout [CoinModel]) {
         switch sort {
-        case .rank, .holdings:
+        default:
             coins.sort(by: { $0.rank < $1.rank })
-        case .rankReversed, .holdingsReversed:
-            coins.sort(by: { $0.rank > $1.rank })
-        case .price:
-            coins.sort(by: { $0.currentPrice < $1.currentPrice })
-        case .priceReversed:
-            coins.sort(by: { $0.currentPrice > $1.currentPrice })
         }
     }
     
@@ -143,8 +103,14 @@ class PortfolioViewModel: ObservableObject {
             return coins.sorted(by: { $0.currentHoldingsValue > $1.currentHoldingsValue })
         case .holdingsReversed:
             return coins.sorted(by: { $0.currentHoldingsValue < $1.currentHoldingsValue })
-        default:
-            return coins
+        case .rank:
+            return coins.sorted(by: { $0.rank < $1.rank })
+        case .rankReversed:
+            return coins.sorted(by: { $0.rank > $1.rank })
+        case .boughtValue:
+            return coins.sorted(by: { $0.boughtValue > $1.boughtValue })
+        case .boughtValueReversed:
+            return coins.sorted(by: { $0.boughtValue < $1.boughtValue })
         }
     }
     
@@ -154,48 +120,21 @@ class PortfolioViewModel: ObservableObject {
                 guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
                     return nil
                 }
-                return coin.updateHoldings(amount: entity.amount)
+                return coin.updateHoldings(amount: entity.amount, boughtPrice: entity.boughtPrice)
             }
     }
     
-    //    private func mapGlobalMArketData(marketDataModel: MarketDataModel?, portfolioCoins: [CoinModel]) -> [StatisticModel] {
-    //        var stats: [StatisticModel] = []
-    //        guard let data = marketDataModel else {
-    //            return stats
-    //        }
-    //        let marketCap = StatisticModel(title: "Market Cap", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
-    //        let volume = StatisticModel(title: "24h Volume", value: data.volume)
-    //        let btcDominance = StatisticModel(title: "BTC Dominance", value: data.btcDominance)
-    //
-    //        /*
-    //        let portfolioValue = portfolioCoins.map { coin -> Double in
-    //            return coin.currentHoldingsValue
-    //        }
-    //        */
-    //        let portfolioValue =
-    //        portfolioCoins
-    //            .map({ $0.currentHoldingsValue })
-    //            .reduce(0, +)
-    //
-    //        let previousValue =
-    //        portfolioCoins
-    //            .map { coin -> Double in
-    //                let currentValue = coin.currentHoldingsValue
-    //                let percentChange = coin.priceChangePercentage24H ?? 0 / 100
-    //                let previousValue = currentValue / (1 + percentChange)
-    //                return previousValue
-    //            }
-    //            .reduce(0, +)
-    //
-    //        let percentageChange = ((portfolioValue - previousValue) / previousValue)
-    //
-    //        let portfolio = StatisticModel(
-    //            title: "Portfolio Value",
-    //            value: portfolioValue.asCurrencyWith2Decimals(),
-    //            percentageChange: percentageChange)
-    //
-    //        stats.append(contentsOf: [marketCap, volume, btcDominance, portfolio])
-    //        return stats
-    //    }
+    var portfolioValue: Double {
+        portfolioCoins.map({ $0.boughtValue }).reduce(0, +)
+    }
+    
+    var currentPortfolioValue: Double {
+        portfolioCoins.map({ $0.currentHoldingsValue }).reduce(0, +)
+    }
+    
+    var portfolioGain: Double {
+        currentPortfolioValue - portfolioValue
+    }
+    
     
 }

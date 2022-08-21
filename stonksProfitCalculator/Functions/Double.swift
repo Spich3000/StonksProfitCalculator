@@ -45,6 +45,29 @@ extension Double {
         return currencyFormatter2.string(from: number) ?? "$0.00"
     }
     
+    private var currencyFormatter2Portfolio: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+//        formatter.numberStyle = .currency
+        // default value
+        //formatter.locale = .current
+        // change currency
+        //formatter.currencyCode = "USD"
+        // change currency symbol
+        //formatter.currencySymbol = "$"
+        
+        // minimum digits after point
+//        formatter.minimumFractionDigits = 2
+        // maximum digits after point
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }
+    
+    func asCurrencyWith2DecimalsPortfolio() -> String {
+        let number = NSNumber(value: self)
+        return currencyFormatter2Portfolio.string(from: number) ?? "$0.00"
+    }
+    
     /// Converts a Double into a Currency with 2-6 decimal places
     /// ```
     /// Convert 1234.56 to $1,234.56

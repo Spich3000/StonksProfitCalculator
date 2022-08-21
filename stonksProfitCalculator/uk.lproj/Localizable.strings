@@ -64,3 +64,21 @@
 "Thank You!" = "Спасибі!";
 "Select exchange commission rate:" = "Обери комісію біржі:";
 
+// PortfolioView
+
+"There are no coins in your portfolio. Press **\"Edit portfolio\"** button to add your coins!" = "Тут поки що немає монет. Натисніть кнопку **\"Редагувати\"**, щоб додати монети.";
+
+"Coin" = "Монета";
+"Bought value" = "Вартість покупки";
+"Current value" = "Вартість портфеля";
+"Edit portfolio" = "Редагувати";
+"Total bought value:" = "Витрачено:";
+"Total Current value:" = "Поточна вартість портфеля:";
+
+"Back" = "Назад";
+"Delete" = "Вилучити";
+"Save" = "Зберегти";
+"Search by name or symbol..." = "Введіть тікер токена...";
+"Amount holdings:" = "Кількість монет:";
+"Bought price:" = "Ціна покупки:";
+
