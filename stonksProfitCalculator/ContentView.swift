@@ -17,15 +17,15 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedView) {
             PortfolioView()
-                .tabItem { Label("Portfolio", systemImage: "briefcase") }.tag(1)
+                .tabItem { labelPortfolio }.tag(1)
             SellPriceView(commission: commission)
-                .tabItem { Label("Sell price", systemImage: "dollarsign.circle") }.tag(2)
+                .tabItem { labelSellPrice }.tag(2)
             AveragePriceView(commission: commission)
-                .tabItem { Label("Average Price", systemImage: "chart.xyaxis.line") }.tag(3)
+                .tabItem { labelAveragePrice }.tag(3)
             DifferenceView()
-                .tabItem { Label("Difference", systemImage: "align.vertical.bottom") }.tag(4)
+                .tabItem { labelDifference }.tag(4)
             SettingsView(commission: commission)
-                .tabItem { Label("Settings", systemImage: "gear") }.tag(5)
+                .tabItem { labelSettings }.tag(5)
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -49,6 +49,26 @@ struct ContentView_Previews: PreviewProvider {
 
 // MARK: VIEW COMPONENTS
 extension ContentView {
+    private var labelPortfolio: some View {
+        Label("Portfolio", systemImage: "briefcase")
+    }
+    
+    private var labelSellPrice: some View {
+        Label("Sell price", systemImage: "dollarsign.circle")
+    }
+    
+    private var labelAveragePrice: some View {
+        Label("Average Price", systemImage: "chart.xyaxis.line")
+    }
+    
+    private var labelDifference: some View {
+        Label("Difference", systemImage: "align.vertical.bottom")
+    }
+    
+    private var labelSettings: some View {
+        Label("Settings", systemImage: "gear")
+    }
+    
     private var doneButton: some View {
         Button("Done") {
             UIApplication.shared.endEditing()
