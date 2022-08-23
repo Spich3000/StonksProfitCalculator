@@ -14,7 +14,6 @@ struct PortfolioView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     @State private var showEditPortfolioView: Bool = false
     
-    
     // MARK: BODY
     var body: some View {
         ZStack {
@@ -86,11 +85,11 @@ extension PortfolioView {
                 }
             }
             HStack(spacing: 4) {
-                    HStack {
-                        Image(systemName: "chevron.down")
-                            .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1 : 0)
-                            .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
-                        Text("Current value")
+                HStack {
+                    Image(systemName: "chevron.down")
+                        .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1 : 0)
+                        .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
+                    Text("Current value")
                 }
             }
             .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
@@ -161,16 +160,14 @@ extension PortfolioView {
     private var columnTotal: some View {
         VStack(alignment: .center) {
             HStack(spacing: 4) {
-                VStack {
-                    Text("Total bought value: \(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-                }
+                Text("Total bought value:")
+                Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
             }
             HStack(spacing: 4) {
-                VStack(alignment: .center) {
-                    Text("Total Current value: \(viewModel.currentPortfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-                    Text("\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
-                        .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
-                }
+                Text("Total current value:")
+                Text("\(viewModel.currentPortfolioValue.asCurrencyWith2DecimalsPortfolio())$")
+                Text("\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
+                                .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
             }
         }
         .font(.caption)

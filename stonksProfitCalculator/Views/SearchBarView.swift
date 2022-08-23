@@ -20,7 +20,7 @@ struct SearchBarView: View {
             TextField("Search by name or symbol...", text: $searchText)
                 .disableAutocorrection(true)
                 .overlay(
-                    Image(systemName: "xmark.circle.fill")
+                    Image(systemName: "multiply.circle")
                         .padding()
                         .offset(x: 10)
                         .opacity(searchText.isEmpty ? 0 : 1)

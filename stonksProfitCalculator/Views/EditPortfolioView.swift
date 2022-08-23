@@ -14,7 +14,7 @@ struct EditPortfolioView: View {
     @EnvironmentObject private var viewModel: PortfolioViewModel
     @AppStorage("isDarkMode") private var isDarkMode = false
 
-    @State private var  selectedCoin: CoinModel? = nil
+    @State private var selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
     @State private var boughtPriceString: String = ""
     
@@ -63,11 +63,13 @@ extension EditPortfolioView {
     
     private var dismissButton: some View {
         Button(action: {
+            viewModel.searchText = ""
             dismiss()
         }, label: {
             HStack {
                 Image(systemName: "chevron.left")
                 Text("Back")
+                    .lineLimit(1)
             }
         })
     }
@@ -135,6 +137,7 @@ extension EditPortfolioView {
                 savedButtonPressed()
             } label: {
                 Text("Save")
+                    .lineLimit(1)
             }
             .opacity((selectedCoin != nil ? 1.0 : 0.3))
             .disabled((selectedCoin != nil ? false : true))
@@ -146,6 +149,7 @@ extension EditPortfolioView {
                 savedButtonPressed()
             } label: {
                 Text("Delete")
+                    .lineLimit(1)
             }
             .opacity((selectedCoin != nil ? 1.0 : 0.3))
             .disabled((selectedCoin != nil ? false : true))
@@ -154,8 +158,8 @@ extension EditPortfolioView {
     private func savedButtonPressed() {
         guard
             let coin = selectedCoin,
-            let amount = Double(quantityText),
-            let boughtPrice = Double(boughtPriceString)
+            let amount = Double(convert(text: quantityText)),
+            let boughtPrice = Double(convert(text: boughtPriceString))
         else { return }
         // save to portfolio
         viewModel.updatePortfolio(coin: coin, amount: amount, boughtPrice: boughtPrice)

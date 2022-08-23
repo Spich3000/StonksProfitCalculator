@@ -68,17 +68,18 @@
 
 "There are no coins in your portfolio. Press **\"Edit portfolio\"** button to add your coins!" = "Тут пока нет монет. Нажмите кнопку **\"Редактировать\"**, чтобы добавить ваши монеты.";
 
+"Portfolio" = "Портфолио";
 "Coin" = "Монета";
 "Bought value" = "Стоимость покупки";
 "Current value" = "Стоимость портфеля";
 "Edit portfolio" = "Редактировать";
-"Total bought value:" = "Потрачено:";
-"Total Current value:" = "Текущая стоимость портфеля:";
+"Total bought value:" = "Начальная стоимость портфеля:";
+"Total current value:" = "Текущая стоимость портфеля:";
 
 "Back" = "Назад";
 "Delete" = "Удалить";
-"Save" = "Сохранить";
+"Save" = "Готово";
 "Search by name or symbol..." = "Введите тикер токена...";
-"Amount holdings:" = "Количество монет:";
+"Amount holding:" = "Количество монет:";
 "Bought price:" = "Цена покупки:";
 
