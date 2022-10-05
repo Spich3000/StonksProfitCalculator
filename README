@@ -21,3 +21,6 @@ Tab 3:
   
 
 Hope you will enjoy this app!
+
+Ver.2.0. add portfolio tab. Used CoreData and Combine:
+Input your crypto token, bought price and amount, app will calculate profit or loss of your portfolio in real time.
