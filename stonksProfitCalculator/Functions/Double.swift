@@ -30,7 +30,7 @@ extension Double {
         // minimum digits after point
         formatter.minimumFractionDigits = 2
         // maximum digits after point
-        formatter.maximumFractionDigits = 6
+        formatter.maximumFractionDigits = 2
         return formatter
     }
     

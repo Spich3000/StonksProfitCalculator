@@ -65,7 +65,7 @@ extension CoinRowView {
     
     private var rightColumn: some View {
         VStack(alignment: .trailing) {
-            Text(coin.currentHoldingsValue.asCurrencyWith6Decimals() + "$")
+            Text(coin.currentHoldingsValue.asCurrencyWith2Decimals() + "$")
                 .bold()
             Text(coin.gain.asCurrencyWith2DecimalsPortfolio() + "$")
                 .foregroundColor(coin.gain >= 0 ? Color.green : Color.red)
