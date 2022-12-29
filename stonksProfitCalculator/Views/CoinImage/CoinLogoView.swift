@@ -12,18 +12,18 @@ struct CoinLogoView: View {
     let coin: CoinModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             CoinImageView(coin: coin)
                 .frame(width: 50, height: 50)
             Text(coin.symbol.uppercased())
                 .font(.headline)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-            Text(coin.name)
-                .font(.caption)
-                .lineLimit(2)
-                .minimumScaleFactor(0.5)
-                .multilineTextAlignment(.center)
+//            Text(coin.name)
+//                .font(.caption)
+//                .lineLimit(2)
+//                .minimumScaleFactor(0.5)
+//                .multilineTextAlignment(.center)
         }
     }
 }

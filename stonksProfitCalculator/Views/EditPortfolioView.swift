@@ -13,10 +13,13 @@ struct EditPortfolioView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var viewModel: PortfolioViewModel
     @AppStorage("isDarkMode") private var isDarkMode = false
-
+    
     @State private var selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
     @State private var boughtPriceString: String = ""
+    @State var isAddBuyShown = false
+    @State private var newQuantityText: String = ""
+    @State private var newBoughtPriceString: String = ""
     
     // MARK: BODY
     var body: some View {
@@ -29,6 +32,10 @@ struct EditPortfolioView: View {
                     coinLogoList
                     if selectedCoin != nil {
                         portfolioInputSection
+                        addBuyButton
+                        if isAddBuyShown && !boughtPriceString.isEmpty {
+                            portfolioInputSectionNewBuy
+                        }
                     }
                 }
             }
@@ -53,6 +60,7 @@ struct EditPortfolioView_Previews: PreviewProvider {
 // MARK: VIEW COMPONENTS
 extension EditPortfolioView {
     
+    // MARK: BACKGROUND
     private var background: some View {
         LinearGradient(
             gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
@@ -74,12 +82,32 @@ extension EditPortfolioView {
         })
     }
     
+    // MARK: ADD BUY BUTTON
+    private var addBuyButton: some View {
+        HStack {
+            Spacer()
+            Button(action: {
+                if !quantityText.isEmpty && !boughtPriceString.isEmpty {
+                    isAddBuyShown.toggle()
+                }
+            }) {
+                HStack {
+                    Image(systemName: "plus")
+                    Text("Add buy")
+                }
+            }
+            .buttonStyle(SimpleButtonStyle())
+            Spacer()
+        }
+    }
+    
+    // MARK: COINS LIST
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
                 ForEach(viewModel.searchText.isEmpty ? viewModel.portfolioCoins : viewModel.allCoins) { coin in
                     CoinLogoView(coin: coin)
-                        .frame(width: 75, height: 100)
+                        .frame(width: 75, height: 75)
                         .padding(4)
                         .onTapGesture {
                             withAnimation(.easeIn) {
@@ -95,6 +123,7 @@ extension EditPortfolioView {
         }
     }
     
+    // MARK: UPDATE COIN FUNC
     private func updateSelectedCoin(coin: CoinModel) {
         selectedCoin = coin
         if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }),
@@ -108,6 +137,7 @@ extension EditPortfolioView {
         }
     }
     
+    // MARK: INPUT SECTION
     private var portfolioInputSection: some View {
         VStack(spacing: 20) {
             Divider()
@@ -132,29 +162,57 @@ extension EditPortfolioView {
         .font(.headline)
     }
     
+    // MARK: SECOND BUY INPUT SECTION
+    private var portfolioInputSectionNewBuy: some View {
+        VStack(spacing: 20) {
+            Divider()
+            HStack {
+                Text("New amount holding:")
+                Spacer()
+                TextField("Enter quantity of token", text: $newQuantityText)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
+            }
+            Divider()
+            HStack {
+                Text("New bought price:")
+                Spacer()
+                TextField("Enter bought price", text: $newBoughtPriceString)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
+            }
+            Divider()
+        }
+        .padding()
+        .font(.headline)
+    }
+    
+    // MARK: SAVE BUTTON
     private var saveButton: some View {
-            Button {
-                savedButtonPressed()
-            } label: {
-                Text("Save")
-                    .lineLimit(1)
-            }
-            .opacity((selectedCoin != nil ? 1.0 : 0.3))
-            .disabled((selectedCoin != nil ? false : true))
+        Button {
+            savedButtonPressed()
+        } label: {
+            Text("Save")
+                .lineLimit(1)
+        }
+        .opacity((selectedCoin != nil ? 1.0 : 0.3))
+        .disabled((selectedCoin != nil ? false : true))
     }
     
+    // MARK: DELETE BUTTON
     private var deleteButton: some View {
-            Button {
-                quantityText = "0"
-                savedButtonPressed()
-            } label: {
-                Text("Delete")
-                    .lineLimit(1)
-            }
-            .opacity((selectedCoin != nil ? 1.0 : 0.3))
-            .disabled((selectedCoin != nil ? false : true))
+        Button {
+            quantityText = "0"
+            savedButtonPressed()
+        } label: {
+            Text("Delete")
+                .lineLimit(1)
+        }
+        .opacity((selectedCoin != nil ? 1.0 : 0.3))
+        .disabled((selectedCoin != nil ? false : true))
     }
     
+    // MARK: SAVE BUTTON FUNCTION
     private func savedButtonPressed() {
         guard
             let coin = selectedCoin,
@@ -170,11 +228,13 @@ extension EditPortfolioView {
         UIApplication.shared.endEditing()
     }
     
+    // MARK: REMOVE SELECT
     private func removeSelectedCoin() {
         selectedCoin = nil
         viewModel.searchText = ""
     }
     
+    // MARK: UPPER BUTTONS SECTION
     private var buttonsBar: some View {
         HStack {
             dismissButton
@@ -187,5 +247,6 @@ extension EditPortfolioView {
         .padding(.horizontal, 20)
         .padding(.vertical)
     }
+    
     
 }
