@@ -20,6 +20,8 @@ struct EditPortfolioView: View {
     @State var isAddBuyShown = false
     @State private var newQuantityText: String = ""
     @State private var newBoughtPriceString: String = ""
+    @Binding var select: CoinModel?
+
     
     // MARK: BODY
     var body: some View {
@@ -46,13 +48,18 @@ struct EditPortfolioView: View {
                 removeSelectedCoin()
             }
         }
+        .onAppear {
+            if let select = select {
+                updateSelectedCoin(coin: select)
+            }
+        }
     }
 }
 
 // MARK: PREVIEW
 struct EditPortfolioView_Previews: PreviewProvider {
     static var previews: some View {
-        EditPortfolioView()
+        EditPortfolioView(select: .constant(nil))
             .environmentObject(dev.portfolioViewModel)
     }
 }
@@ -111,6 +118,7 @@ extension EditPortfolioView {
                         .padding(4)
                         .onTapGesture {
                             withAnimation(.easeIn) {
+
                                 updateSelectedCoin(coin: coin)
                             }
                         }
@@ -128,7 +136,7 @@ extension EditPortfolioView {
         selectedCoin = coin
         if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }),
            let amount = portfolioCoin.currentHoldings,
-           let boughtPrice = portfolioCoin.boughtPrice {
+           let boughtPrice = portfolioCoin.boughtPrice?.asCurrencyWith2or7Decimals() {
             quantityText = "\(amount)"
             boughtPriceString = "\(boughtPrice)"
         } else {
@@ -167,7 +175,7 @@ extension EditPortfolioView {
         VStack(spacing: 20) {
             Divider()
             HStack {
-                Text("New amount holding:")
+                Text("Second amount:")
                 Spacer()
                 TextField("Enter quantity of token", text: $newQuantityText)
                     .multilineTextAlignment(.trailing)
@@ -175,7 +183,7 @@ extension EditPortfolioView {
             }
             Divider()
             HStack {
-                Text("New bought price:")
+                Text("Second bought price:")
                 Spacer()
                 TextField("Enter bought price", text: $newBoughtPriceString)
                     .multilineTextAlignment(.trailing)
@@ -219,11 +227,33 @@ extension EditPortfolioView {
             let amount = Double(convert(text: quantityText)),
             let boughtPrice = Double(convert(text: boughtPriceString))
         else { return }
-        // save to portfolio
-        viewModel.updatePortfolio(coin: coin, amount: amount, boughtPrice: boughtPrice)
-        withAnimation(.easeIn) {
-            removeSelectedCoin()
+        
+        if !newQuantityText.isEmpty && !newBoughtPriceString.isEmpty {
+            // Calculation for input "Amount of tokens"
+            var totalQuantity: Double {
+                (Double(convert(text: quantityText)) ?? Double()) + (Double(convert(text: newQuantityText)) ?? Double())
+            }
+            
+            let value1 = (Double(convert(text: quantityText)) ?? 0) * (Double(convert(text: boughtPriceString)) ?? Double())
+            let value2 = (Double(convert(text: newQuantityText)) ?? 0) * (Double(convert(text: newBoughtPriceString)) ?? Double())
+            let totalValue = value1 + value2
+            
+            let averagePriceOfTokens = totalValue / totalQuantity
+
+            // save to portfolio
+            viewModel.updatePortfolio(coin: coin, amount: totalQuantity, boughtPrice: averagePriceOfTokens)
+            withAnimation(.easeIn) {
+                removeSelectedCoin()
+            }
+            
+        } else {
+            // save to portfolio
+            viewModel.updatePortfolio(coin: coin, amount: amount, boughtPrice: boughtPrice)
+            withAnimation(.easeIn) {
+                removeSelectedCoin()
+            }
         }
+        
         // hide keyboard
         UIApplication.shared.endEditing()
     }

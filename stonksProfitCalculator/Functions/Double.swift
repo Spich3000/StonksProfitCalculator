@@ -45,6 +45,22 @@ extension Double {
         return currencyFormatter2.string(from: number) ?? "$0.00"
     }
     
+    // MARK: CONVERTER FOR A PRICE IN PORTFOLIO
+    private var currencyFormatterForPrice: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        // minimum digits after point
+        formatter.minimumFractionDigits = 2
+        // maximum digits after point
+        formatter.maximumFractionDigits = 7
+        return formatter
+    }
+    
+    func asCurrencyWith2or7Decimals() -> String {
+        let number = NSNumber(value: self)
+        return currencyFormatterForPrice.string(from: number) ?? "$0.00"
+    }
+    
     private var currencyFormatter2Portfolio: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true

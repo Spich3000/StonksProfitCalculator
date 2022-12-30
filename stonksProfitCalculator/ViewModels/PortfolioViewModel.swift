@@ -17,7 +17,7 @@ class PortfolioViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var sortOption: SortOption = .holdings
     
-    private let coinDataService = CoinDataService()
+    let coinDataService = CoinDataService()
     private let portfolioDataService = PortfolioDataService()
     
     private var cancellables = Set<AnyCancellable>()

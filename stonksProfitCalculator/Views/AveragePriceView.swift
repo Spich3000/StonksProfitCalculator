@@ -46,9 +46,9 @@ struct AveragePriceView: View {
     }
     
     // MARK: CALCULATIONS
-    // Calculation for input 0
+    // Calculation for input "Amount of tokens"
     var totalQuantity: Double {
-        (Double(convert(text: quantityOfTokenFirstBuy)) ?? 0) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? 0)
+        (Double(convert(text: quantityOfTokenFirstBuy)) ?? Double()) + (Double(convert(text: quantityOfTokenSecondBuy)) ?? Double())
     }
     
     var averageTokens: Double {
@@ -61,7 +61,7 @@ struct AveragePriceView: View {
         return averageTokens
     }
     
-    // Calculation for input 1
+    // Calculation for input "Bought Value"
     var totalAmount: Double {
         let amount1 = (Double(convert(text: boughtValueFirstBuy)) ?? 0) / (Double(convert(text: boughtPriceFirstBuy)) ?? 0)
         let amount2 = (Double(convert(text: boughtValueSecondBuy)) ?? 0) / (Double(convert(text: boughtPriceSecondBuy)) ?? 0)

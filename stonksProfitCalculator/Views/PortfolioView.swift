@@ -13,13 +13,14 @@ struct PortfolioView: View {
     @EnvironmentObject private var viewModel: PortfolioViewModel
     @AppStorage("isDarkMode") private var isDarkMode = false
     @State private var showEditPortfolioView: Bool = false
+    @State var selectedCoin: CoinModel? = nil
     
     // MARK: BODY
     var body: some View {
         ZStack {
             background
                 .sheet(isPresented: $showEditPortfolioView) {
-                    EditPortfolioView()
+                    EditPortfolioView(select: $selectedCoin)
                         .environmentObject(viewModel)
                 }
             VStack {
@@ -34,6 +35,9 @@ struct PortfolioView: View {
                 columnTotal
                 Spacer()
             }
+        }
+        .onAppear {
+            viewModel.coinDataService.getCoins()
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -127,11 +131,18 @@ extension PortfolioView {
                 // Some kind of paddings to each row in list
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .listRowBackground(Color.clear)
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            showEditPortfolioView.toggle()
+                            selectedCoin = coin
+                        }
+                    }
             }
         }
         .listStyle(PlainListStyle())
     }
     
+    // MARK: THERE ARE NO COINS TITLE
     private var title: some View {
         ZStack(alignment: .top) {
             if viewModel.portfolioCoins.isEmpty && viewModel.searchText.isEmpty {
@@ -157,6 +168,7 @@ extension PortfolioView {
         .padding()
     }
     
+    // MARK: TOTAL PORTFLIO SECTION
     private var columnTotal: some View {
         VStack(alignment: .center) {
             HStack(spacing: 4) {
