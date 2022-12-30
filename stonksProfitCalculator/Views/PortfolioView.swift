@@ -63,6 +63,7 @@ extension PortfolioView {
     
     private var columnTitles: some View {
         HStack {
+            // MARK: COIN RANK
             HStack(spacing: 4.0) {
                 Text("Coin")
                 Image(systemName: "chevron.down")
@@ -75,6 +76,7 @@ extension PortfolioView {
                 }
             }
             Spacer()
+            // MARK: BOUGHT VALUE
             HStack(spacing: 4.0) {
                 HStack {
                     Image(systemName: "chevron.down")
@@ -88,6 +90,7 @@ extension PortfolioView {
                     viewModel.sortOption = viewModel.sortOption == .boughtValue ? .boughtValueReversed : .boughtValue
                 }
             }
+            // MARK: CURRENT VALUE
             HStack(spacing: 4) {
                 HStack {
                     Image(systemName: "chevron.down")
@@ -107,6 +110,7 @@ extension PortfolioView {
         .padding(.horizontal)
     }
     
+    // MARK: EDIT PORTFOLIO
     private var editPortfolioButton: some View {
         HStack {
             Button {
@@ -125,6 +129,7 @@ extension PortfolioView {
         .padding()
     }
     
+    // MARK: COINS LIST
     private var portfolioCoinsList: some View {
         List {
             ForEach(viewModel.portfolioCoins) { coin in
@@ -180,7 +185,7 @@ extension PortfolioView {
             HStack(spacing: 4) {
                 Text("Total current value:")
                 Text("\(viewModel.currentPortfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-                Text("\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
+                Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
                                 .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
             }
         }

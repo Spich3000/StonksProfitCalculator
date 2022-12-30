@@ -22,7 +22,7 @@ struct CoinRowView: View {
         }
         .font(.subheadline)
         // With background we can click at any place in the row and do tapGesture
-        .background(Color(.clear))
+        .background(Color.black.opacity(0.00001))
     }
 }
 
@@ -67,7 +67,7 @@ extension CoinRowView {
         VStack(alignment: .trailing) {
             Text(coin.currentHoldingsValue.asCurrencyWith2Decimals() + "$")
                 .bold()
-            Text(coin.gain.asCurrencyWith2DecimalsPortfolio() + "$")
+            Text((coin.gain >= 0 ? "+" : "") + coin.gain.asCurrencyWith2DecimalsPortfolio() + "$")
                 .foregroundColor(coin.gain >= 0 ? Color.green : Color.red)
         }
         .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
