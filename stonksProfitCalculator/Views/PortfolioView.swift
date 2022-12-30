@@ -155,6 +155,7 @@ extension PortfolioView {
         }
     }
     
+    // MARK: RELOAD DATA BUTTON
     private var reloadDataButton: some View {
         Button {
             withAnimation(.linear(duration: 2)) {
