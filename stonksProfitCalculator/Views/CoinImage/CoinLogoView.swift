@@ -14,7 +14,7 @@ struct CoinLogoView: View {
     var body: some View {
         VStack(spacing: 0) {
             CoinImageView(coin: coin)
-                .frame(width: 50, height: 50)
+                .frame(width: 40, height: 40)
             Text(coin.symbol.uppercased())
                 .font(.headline)
                 .lineLimit(1)

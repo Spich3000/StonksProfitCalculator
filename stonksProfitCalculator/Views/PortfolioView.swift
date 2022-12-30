@@ -112,6 +112,7 @@ extension PortfolioView {
             Button {
                 withAnimation(.spring()) {
                     showEditPortfolioView.toggle()
+                    selectedCoin = nil
                 }
             } label: {
                 HStack {

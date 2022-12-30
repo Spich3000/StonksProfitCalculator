@@ -76,9 +76,10 @@ extension EditPortfolioView {
         .ignoresSafeArea()
     }
     
-    private var dismissButton: some View {
+    private var backButton: some View {
         Button(action: {
             viewModel.searchText = ""
+            selectedCoin = nil
             dismiss()
         }, label: {
             HStack {
@@ -111,14 +112,12 @@ extension EditPortfolioView {
     // MARK: COINS LIST
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 10) {
+            LazyHStack(spacing: 0) {
                 ForEach(viewModel.searchText.isEmpty ? viewModel.portfolioCoins : viewModel.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75, height: 75)
-                        .padding(4)
                         .onTapGesture {
                             withAnimation(.easeIn) {
-
                                 updateSelectedCoin(coin: coin)
                             }
                         }
@@ -199,6 +198,8 @@ extension EditPortfolioView {
     private var saveButton: some View {
         Button {
             savedButtonPressed()
+            selectedCoin = nil
+            dismiss()
         } label: {
             Text("Save")
                 .lineLimit(1)
@@ -212,6 +213,8 @@ extension EditPortfolioView {
         Button {
             quantityText = "0"
             savedButtonPressed()
+            selectedCoin = nil
+            dismiss()
         } label: {
             Text("Delete")
                 .lineLimit(1)
@@ -244,6 +247,8 @@ extension EditPortfolioView {
             viewModel.updatePortfolio(coin: coin, amount: totalQuantity, boughtPrice: averagePriceOfTokens)
             withAnimation(.easeIn) {
                 removeSelectedCoin()
+                newQuantityText = ""
+                newBoughtPriceString = ""
             }
             
         } else {
@@ -267,7 +272,7 @@ extension EditPortfolioView {
     // MARK: UPPER BUTTONS SECTION
     private var buttonsBar: some View {
         HStack {
-            dismissButton
+            backButton
             Spacer()
             deleteButton
             Spacer()
