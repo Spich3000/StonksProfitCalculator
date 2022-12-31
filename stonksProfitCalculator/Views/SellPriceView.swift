@@ -81,6 +81,7 @@ extension SellPriceView {
         }
     }
     
+    // MARK: INFORMATION SECTION
     private var information: some View {
         VStack(spacing: 15) {
             VStack(spacing: 5) {
@@ -98,6 +99,7 @@ extension SellPriceView {
         }
     }
     
+    // MARK: CLEAR BUTTON
     private var clearButton: some View {
         Button(action: {
             quantityOfToken = ""
