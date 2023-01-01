@@ -55,6 +55,7 @@ extension CoinRowView {
         }
     }
     
+    // MARK: CENTER COLUMN
     private var centerColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.boughtValue.asCurrencyWith2Decimals() + "$")
