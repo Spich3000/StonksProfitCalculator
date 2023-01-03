@@ -64,6 +64,7 @@ extension CoinRowView {
         }
     }
     
+    // MARK: RIGHT COLUMN
     private var rightColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentHoldingsValue.asCurrencyWith2Decimals() + "$")
