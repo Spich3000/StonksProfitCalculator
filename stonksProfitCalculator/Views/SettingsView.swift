@@ -78,6 +78,7 @@ extension SettingsView {
         }
     }
     
+    // MARK: DONATE LINK
     private var donateSection: some View {
         VStack(spacing: 15) {
             // Donate with alert
