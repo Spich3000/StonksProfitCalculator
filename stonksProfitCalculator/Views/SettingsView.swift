@@ -94,6 +94,7 @@ extension SettingsView {
         }
     }
     
+    // MARK: COMMISSION PICKER
     private var commissionPicker: some View {
         VStack {
             Text("Select exchange commission rate:")
