@@ -58,6 +58,7 @@ extension DifferenceView {
         .ignoresSafeArea()
     }
     
+    // MARK: TEXT FIEDLS
     private var textFieldSection: some View {
         VStack(spacing: 30) {
             TextField("Enter sell value", text: $sellValue)
