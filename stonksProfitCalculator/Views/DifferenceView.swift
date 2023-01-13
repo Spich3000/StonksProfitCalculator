@@ -76,7 +76,7 @@ extension DifferenceView {
             Text("\(percentageDifference, specifier: "%.2f") %")
         }
     }
-    
+    // MARK: CLEAR BUTTON
     private var clearButton: some View {
         Button(action: {
             sellValue = ""
