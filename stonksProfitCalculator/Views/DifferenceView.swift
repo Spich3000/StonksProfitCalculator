@@ -69,7 +69,7 @@ extension DifferenceView {
                 .title
         }
     }
-    
+    // MARK: INFO
     private var information: some View {
         VStack(spacing: 5) {
             Text("Difference is:")
