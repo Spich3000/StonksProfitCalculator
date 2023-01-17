@@ -49,6 +49,7 @@ struct DifferenceView_Previews: PreviewProvider {
 // MARK: VIEW COMPONENTS
 extension DifferenceView {
     
+    // MARK: BACKGROUND
     private var background: some View {
         LinearGradient(
             gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
