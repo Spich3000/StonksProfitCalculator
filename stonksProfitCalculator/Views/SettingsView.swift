@@ -24,7 +24,7 @@ struct SettingsView: View {
             background
             VStack(spacing: 30) {
                 aboutSection
-                donateSection
+//                donateSection
                 commissionPicker
                 colorThemePicker
             }
@@ -79,20 +79,20 @@ extension SettingsView {
     }
     
     // MARK: DONATE LINK
-    private var donateSection: some View {
-        VStack(spacing: 15) {
-            // Donate with alert
-            Text("Feel free for donate:")
-                .text
-            // DonationAlerts redirect
-            Link(destination: URL(string: "https://www.donationalerts.com/r/spich59")!, label: {
-                HStack {
-                    Text("Donate")
-                }
-            })
-            .buttonStyle(SimpleButtonStyle())
-        }
-    }
+//    private var donateSection: some View {
+//        VStack(spacing: 15) {
+//            // Donate with alert
+//            Text("Feel free for donate:")
+//                .text
+//            // DonationAlerts redirect
+//            Link(destination: URL(string: "https://www.donationalerts.com/r/spich59")!, label: {
+//                HStack {
+//                    Text("Donate")
+//                }
+//            })
+//            .buttonStyle(SimpleButtonStyle())
+//        }
+//    }
     
     // MARK: COMMISSION PICKER
     private var commissionPicker: some View {
