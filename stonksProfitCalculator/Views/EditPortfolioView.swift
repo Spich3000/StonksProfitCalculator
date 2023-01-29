@@ -11,6 +11,7 @@ struct EditPortfolioView: View {
     
     // MARK: PPROPERTIES
     @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject private var viewModel: PortfolioViewModel
     @AppStorage("isDarkMode") private var isDarkMode = false
     
