@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var selectedView = 1
     @StateObject var commission = CommissionRate()
     
+    
     // MARK: BODY
     var body: some View {
         TabView(selection: $selectedView) {

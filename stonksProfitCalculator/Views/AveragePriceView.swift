@@ -88,7 +88,6 @@ struct AveragePriceView_Previews: PreviewProvider {
 }
 
 // MARK: VIEW COMPONENTS
-
 extension AveragePriceView {
     
     private var background: some View {
