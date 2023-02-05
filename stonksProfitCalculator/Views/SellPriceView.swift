@@ -14,7 +14,6 @@ struct SellPriceView: View {
     @State private var boughtPrice = ""
     @State private var iWantPercentage = ""
     
-    @ObservedObject var commission: CommissionRate
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     // MARK: BODY
@@ -34,10 +33,10 @@ struct SellPriceView: View {
     
     // MARK: CALCULATIONS
     var boughtValue: Double {
-        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0) * (1 + commission.commission))
+        ((Double(convert(text: quantityOfToken)) ?? 0) * (Double(convert(text: boughtPrice)) ?? 0))
     }
     var sellPrice: Double {
-        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100) + (commission.commission)))
+        ((Double(convert(text: boughtPrice)) ?? 0) * ((1 + (Double(convert(text: iWantPercentage)) ?? 0) / 100)))
     }
     var sellValue: Double {
         (Double(convert(text: quantityOfToken)) ?? 0) * sellPrice
@@ -52,7 +51,7 @@ struct SellPriceView: View {
 struct SellPriceView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            SellPriceView(commission: CommissionRate())
+            SellPriceView()
         }
     }
 }

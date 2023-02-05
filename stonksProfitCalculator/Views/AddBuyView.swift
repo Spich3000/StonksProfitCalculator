@@ -15,7 +15,6 @@ struct AddBuyView: View {
     @State private var boughtValueThirdBuy = ""
     
     @Binding var selectInput: Int
-    @ObservedObject var commission: CommissionRate
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     var averageTokens: Double
@@ -43,7 +42,7 @@ struct AddBuyView: View {
     // Calculation for input 0
     var averageTokensThird: Double {
         let totalQuantity3 = totalQuantity + (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0)
-        let value3 = (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0) * (Double(convert(text: boughtPriceThirdBuy)) ?? 0) * (1 + commission.commission)
+        let value3 = (Double(convert(text: quantityOfTokenThirdBuy)) ?? 0) * (Double(convert(text: boughtPriceThirdBuy)) ?? 0)
         let totalValue3 = (averageTokens * totalQuantity) + value3
         let averageTokensThird = totalValue3 / totalQuantity3
         
@@ -57,7 +56,7 @@ struct AddBuyView: View {
         let amount3 = (Double(convert(text: boughtValueThirdBuy)) ?? 0) / (Double(convert(text: boughtPriceThirdBuy)) ?? 0)
         let totalAmount3 = totalAmount + amount3
         let totalValue3 = (averageDollars * totalAmount) + (Double(convert(text: boughtValueThirdBuy)) ?? 0)
-        let averageDollarsThird = totalValue3 / totalAmount3 * (1 + commission.commission)
+        let averageDollarsThird = totalValue3 / totalAmount3
         
         guard averageDollars > 0 else {return 0}
         guard Double(convert(text: boughtValueThirdBuy)) ?? 0 > 0 else {return 0}
@@ -70,7 +69,7 @@ struct AddBuyView: View {
 struct AddBuyView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            AddBuyView( selectInput: .constant(1), commission: CommissionRate(), averageTokens: 1, totalQuantity: 1, averageDollars: 1, totalAmount: 1)
+            AddBuyView( selectInput: .constant(1), averageTokens: 1, totalQuantity: 1, averageDollars: 1, totalAmount: 1)
         }
     }
 }

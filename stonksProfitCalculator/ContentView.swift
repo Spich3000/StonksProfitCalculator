@@ -11,21 +11,17 @@ struct ContentView: View {
     
     // MARK: PROPERTIES
     @State private var selectedView = 1
-    @StateObject var commission = CommissionRate()
-    
     
     // MARK: BODY
     var body: some View {
         TabView(selection: $selectedView) {
             PortfolioView()
                 .tabItem { labelPortfolio }.tag(1)
-            SellPriceView(commission: commission)
+            SellPriceView()
                 .tabItem { labelSellPrice }.tag(2)
-//            AveragePriceView(commission: commission)
-//                .tabItem { labelAveragePrice }.tag(3)
             DifferenceView()
                 .tabItem { labelDifference }.tag(4)
-            SettingsView(commission: commission)
+            SettingsView()
                 .tabItem { labelSettings }.tag(5)
         }
         .toolbar {
@@ -42,7 +38,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            ContentView(commission: CommissionRate())
+            ContentView()
                 .environmentObject(dev.portfolioViewModel)
         }
     }

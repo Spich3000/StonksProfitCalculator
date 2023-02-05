@@ -17,7 +17,6 @@
 		A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE227E9AB4F006F9F0C /* SettingsView.swift */; };
 		A244E996280DE09000F0044A /* Text-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A244E995280DE09000F0044A /* Text-Modifier.swift */; };
 		A244E998280DE40200F0044A /* NeuromorphismStyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */; };
-		A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9A27E9B8C60077382C /* AveragePriceView.swift */; };
 		A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9C27E9B9E00077382C /* DifferenceView.swift */; };
 		A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9E27E9BB510077382C /* SellPriceView.swift */; };
 		A2950BA927EB5B970077382C /* ConverterComa-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */; };
@@ -42,7 +41,6 @@
 		A2B9FAFE28AF934200C5C10A /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */; };
 		A2B9FB0028AF9DCC00C5C10A /* EditPortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */; };
 		A2B9FB0228AF9E2800C5C10A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */; };
-		A2FEB76228074167004D770C /* CommissionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEB76128074166004D770C /* CommissionRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +57,6 @@
 		A2313FE227E9AB4F006F9F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A244E995280DE09000F0044A /* Text-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Modifier.swift"; sourceTree = "<group>"; };
 		A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphismStyleButton.swift; sourceTree = "<group>"; };
-		A2950B9A27E9B8C60077382C /* AveragePriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePriceView.swift; sourceTree = "<group>"; };
 		A2950B9C27E9B9E00077382C /* DifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferenceView.swift; sourceTree = "<group>"; };
 		A2950B9E27E9BB510077382C /* SellPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellPriceView.swift; sourceTree = "<group>"; };
 		A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConverterComa-Modifier.swift"; sourceTree = "<group>"; };
@@ -84,7 +81,6 @@
 		A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPortfolioView.swift; sourceTree = "<group>"; };
 		A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		A2FEB76128074166004D770C /* CommissionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +94,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A21A7E4C299021F00093D8DF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9FAF228AF8E3900C5C10A /* PreviewProvider.swift */,
+				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
+				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
+				A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */,
+				A2B9FAF628AF926E00C5C10A /* Double.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A21F488427CFE99900A2F623 = {
 			isa = PBXGroup;
 			children = (
@@ -123,10 +131,9 @@
 				A2B85E0327F4DFF4002FBB12 /* Views */,
 				A2B9FADB28AED49200C5C10A /* ViewModels */,
 				A2B85E0227F4DFC9002FBB12 /* Modifiers */,
-				A2B85E0427F4E233002FBB12 /* Functions */,
-				A2FEB764280856A5004D770C /* Classes */,
 				A2B9FAE528AF8AA100C5C10A /* Services */,
 				A2B9FAE428AF8A9900C5C10A /* Utilities */,
+				A21A7E4C299021F00093D8DF /* Extensions */,
 				A2313FCD27E8630D006F9F0C /* Localizable.strings */,
 				A21F489427CFE99C00A2F623 /* Assets.xcassets */,
 				A21F489627CFE99C00A2F623 /* Preview Content */,
@@ -159,7 +166,6 @@
 				A2B9FAD928AED04400C5C10A /* PortfolioView.swift */,
 				A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */,
 				A2950B9E27E9BB510077382C /* SellPriceView.swift */,
-				A2950B9A27E9B8C60077382C /* AveragePriceView.swift */,
 				A2B50DB027F238D1004720F4 /* AddBuyView.swift */,
 				A2950B9C27E9B9E00077382C /* DifferenceView.swift */,
 				A2313FE227E9AB4F006F9F0C /* SettingsView.swift */,
@@ -168,18 +174,6 @@
 				A2B9FAFA28AF92E400C5C10A /* CoinImage */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A2B85E0427F4E233002FBB12 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */,
-				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
-				A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */,
-				A2B9FAF228AF8E3900C5C10A /* PreviewProvider.swift */,
-				A2B9FAF628AF926E00C5C10A /* Double.swift */,
-			);
-			path = Functions;
 			sourceTree = "<group>";
 		};
 		A2B9FADB28AED49200C5C10A /* ViewModels */ = {
@@ -227,14 +221,6 @@
 				A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */,
 			);
 			path = CoinImage;
-			sourceTree = "<group>";
-		};
-		A2FEB764280856A5004D770C /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				A2FEB76128074166004D770C /* CommissionRate.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +308,6 @@
 				A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */,
 				A2B9FAEB28AF8B4300C5C10A /* HapticManager.swift in Sources */,
 				A2B9FAF528AF922600C5C10A /* CoinRowView.swift in Sources */,
-				A2950B9B27E9B8C60077382C /* AveragePriceView.swift in Sources */,
 				A2B9FAED28AF8B8000C5C10A /* CoinDataService.swift in Sources */,
 				A2B9FADA28AED04400C5C10A /* PortfolioView.swift in Sources */,
 				A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */,
@@ -338,7 +323,6 @@
 				A2B50DB127F238D1004720F4 /* AddBuyView.swift in Sources */,
 				A21F489127CFE99900A2F623 /* stonksProfitCalculatorApp.swift in Sources */,
 				A2B9FAE028AF89F100C5C10A /* CoinModel.swift in Sources */,
-				A2FEB76228074167004D770C /* CommissionRate.swift in Sources */,
 				A2B9FAEF28AF8BC100C5C10A /* CoinImageService.swift in Sources */,
 				A2B9FAF928AF92AD00C5C10A /* CoinImageView.swift in Sources */,
 				A2B9FAE928AF8B1B00C5C10A /* LocalFileManager.swift in Sources */,

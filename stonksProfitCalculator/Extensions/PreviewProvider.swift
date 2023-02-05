@@ -13,7 +13,6 @@ extension PreviewProvider {
     static var dev: DeveloperPreview {
         return DeveloperPreview.shared
     }
-    
 }
 
 class DeveloperPreview {
@@ -22,9 +21,6 @@ class DeveloperPreview {
     private init() {}
     
     let portfolioViewModel = PortfolioViewModel()
-    
-    //    let stat1 = StatisticModel(title: "Market cap", value: "$12.5B", percentageChange: 25.4)
-    //    let stat2 = StatisticModel(title: "Total value", value: "$1.435Tr")
     
     let coin = CoinModel(
         id: "bitcoin",

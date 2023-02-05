@@ -12,10 +12,7 @@ struct SettingsView: View {
     // MARK: PROPERTIES
     @State private var showingAlert = false
     @State private var pick: Int = 0
-    
-    @ObservedObject var commission: CommissionRate
-    let commissions = [0, 0.00075, 0.001, 0.002, 0.005]
-    
+        
     @AppStorage("isDarkMode") private var isDarkMode = false
         
     // MARK: BODY
@@ -24,8 +21,6 @@ struct SettingsView: View {
             background
             VStack(spacing: 30) {
                 aboutSection
-//                donateSection
-                commissionPicker
                 colorThemePicker
             }
         }
@@ -37,13 +32,12 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            SettingsView(commission: CommissionRate())
+            SettingsView()
         }
     }
 }
 
 // MARK: VIEW COMPONENTS
-
 extension SettingsView {
     
     private var background: some View {
@@ -75,45 +69,6 @@ extension SettingsView {
                 }
             })
             .buttonStyle(SimpleButtonStyle())
-        }
-    }
-    
-    // MARK: DONATE LINK
-//    private var donateSection: some View {
-//        VStack(spacing: 15) {
-//            // Donate with alert
-//            Text("Feel free for donate:")
-//                .text
-//            // DonationAlerts redirect
-//            Link(destination: URL(string: "https://www.donationalerts.com/r/spich59")!, label: {
-//                HStack {
-//                    Text("Donate")
-//                }
-//            })
-//            .buttonStyle(SimpleButtonStyle())
-//        }
-//    }
-    
-    // MARK: COMMISSION PICKER
-    private var commissionPicker: some View {
-        VStack {
-            Text("Select exchange commission rate:")
-                .text
-            Picker(selection: $pick, label: Text("Commission picker"), content: {
-                Text("0%").tag(0)
-                Text("0.075%").tag(1)
-                Text("0.1%").tag(2)
-                Text("0.2%").tag(3)
-                Text("0.5%").tag(4)
-            })
-                .pickerModifier
-                .padding(.horizontal,20)
-                .onAppear {
-                    PickerViewModifier()
-                }
-                .onChange(of: pick) { newValue in
-                    commission.commission = Double(commissions[pick])
-                }
         }
     }
     

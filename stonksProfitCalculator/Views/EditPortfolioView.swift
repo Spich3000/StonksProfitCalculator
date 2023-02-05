@@ -124,7 +124,8 @@ extension EditPortfolioView {
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(selectedCoin?.id == coin.id ? Color.green : Color.clear, lineWidth: 1))
+                                .stroke(selectedCoin?.id == coin.id ? Color.green : Color.clear, lineWidth: 1)
+                        )
                 }
             }
             .padding()

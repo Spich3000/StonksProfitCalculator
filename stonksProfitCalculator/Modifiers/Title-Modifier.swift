@@ -11,22 +11,28 @@ struct Title: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(.leading)
-            .padding(.vertical, 8)
+            .padding(.vertical, 12)
             .overlay(
-                Rectangle()
-                    .stroke(Color("whiteBlack"), lineWidth: 2)
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color("whiteBlack"), lineWidth: 3)
                     .blur(radius: 2)
                     .offset(x: -2, y: -2)
-                    .mask(Rectangle().fill(LinearGradient(Color.clear, Color.black)))
+                    .mask(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(LinearGradient(Color.clear, Color.black))
+                            .cornerRadius(20)
+                    )
             )
             .overlay(
-                Rectangle()
-                    .stroke(Color("grayBlack"), lineWidth: 2)
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color("grayBlack"), lineWidth: 3)
                     .blur(radius: 2)
                     .offset(x: 2, y: 2)
-                    .mask(Rectangle().fill(LinearGradient(Color.black, Color.clear)))
+                    .mask(
+                        RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(Color.black, Color.clear))
+                    )
             )
-            .cornerRadius(10)
             .padding(.horizontal, 20.0)
             .keyboardType(.decimalPad)
     }
@@ -38,32 +44,3 @@ extension View {
     }
 }
 
-struct SearchBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding(.leading)
-            .padding(.vertical, 8)
-            .overlay(
-                Rectangle()
-                    .stroke(Color("whiteBlack"), lineWidth: 2)
-                    .blur(radius: 2)
-                    .offset(x: -2, y: -2)
-                    .mask(Rectangle().fill(LinearGradient(Color.clear, Color.black)))
-            )
-            .overlay(
-                Rectangle()
-                    .stroke(Color("grayBlack"), lineWidth: 2)
-                    .blur(radius: 2)
-                    .offset(x: 2, y: 2)
-                    .mask(Rectangle().fill(LinearGradient(Color.black, Color.clear)))
-            )
-            .cornerRadius(10)
-            .padding(.horizontal, 20.0)
-    }
-}
-
-extension View {
-    var searchBar: some View {
-        modifier(SearchBar())
-    }
-}
