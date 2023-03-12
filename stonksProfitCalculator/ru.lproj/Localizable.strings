@@ -82,4 +82,6 @@
 "Search by name or symbol..." = "Введите тикер токена...";
 "Amount holding:" = "Количество монет:";
 "Bought price:" = "Цена покупки:";
+"Second amount:" = "Количество монет:";
+"Second bought price:" = "Цена новой покупки:";
 

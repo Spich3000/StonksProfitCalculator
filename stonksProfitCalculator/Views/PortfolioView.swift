@@ -23,12 +23,14 @@ struct PortfolioView: View {
                     EditPortfolioView(select: $selectedCoin)
                         .environmentObject(viewModel)
                 }
+            
             VStack {
                 HStack {
                     reloadDataButton
                     Spacer()
                     editPortfolioButton
                 }
+                
                 columnTitles
                 title
                 portfolioCoinsList
@@ -53,13 +55,7 @@ struct PortfolioView_Previews: PreviewProvider {
 
 //MARK: VIEW COMPONENTS
 extension PortfolioView {
-    private var background: some View {
-        LinearGradient(
-            gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
-            startPoint: UnitPoint(x: 0.2, y: 0.2),
-            endPoint: .bottomTrailing)
-        .ignoresSafeArea()
-    }
+
     
     private var columnTitles: some View {
         HStack {

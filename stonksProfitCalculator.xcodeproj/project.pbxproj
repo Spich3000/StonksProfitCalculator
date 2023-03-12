@@ -15,6 +15,7 @@
 		A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */; };
 		A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */; };
 		A2313FE327E9AB4F006F9F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE227E9AB4F006F9F0C /* SettingsView.swift */; };
+		A23E3D2829BE4F4000407CDC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E3D2729BE4F4000407CDC /* View.swift */; };
 		A244E996280DE09000F0044A /* Text-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A244E995280DE09000F0044A /* Text-Modifier.swift */; };
 		A244E998280DE40200F0044A /* NeuromorphismStyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */; };
 		A2950B9D27E9B9E00077382C /* DifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2950B9C27E9B9E00077382C /* DifferenceView.swift */; };
@@ -55,6 +56,7 @@
 		A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButton.swift; sourceTree = "<group>"; };
 		A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Title-Modifier.swift"; sourceTree = "<group>"; };
 		A2313FE227E9AB4F006F9F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A23E3D2729BE4F4000407CDC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A244E995280DE09000F0044A /* Text-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Modifier.swift"; sourceTree = "<group>"; };
 		A244E997280DE40200F0044A /* NeuromorphismStyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphismStyleButton.swift; sourceTree = "<group>"; };
 		A2950B9C27E9B9E00077382C /* DifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferenceView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				A2950BA827EB5B970077382C /* ConverterComa-Modifier.swift */,
 				A2B9FAD728AE8B3900C5C10A /* EndEditing.swift */,
 				A2B9FAF628AF926E00C5C10A /* Double.swift */,
+				A23E3D2729BE4F4000407CDC /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23E3D2829BE4F4000407CDC /* View.swift in Sources */,
 				A21F489327CFE99900A2F623 /* ContentView.swift in Sources */,
 				A2950B9F27E9BB510077382C /* SellPriceView.swift in Sources */,
 				A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */,

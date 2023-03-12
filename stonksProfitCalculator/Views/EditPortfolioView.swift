@@ -54,6 +54,11 @@ struct EditPortfolioView: View {
                 updateSelectedCoin(coin: select)
             }
         }
+        .onTapGesture {
+            if #available(iOS 16, *) {
+                UIApplication.shared.endEditing()
+            }
+        }
     }
 }
 
@@ -68,14 +73,14 @@ struct EditPortfolioView_Previews: PreviewProvider {
 // MARK: VIEW COMPONENTS
 extension EditPortfolioView {
     
-    // MARK: BACKGROUND
-    private var background: some View {
-        LinearGradient(
-            gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
-            startPoint: UnitPoint(x: 0.2, y: 0.2),
-            endPoint: .bottomTrailing)
-        .ignoresSafeArea()
-    }
+//    // MARK: BACKGROUND
+//    private var background: some View {
+//        LinearGradient(
+//            gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
+//            startPoint: UnitPoint(x: 0.2, y: 0.2),
+//            endPoint: .bottomTrailing)
+//        .ignoresSafeArea()
+//    }
     
     private var backButton: some View {
         Button(action: {

@@ -27,6 +27,11 @@ struct DifferenceView: View {
                 }
             }
         }
+        .onTapGesture {
+            if #available(iOS 16, *) {
+                UIApplication.shared.endEditing()
+            }
+        }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
     
