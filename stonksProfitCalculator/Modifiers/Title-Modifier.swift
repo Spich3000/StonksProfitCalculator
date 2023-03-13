@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Title: ViewModifier {
+    
+    var isSearchBar: Bool = false
+    
     func body(content: Content) -> some View {
         content
             .padding(.leading)
@@ -34,13 +37,17 @@ struct Title: ViewModifier {
                     )
             )
             .padding(.horizontal, 20.0)
-            .keyboardType(.decimalPad)
+            .keyboardType(isSearchBar ? .default : .decimalPad)
     }
 }
 
 extension View {
-    var title: some View {
+    var textFieldModifier: some View {
         modifier(Title())
+    }
+    
+    var searchModifier: some View {
+        modifier(Title(isSearchBar: true))
     }
 }
 

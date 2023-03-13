@@ -29,9 +29,7 @@ struct SellPriceView: View {
             }
         }
         .onTapGesture {
-            if #available(iOS 16, *) {
                 UIApplication.shared.endEditing()
-            }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -75,13 +73,13 @@ extension SellPriceView {
         VStack(spacing: 30) {
             TextField("Enter quantity of token", text: $quantityOfToken)
                 .textFieldClearButton(text: $quantityOfToken)
-                .title
+                .textFieldModifier
             TextField("Enter bought price", text: $boughtPrice)
                 .textFieldClearButton(text: $boughtPrice)
-                .title
+                .textFieldModifier
             TextField("Enter profit you want to receive %", text: $iWantPercentage)
                 .textFieldClearButton(text: $iWantPercentage)
-                .title
+                .textFieldModifier
         }
     }
     

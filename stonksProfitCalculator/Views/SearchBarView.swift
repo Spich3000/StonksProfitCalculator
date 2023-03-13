@@ -30,7 +30,7 @@ struct SearchBarView: View {
                         }
                     , alignment: .trailing)
         }
-        .title
+        .searchModifier
     }
 }
 

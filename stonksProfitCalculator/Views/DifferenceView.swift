@@ -28,9 +28,7 @@ struct DifferenceView: View {
             }
         }
         .onTapGesture {
-            if #available(iOS 16, *) {
                 UIApplication.shared.endEditing()
-            }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -69,10 +67,10 @@ extension DifferenceView {
         VStack(spacing: 30) {
             TextField("Enter sell value", text: $sellValue)
                 .textFieldClearButton(text: $sellValue)
-                .title
+                .textFieldModifier
             TextField("Enter bought value", text: $boughtValue)
                 .textFieldClearButton(text: $boughtValue)
-                .title
+                .textFieldModifier
         }
     }
     // MARK: INFO

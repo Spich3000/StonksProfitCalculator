@@ -19,11 +19,6 @@ struct CoinLogoView: View {
                 .font(.headline)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-//            Text(coin.name)
-//                .font(.caption)
-//                .lineLimit(2)
-//                .minimumScaleFactor(0.5)
-//                .multilineTextAlignment(.center)
         }
     }
 }
