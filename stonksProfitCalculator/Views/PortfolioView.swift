@@ -19,10 +19,6 @@ struct PortfolioView: View {
     var body: some View {
         ZStack {
             background
-                .sheet(isPresented: $showEditPortfolioView) {
-                    EditPortfolioView(select: $selectedCoin)
-                        .environmentObject(viewModel)
-                }
             
             VStack {
                 HStack {
@@ -40,6 +36,10 @@ struct PortfolioView: View {
         }
         .onAppear {
             viewModel.coinDataService.getCoins()
+        }
+        .sheet(isPresented: $showEditPortfolioView) {
+            EditPortfolioView(select: $selectedCoin)
+                .environmentObject(viewModel)
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
