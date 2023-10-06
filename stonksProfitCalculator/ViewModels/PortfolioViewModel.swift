@@ -55,13 +55,19 @@ class PortfolioViewModel: ObservableObject {
                 guard let self = self else { return }
                 self.portfolioCoins = self.sortPortfolioIfNeeded(coins: returnedCoins)
                 self.isLoading = false
-                
             }
             .store(in: &cancellables)
     }
     
-    func updatePortfolio(coin: CoinModel, amount: Double, boughtPrice: Double) {
-        portfolioDataService.updatePortfolio(coin: coin, amount: amount, boughtPrice: boughtPrice)
+    func updatePortfolio(
+        coin: CoinModel,
+        amount: Double,
+        boughtPrice: Double
+    ) {
+        portfolioDataService.updatePortfolio(
+            coin: coin,
+            amount: amount,
+            boughtPrice: boughtPrice)
     }
     
     func reloadData() {

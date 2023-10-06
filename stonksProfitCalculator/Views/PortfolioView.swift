@@ -17,22 +17,16 @@ struct PortfolioView: View {
     
     // MARK: BODY
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottomTrailing) {
             background
-            
-            VStack {
-                HStack {
-                    reloadDataButton
-                    Spacer()
-                    editPortfolioButton
-                }
-                
+            VStack(spacing: 5) {
+                totalBalance
                 columnTitles
                 title
                 portfolioCoinsList
-                columnTotal
                 Spacer()
             }
+            buttonsSection
         }
         .onAppear {
             viewModel.coinDataService.getCoins()
@@ -42,6 +36,26 @@ struct PortfolioView: View {
                 .environmentObject(viewModel)
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
+    }
+    
+    private var totalBalance: some View {
+        VStack(alignment: .center) {
+            HStack(spacing: 4) {
+                Text("Total bought value:")
+                Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
+                Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
+                    .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
+            }
+        }
+        .font(.caption)
+    }
+    
+    private var buttonsSection: some View {
+        HStack(spacing: 20) {
+            reloadDataButton
+            editPortfolioButton
+        }
+        .padding(20)
     }
 }
 
@@ -56,7 +70,6 @@ struct PortfolioView_Previews: PreviewProvider {
 //MARK: VIEW COMPONENTS
 extension PortfolioView {
 
-    
     private var columnTitles: some View {
         HStack {
             // MARK: COIN RANK
@@ -115,17 +128,12 @@ extension PortfolioView {
                     selectedCoin = nil
                 }
             } label: {
-                HStack {
-                    Image(systemName: "square.and.pencil")
-                    Text("Edit portfolio")
-                }
+                Image(systemName: "plus")
             }
-            .buttonStyle(SimpleButtonStyle())
+            .buttonStyle(SimpleButtonStyle(isCircle: true))
         }
-        .padding()
     }
     
-    // MARK: COINS LIST
     private var portfolioCoinsList: some View {
         List {
             ForEach(viewModel.portfolioCoins) { coin in
@@ -144,11 +152,10 @@ extension PortfolioView {
         .listStyle(PlainListStyle())
     }
     
-    // MARK: THERE ARE NO COINS TITLE
     private var title: some View {
         ZStack(alignment: .top) {
             if viewModel.portfolioCoins.isEmpty && viewModel.searchText.isEmpty {
-                Text("There are no coins in your portfolio. Press **\"Edit portfolio\"** button to add your coins!")
+                Text("There are no coins in your portfolio. Press **\"+\"** button to add your coins!")
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
                     .padding(60)
@@ -163,30 +170,10 @@ extension PortfolioView {
                 viewModel.reloadData()
             }
         } label: {
-            Image(systemName: "goforward")
+            Image(systemName: "repeat")
                 .foregroundColor(.primary)
                 .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
         }
-        .buttonStyle(SimpleButtonStyle())
-        .padding()
+        .buttonStyle(SimpleButtonStyle(isCircle: true))
     }
-    
-    // MARK: TOTAL PORTFLIO SECTION
-    private var columnTotal: some View {
-        VStack(alignment: .center) {
-            HStack(spacing: 4) {
-                Text("Total bought value:")
-                Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-            }
-            HStack(spacing: 4) {
-                Text("Total current value:")
-                Text("\(viewModel.currentPortfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-                Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
-                                .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
-            }
-        }
-        .font(.caption)
-        .padding()
-    }
-    
 }

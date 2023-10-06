@@ -9,16 +9,22 @@ import SwiftUI
 
 extension LinearGradient {
     init(_ colors: Color...) {
-        self.init(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
+        self.init(
+            gradient: Gradient(colors: colors),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
     }
 }
 
 struct SimpleButtonStyle: ButtonStyle {
+    
+    var isCircle: Bool = false
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(Color("tabGray"))
-            .padding(.horizontal, 20)
-            .padding(.vertical, 5)
+            .padding(.horizontal, isCircle ? 10 : 20)
+            .padding(.vertical, isCircle ? 10 : 5)
             .contentShape(Rectangle())
             .background(
                 Group {
@@ -30,7 +36,10 @@ struct SimpleButtonStyle: ButtonStyle {
                                     .stroke(Color("grayBlack"), lineWidth: 4)
                                     .blur(radius: 4)
                                     .offset(x: 2, y: 2)
-                                    .mask(Rectangle().fill(LinearGradient(Color("blackWhite"), Color.clear)))
+                                    .mask(
+                                        Rectangle()
+                                            .fill(LinearGradient(Color("blackWhite"), Color.clear))
+                                    )
                             )
                             .cornerRadius(20)
                             .overlay(
@@ -38,7 +47,10 @@ struct SimpleButtonStyle: ButtonStyle {
                                     .stroke(Color("whiteBlack"), lineWidth: 8)
                                     .blur(radius: 4)
                                     .offset(x: -2, y: -2)
-                                    .mask(Rectangle().fill(LinearGradient(Color.clear, Color("blackWhite"))))
+                                    .mask(
+                                        Rectangle()
+                                            .fill(LinearGradient(Color.clear, Color("blackWhite")))
+                                    )
                             )
                             .cornerRadius(20)
                         
@@ -54,4 +66,3 @@ struct SimpleButtonStyle: ButtonStyle {
             )
     }
 }
-

@@ -9,10 +9,8 @@ import SwiftUI
 
 struct CoinRowView: View {
     
-    //MARK: PROPERTIES
     let coin: CoinModel
     
-    //MARK: BODY
     var body: some View {
         HStack {
             leftColumn
@@ -21,12 +19,10 @@ struct CoinRowView: View {
             rightColumn
         }
         .font(.subheadline)
-        // With background we can click at any place in the row and do tapGesture
         .background(Color.black.opacity(0.00001))
     }
 }
 
-//MARK: PREVIEW
 struct CoinRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

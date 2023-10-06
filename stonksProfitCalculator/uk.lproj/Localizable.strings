@@ -66,7 +66,7 @@
 
 // PortfolioView
 
-"There are no coins in your portfolio. Press **\"Edit portfolio\"** button to add your coins!" = "Тут поки що немає монет. Натисніть кнопку **\"Редагувати\"**, щоб додати монети.";
+"There are no coins in your portfolio. Press **\"+\"** button to add your coins!" = "Тут поки що немає монет. Натисніть кнопку **\"Редагувати\"**, щоб додати монети.";
 
 "Portfolio" = "Портфолiо";
 "Coin" = "Монета";
