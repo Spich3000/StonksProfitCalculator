@@ -39,13 +39,11 @@ struct PortfolioView: View {
     }
     
     private var totalBalance: some View {
-        VStack(alignment: .center) {
-            HStack(spacing: 4) {
-                Text("Total bought value:")
-                Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-                Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
-                    .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
-            }
+        HStack(spacing: 4) {
+            Text("Total bought value:")
+            Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
+            Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
+                .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
         }
         .font(.caption)
     }
@@ -69,7 +67,7 @@ struct PortfolioView_Previews: PreviewProvider {
 
 //MARK: VIEW COMPONENTS
 extension PortfolioView {
-
+    
     private var columnTitles: some View {
         HStack {
             // MARK: COIN RANK
