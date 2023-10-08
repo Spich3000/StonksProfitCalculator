@@ -10,28 +10,23 @@ import SwiftUI
 struct CoinRowView: View {
     
     let coin: CoinModel
+    let action: () -> Void
     
     var body: some View {
-        HStack {
-            leftColumn
-            Spacer()
-            centerColumn
-            rightColumn
+        Button {
+            action()
+        } label: {
+            HStack {
+                leftColumn
+                Spacer()
+                centerColumn
+                rightColumn
+            }
+            .font(.subheadline)
+            .frame(height: 50)
+            .background(Color.black.opacity(0.00001))
         }
-        .font(.subheadline)
-        .background(Color.black.opacity(0.00001))
-    }
-}
-
-struct CoinRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            CoinRowView(coin: dev.coin)
-                .previewLayout(.sizeThatFits)
-            CoinRowView(coin: dev.coin)
-                .previewLayout(.sizeThatFits)
-                .preferredColorScheme(.dark)
-        }
+        .buttonStyle(SimpleButtonStyle())
     }
 }
 
@@ -39,7 +34,7 @@ struct CoinRowView_Previews: PreviewProvider {
 extension CoinRowView {
     
     private var leftColumn: some View {
-        HStack(spacing: 0.0) {
+        HStack(spacing: 0) {
             Text("\(coin.rank)")
                 .font(.caption)
                 .frame(minWidth: 30)
@@ -47,6 +42,8 @@ extension CoinRowView {
                 .frame(width: 30, height: 30)
             Text(coin.symbol.uppercased())
                 .font(.headline)
+                .minimumScaleFactor(0.5)
+                .lineLimit(1)
                 .padding(.leading, 6)
         }
     }
@@ -57,6 +54,8 @@ extension CoinRowView {
             Text(coin.boughtValue.asCurrencyWith2Decimals() + "$")
                 .bold()
             Text((coin.currentHoldings ?? 0).asCurrencyWith6Decimals() + " " + coin.symbol.uppercased())
+                .minimumScaleFactor(0.5)
+                .lineLimit(1)
         }
     }
     
@@ -69,5 +68,17 @@ extension CoinRowView {
                 .foregroundColor(coin.gain >= 0 ? Color.green : Color.red)
         }
         .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
+    }
+}
+
+struct CoinRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CoinRowView(coin: dev.coin) {}
+                .previewLayout(.sizeThatFits)
+            CoinRowView(coin: dev.coin) {}
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.dark)
+        }
     }
 }

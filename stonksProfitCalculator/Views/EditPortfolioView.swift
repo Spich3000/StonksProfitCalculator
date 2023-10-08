@@ -22,7 +22,6 @@ struct EditPortfolioView: View {
     @State private var newQuantityText: String = ""
     @State private var newBoughtPriceString: String = ""
     @Binding var select: CoinModel?
-
     
     // MARK: BODY
     var body: some View {

@@ -19,7 +19,7 @@ struct PortfolioView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             background
-            VStack(spacing: 5) {
+            VStack(spacing: 10) {
                 totalBalance
                 columnTitles
                 title
@@ -71,50 +71,59 @@ extension PortfolioView {
     private var columnTitles: some View {
         HStack {
             // MARK: COIN RANK
-            HStack(spacing: 4.0) {
-                Text("Coin")
-                Image(systemName: "chevron.down")
-                    .opacity((viewModel.sortOption == .rank || viewModel.sortOption == .rankReversed) ? 1 : 0)
-                    .rotationEffect(Angle(degrees: viewModel.sortOption == .rank ? 0 : 180))
-            }
-            .onTapGesture {
+            Button {
                 withAnimation(.default) {
                     viewModel.sortOption = viewModel.sortOption == .rank ? .rankReversed : .rank
                 }
-            }
-            Spacer()
-            // MARK: BOUGHT VALUE
-            HStack(spacing: 4.0) {
-                HStack {
+            } label: {
+                HStack(spacing: 4.0) {
+                    Text("Coin")
                     Image(systemName: "chevron.down")
-                        .opacity((viewModel.sortOption == .boughtValue || viewModel.sortOption == .boughtValueReversed) ? 1 : 0)
-                        .rotationEffect(Angle(degrees: viewModel.sortOption == .boughtValue ? 0 : 180))
-                    Text("Bought value")
+                        .opacity((viewModel.sortOption == .rank || viewModel.sortOption == .rankReversed) ? 1 : 0)
+                        .rotationEffect(Angle(degrees: viewModel.sortOption == .rank ? 0 : 180))
                 }
             }
-            .onTapGesture {
+            
+            Spacer()
+            // MARK: BOUGHT VALUE
+            Button {
                 withAnimation(.default) {
                     viewModel.sortOption = viewModel.sortOption == .boughtValue ? .boughtValueReversed : .boughtValue
                 }
-            }
-            // MARK: CURRENT VALUE
-            HStack(spacing: 4) {
-                HStack {
-                    Image(systemName: "chevron.down")
-                        .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1 : 0)
-                        .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
-                    Text("Current value")
+            } label: {
+                HStack(spacing: 4.0) {
+                    HStack {
+                        Image(systemName: "chevron.down")
+                            .opacity((viewModel.sortOption == .boughtValue || viewModel.sortOption == .boughtValueReversed) ? 1 : 0)
+                            .rotationEffect(Angle(degrees: viewModel.sortOption == .boughtValue ? 0 : 180))
+                        Text("Bought value")
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.5)
+                    }
                 }
             }
-            .frame(width: UIScreen.main.bounds.width / 3.5, alignment:  .trailing)
-            .onTapGesture {
+            
+            // MARK: CURRENT VALUE
+            Button {
                 withAnimation(.default) {
                     viewModel.sortOption = viewModel.sortOption == .holdings ? .holdingsReversed : .holdings
+                }
+            } label: {
+                HStack(spacing: 4) {
+                    HStack {
+                        Image(systemName: "chevron.down")
+                            .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1 : 0)
+                            .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
+                        Text("Current value")
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.5)
+                    }
                 }
             }
         }
         .font(.caption)
         .padding(.horizontal)
+        .buttonStyle(SimpleButtonStyle())
     }
     
     // MARK: EDIT PORTFOLIO
@@ -133,21 +142,23 @@ extension PortfolioView {
     }
     
     private var portfolioCoinsList: some View {
-        List {
-            ForEach(viewModel.portfolioCoins) { coin in
-                CoinRowView(coin: coin)
-                // Some kind of paddings to each row in list
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-                    .listRowBackground(Color.clear)
-                    .onTapGesture {
+        ScrollView(showsIndicators: false) {
+            VStack {
+                ForEach(viewModel.portfolioCoins) { coin in
+                    CoinRowView(coin: coin) {
                         withAnimation(.spring()) {
                             showEditPortfolioView.toggle()
                             selectedCoin = coin
                         }
                     }
+                    .padding(.horizontal, 8)
+                }
             }
+            .padding(.top, 10)
+            
+            Color.clear
+                .frame(height: 50)
         }
-        .listStyle(PlainListStyle())
     }
     
     private var title: some View {
@@ -168,7 +179,7 @@ extension PortfolioView {
                 viewModel.reloadData()
             }
         } label: {
-            Image(systemName: "repeat")
+            Image(systemName: "arrow.triangle.2.circlepath")
                 .foregroundColor(.primary)
                 .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
         }
