@@ -45,7 +45,7 @@ struct PortfolioView: View {
             Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
                 .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
         }
-        .font(.caption)
+        .minimumScaleFactor(0.5)
     }
     
     private var buttonsSection: some View {
