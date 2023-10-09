@@ -9,13 +9,13 @@ import SwiftUI
 
 struct PortfolioView: View {
     
-    // MARK: PROPERTIES
     @EnvironmentObject private var viewModel: PortfolioViewModel
+    
     @AppStorage("isDarkMode") private var isDarkMode = false
+    
     @State private var showEditPortfolioView: Bool = false
     @State var selectedCoin: CoinModel? = nil
     
-    // MARK: BODY
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             background
