@@ -41,7 +41,7 @@ struct SimpleButtonStyle: ButtonStyle {
                                             .fill(LinearGradient(Color("blackWhite"), Color.clear))
                                     )
                             )
-                            .cornerRadius(20)
+                            .cornerRadius(isCircle ? 25 : 20)
                             .overlay(
                                 Rectangle()
                                     .stroke(Color("whiteBlack"), lineWidth: 8)
@@ -52,12 +52,12 @@ struct SimpleButtonStyle: ButtonStyle {
                                             .fill(LinearGradient(Color.clear, Color("blackWhite")))
                                     )
                             )
-                            .cornerRadius(20)
+                            .cornerRadius(isCircle ? 25 : 20)
                         
                     } else {
                         Rectangle()
                             .fill(Color("topWhite"))
-                            .cornerRadius(20)
+                            .cornerRadius(isCircle ? 25 : 20)
                             .shadow(color: Color("blackWhite").opacity(0.2), radius: 10, x: 4, y: 4)
                             .shadow(color: Color("whiteBlack").opacity(1), radius: 10, x: -5, y: -5)
                         

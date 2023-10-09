@@ -38,7 +38,6 @@ class PortfolioViewModel: ObservableObject {
     func addSubscribers() {
         // Combine coins and search subscriber (updates allCoins)
         $searchText
-        // when allCoins is published code below is also running
             .combineLatest(coinDataService.$allCoins, $sortOption)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterAndSortCoins)
@@ -120,7 +119,10 @@ class PortfolioViewModel: ObservableObject {
         }
     }
     
-    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [Portfolio]) -> [CoinModel] {
+    private func mapAllCoinsToPortfolioCoins(
+        allCoins: [CoinModel],
+        portfolioEntities: [Portfolio]
+    ) -> [CoinModel] {
         allCoins
             .compactMap { coin -> CoinModel? in
                 guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {

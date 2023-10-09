@@ -49,7 +49,7 @@ struct PortfolioView: View {
     }
     
     private var buttonsSection: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 10) {
             reloadDataButton
             editPortfolioButton
         }
@@ -128,17 +128,17 @@ extension PortfolioView {
     
     // MARK: EDIT PORTFOLIO
     private var editPortfolioButton: some View {
-        HStack {
-            Button {
-                withAnimation(.spring()) {
-                    showEditPortfolioView.toggle()
-                    selectedCoin = nil
-                }
-            } label: {
-                Image(systemName: "plus")
+        Button {
+            withAnimation(.spring()) {
+                showEditPortfolioView.toggle()
+                selectedCoin = nil
             }
-            .buttonStyle(SimpleButtonStyle(isCircle: true))
+        } label: {
+            Image(systemName: "plus")
+                .frame(width: 24, height: 24)
+                .foregroundColor(.primary)
         }
+        .buttonStyle(SimpleButtonStyle(isCircle: true))
     }
     
     private var portfolioCoinsList: some View {
@@ -180,6 +180,7 @@ extension PortfolioView {
             }
         } label: {
             Image(systemName: "arrow.triangle.2.circlepath")
+                .frame(width: 24, height: 24)
                 .foregroundColor(.primary)
                 .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
         }
