@@ -42,6 +42,7 @@
 		A2B9FAFE28AF934200C5C10A /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */; };
 		A2B9FB0028AF9DCC00C5C10A /* EditPortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */; };
 		A2B9FB0228AF9E2800C5C10A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */; };
+		A2DB12E82AD621B900527A07 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DB12E72AD621B900527A07 /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPortfolioView.swift; sourceTree = "<group>"; };
 		A2B9FB0128AF9E2800C5C10A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		A2DB12E72AD621B900527A07 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		A2B85E0327F4DFF4002FBB12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2DB12E62AD6218F00527A07 /* Subviews */,
 				A2B9FAD928AED04400C5C10A /* PortfolioView.swift */,
 				A2B9FAFF28AF9DCC00C5C10A /* EditPortfolioView.swift */,
 				A2950B9E27E9BB510077382C /* SellPriceView.swift */,
@@ -224,6 +227,14 @@
 				A2B9FAFD28AF934200C5C10A /* CoinLogoView.swift */,
 			);
 			path = CoinImage;
+			sourceTree = "<group>";
+		};
+		A2DB12E62AD6218F00527A07 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				A2DB12E72AD621B900527A07 /* CircleButton.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				A2B50DAF27F2387E004720F4 /* Picker-Modifier.swift in Sources */,
 				A2B9FADD28AED4B300C5C10A /* PortfolioViewModel.swift in Sources */,
 				A2B9FAE328AF8A5D00C5C10A /* PortfolioContainer.xcdatamodeld in Sources */,
+				A2DB12E82AD621B900527A07 /* CircleButton.swift in Sources */,
 				A2950BA927EB5B970077382C /* ConverterComa-Modifier.swift in Sources */,
 				A2B9FAF728AF926E00C5C10A /* Double.swift in Sources */,
 				A2B9FB0228AF9E2800C5C10A /* SearchBarView.swift in Sources */,

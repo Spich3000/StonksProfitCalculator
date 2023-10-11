@@ -14,16 +14,16 @@ struct ContentView: View {
     
     // MARK: BODY
     var body: some View {
-        TabView(selection: $selectedView) {
+//        TabView(selection: $selectedView) {
             PortfolioView()
-                .tabItem { labelPortfolio }.tag(1)
-            SellPriceView()
-                .tabItem { labelSellPrice }.tag(2)
-            DifferenceView()
-                .tabItem { labelDifference }.tag(4)
-            SettingsView()
-                .tabItem { labelSettings }.tag(5)
-        }
+//                .tabItem { labelPortfolio }.tag(1)
+//            SellPriceView()
+//                .tabItem { labelSellPrice }.tag(2)
+//            DifferenceView()
+//                .tabItem { labelDifference }.tag(4)
+//            SettingsView()
+//                .tabItem { labelSettings }.tag(5)
+//        }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()

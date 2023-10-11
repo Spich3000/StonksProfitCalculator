@@ -13,9 +13,13 @@ struct PortfolioView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     
-    @State private var showEditPortfolioView: Bool = false
     @State var selectedCoin: CoinModel? = nil
     
+    @State private var showEditPortfolioView: Bool = false
+    @State private var showSettingsView: Bool = false
+    @State private var showSellPriceView: Bool = false
+    @State private var showDifferenceView: Bool = false
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             background
@@ -26,6 +30,7 @@ struct PortfolioView: View {
                 portfolioCoinsList
                 Spacer()
             }
+            .ignoresSafeArea(edges: [.bottom])
             buttonsSection
         }
         .onAppear {
@@ -34,6 +39,15 @@ struct PortfolioView: View {
         .sheet(isPresented: $showEditPortfolioView) {
             EditPortfolioView(select: $selectedCoin)
                 .environmentObject(viewModel)
+        }
+        .sheet(isPresented: $showSettingsView) {
+            SettingsView()
+        }
+        .sheet(isPresented: $showSellPriceView) {
+            SellPriceView()
+        }
+        .sheet(isPresented: $showDifferenceView) {
+            DifferenceView()
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -49,11 +63,29 @@ struct PortfolioView: View {
     }
     
     private var buttonsSection: some View {
-        HStack(spacing: 10) {
-            reloadDataButton
-            editPortfolioButton
+        HStack {
+            CircleButton(icon: .settings) {
+                showSettingsView.toggle()
+            }
+            Spacer()
+            CircleButton(icon: .sellPrice) {
+                showSellPriceView.toggle()
+            }
+            Spacer()
+            CircleButton(icon: .difference) {
+                showDifferenceView.toggle()
+            }
+            Spacer()
+            CircleButton(icon: .reload) {
+                viewModel.reloadData()
+            }
+            Spacer()
+            CircleButton(icon: .edit) {
+                showEditPortfolioView.toggle()
+                selectedCoin = nil
+            }
         }
-        .padding(20)
+        .padding(.horizontal, 40)
     }
 }
 
@@ -126,21 +158,6 @@ extension PortfolioView {
         .buttonStyle(SimpleButtonStyle())
     }
     
-    // MARK: EDIT PORTFOLIO
-    private var editPortfolioButton: some View {
-        Button {
-            withAnimation(.spring()) {
-                showEditPortfolioView.toggle()
-                selectedCoin = nil
-            }
-        } label: {
-            Image(systemName: "plus")
-                .frame(width: 24, height: 24)
-                .foregroundColor(.primary)
-        }
-        .buttonStyle(SimpleButtonStyle(isCircle: true))
-    }
-    
     private var portfolioCoinsList: some View {
         ScrollView(showsIndicators: false) {
             VStack {
@@ -157,7 +174,7 @@ extension PortfolioView {
             .padding(.top, 10)
             
             Color.clear
-                .frame(height: 50)
+                .frame(height: 70)
         }
     }
     
@@ -170,20 +187,5 @@ extension PortfolioView {
                     .padding(60)
             }
         }
-    }
-    
-    // MARK: RELOAD DATA BUTTON
-    private var reloadDataButton: some View {
-        Button {
-            withAnimation(.linear(duration: 2)) {
-                viewModel.reloadData()
-            }
-        } label: {
-            Image(systemName: "arrow.triangle.2.circlepath")
-                .frame(width: 24, height: 24)
-                .foregroundColor(.primary)
-                .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
-        }
-        .buttonStyle(SimpleButtonStyle(isCircle: true))
     }
 }
