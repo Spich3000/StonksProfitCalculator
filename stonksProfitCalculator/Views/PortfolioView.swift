@@ -76,7 +76,7 @@ struct PortfolioView: View {
                 showDifferenceView.toggle()
             }
             Spacer()
-            CircleButton(icon: .reload) {
+            CircleButton(icon: .reload, isRotationNeeded: true) {
                 viewModel.reloadData()
             }
             Spacer()
@@ -158,23 +158,28 @@ extension PortfolioView {
         .buttonStyle(SimpleButtonStyle())
     }
     
+    @ViewBuilder
     private var portfolioCoinsList: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                ForEach(viewModel.portfolioCoins) { coin in
-                    CoinRowView(coin: coin) {
-                        withAnimation(.spring()) {
-                            showEditPortfolioView.toggle()
-                            selectedCoin = coin
+        if !viewModel.isLoading {
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(viewModel.portfolioCoins) { coin in
+                        CoinRowView(coin: coin) {
+                            withAnimation(.spring()) {
+                                showEditPortfolioView.toggle()
+                                selectedCoin = coin
+                            }
                         }
+                        .padding(.horizontal, 8)
                     }
-                    .padding(.horizontal, 8)
                 }
+                .padding(.top, 10)
+                
+                Color.clear
+                    .frame(height: 70)
             }
-            .padding(.top, 10)
-            
-            Color.clear
-                .frame(height: 70)
+        } else {
+            ProgressView()
         }
     }
     

@@ -17,16 +17,28 @@ enum CircleButtonIcon: String {
 
 struct CircleButton: View {
     
+    @State private var rotation: CGFloat = 0
+        
     var icon: CircleButtonIcon = .edit
+    var isRotationNeeded: Bool = false
     var action: () -> Void
     
     var body: some View {
             Button {
                 action()
+                if isRotationNeeded {
+                    withAnimation(.easeInOut(duration: 1)) {
+                        rotation = 360
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        rotation = 0
+                    }
+                }
             } label: {
                 Image(systemName: icon.rawValue)
-                    .frame(width: 24, height: 24)
+                    .frame(width: 25, height: 25)
                     .foregroundColor(.primary)
+                    .rotationEffect(Angle(degrees: rotation), anchor: .center)
             }
             .buttonStyle(SimpleButtonStyle(isCircle: true))
     }
