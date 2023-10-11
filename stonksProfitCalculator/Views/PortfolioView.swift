@@ -25,6 +25,7 @@ struct PortfolioView: View {
             background
             VStack(spacing: 10) {
                 totalBalance
+                    .padding(.horizontal)
                 columnTitles
                 title
                 portfolioCoinsList
@@ -53,13 +54,26 @@ struct PortfolioView: View {
     }
     
     private var totalBalance: some View {
-        HStack(spacing: 4) {
-            Text("Total bought value:")
-            Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
-            Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
-                .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
+        Button {
+            
+        } label: {
+            HStack(spacing: 4) {
+                Text("Total bought value:")
+                    .minimumScaleFactor(0.5)
+                Text("\(viewModel.portfolioValue.asCurrencyWith2DecimalsPortfolio())$")
+                    .bold()
+                    .minimumScaleFactor(0.5)
+                if !(viewModel.portfolioGain == 0) {
+                    Text((viewModel.portfolioGain >= 0 ? "+" : "") +  "\(viewModel.portfolioGain.asCurrencyWith2DecimalsPortfolio())$")
+                        .foregroundColor(viewModel.portfolioGain >= 0 ? .green : .red)
+                        .bold()
+                        .minimumScaleFactor(0.5)
+                }
+            }
+            .lineLimit(1)
+            .frame(maxWidth: .infinity)
         }
-        .minimumScaleFactor(0.5)
+        .buttonStyle(SimpleButtonStyle())
     }
     
     private var buttonsSection: some View {
@@ -86,14 +100,6 @@ struct PortfolioView: View {
             }
         }
         .padding(.horizontal, 40)
-    }
-}
-
-//MARK: PREVIEW
-struct PortfolioView_Previews: PreviewProvider {
-    static var previews: some View {
-        PortfolioView()
-            .environmentObject(dev.portfolioViewModel)
     }
 }
 
@@ -192,5 +198,12 @@ extension PortfolioView {
                     .padding(60)
             }
         }
+    }
+}
+
+struct PortfolioView_Previews: PreviewProvider {
+    static var previews: some View {
+        PortfolioView()
+            .environmentObject(dev.portfolioViewModel)
     }
 }
