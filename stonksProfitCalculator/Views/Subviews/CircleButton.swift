@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum CircleButtonIcon: String {
-    case settings = "gear"
+    case settings = "gearshape"
     case sellPrice = "dollarsign.circle"
     case difference = "align.vertical.bottom"
     case reload = "arrow.triangle.2.circlepath"
