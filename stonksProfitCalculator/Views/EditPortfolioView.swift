@@ -16,6 +16,7 @@ struct EditPortfolioView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     @State private var selectedCoin: CoinModel? = nil
+    
     @State private var quantityText: String = ""
     @State private var boughtPriceString: String = ""
     @State var isAddBuyShown = false
