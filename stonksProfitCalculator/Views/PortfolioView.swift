@@ -33,6 +33,7 @@ struct PortfolioView: View {
             }
             .ignoresSafeArea(edges: [.bottom])
             buttonsSection
+                .padding(.bottom, 8)
         }
         .onAppear {
             viewModel.coinDataService.getCoins()

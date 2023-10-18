@@ -15,7 +15,7 @@ struct Title: ViewModifier {
         content
             .padding(.leading)
             .padding(.vertical, 12)
-            .overlay(
+            .background(
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(Color("whiteBlack"), lineWidth: 3)
                     .blur(radius: 2)
@@ -26,7 +26,7 @@ struct Title: ViewModifier {
                             .cornerRadius(20)
                     )
             )
-            .overlay(
+            .background(
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(Color("grayBlack"), lineWidth: 3)
                     .blur(radius: 2)
