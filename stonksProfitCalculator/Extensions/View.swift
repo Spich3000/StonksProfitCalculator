@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension View {
-    
      var background: some View {
         LinearGradient(
             gradient: Gradient(colors: [Color("backgroundWhite"), Color("backgroundGray")]),
@@ -17,4 +16,7 @@ extension View {
         .ignoresSafeArea()
     }
     
+    func flashing(isFlashing: Binding<Bool>) -> some View {
+        self.modifier(FlashingModifier(isFlashing: isFlashing))
+    }
 }

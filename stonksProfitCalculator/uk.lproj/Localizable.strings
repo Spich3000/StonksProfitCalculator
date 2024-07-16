@@ -64,6 +64,8 @@
 "Thank You!" = "Спасибі!";
 "Select exchange commission rate:" = "Обери комісію біржі:";
 
+"Please export your portfolio so that you can later add it to a new version of the application and not lose data" = "Будь ласка, експортуйте своє портфоліо, щоб пізніше додати його до нової версії програми та не втратити дані";
+
 // PortfolioView
 
 "There are no coins in your portfolio. Press **\"+\"** button to add your coins!" = "Тут поки що немає монет. Натисніть кнопку **\"Редагувати\"**, щоб додати монети.";

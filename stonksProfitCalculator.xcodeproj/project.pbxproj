@@ -11,6 +11,7 @@
 		A21F489327CFE99900A2F623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F489227CFE99900A2F623 /* ContentView.swift */; };
 		A21F489527CFE99C00A2F623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489427CFE99C00A2F623 /* Assets.xcassets */; };
 		A21F489827CFE99C00A2F623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */; };
+		A22278072C46173D00550606 /* FlashingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22278062C46173D00550606 /* FlashingModifier.swift */; };
 		A2313FCB27E8630D006F9F0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2313FCD27E8630D006F9F0C /* Localizable.strings */; };
 		A2313FDF27E9A9DF006F9F0C /* TextFieldClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FDE27E9A9DF006F9F0C /* TextFieldClearButton.swift */; };
 		A2313FE127E9AA66006F9F0C /* Title-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */; };
@@ -51,6 +52,7 @@
 		A21F489227CFE99900A2F623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A21F489427CFE99C00A2F623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A21F489727CFE99C00A2F623 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A22278062C46173D00550606 /* FlashingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashingModifier.swift; sourceTree = "<group>"; };
 		A2313FCC27E8630D006F9F0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2313FCE27E8630F006F9F0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2313FD527E88EA1006F9F0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				A2313FE027E9AA66006F9F0C /* Title-Modifier.swift */,
 				A244E995280DE09000F0044A /* Text-Modifier.swift */,
 				A2B50DAE27F2387E004720F4 /* Picker-Modifier.swift */,
+				A22278062C46173D00550606 /* FlashingModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				A2B9FAEF28AF8BC100C5C10A /* CoinImageService.swift in Sources */,
 				A2B9FAF928AF92AD00C5C10A /* CoinImageView.swift in Sources */,
 				A2B9FAE928AF8B1B00C5C10A /* LocalFileManager.swift in Sources */,
+				A22278072C46173D00550606 /* FlashingModifier.swift in Sources */,
 				A2B9FAF328AF8E3900C5C10A /* PreviewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Spich.stonksProfitCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -536,7 +540,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Spich.stonksProfitCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

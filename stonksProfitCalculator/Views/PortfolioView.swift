@@ -19,6 +19,11 @@ struct PortfolioView: View {
     @State private var showSettingsView: Bool = false
     @State private var showSellPriceView: Bool = false
     @State private var showDifferenceView: Bool = false
+    
+    @State private var showingShareSheet = false
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
+    @State private var isFlashing = false
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -37,6 +42,7 @@ struct PortfolioView: View {
         }
         .onAppear {
             viewModel.coinDataService.getCoins()
+            isFlashing = true
         }
         .sheet(isPresented: $showEditPortfolioView) {
             EditPortfolioView(select: $selectedCoin)
@@ -50,6 +56,9 @@ struct PortfolioView: View {
         }
         .sheet(isPresented: $showDifferenceView) {
             DifferenceView()
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Save Status"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -79,6 +88,11 @@ struct PortfolioView: View {
     
     private var buttonsSection: some View {
         HStack {
+            CircleButton(icon: .share) {
+                exportAndSharePortfolio()
+            }
+            .flashing(isFlashing: $isFlashing)
+            Spacer()
             CircleButton(icon: .settings) {
                 showSettingsView.toggle()
             }
@@ -197,6 +211,18 @@ extension PortfolioView {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
                     .padding(60)
+            }
+        }
+    }
+    
+    private func exportAndSharePortfolio() {
+        viewModel.savePortfolioToJSON { success, fileURL in
+            if success, let url = fileURL {
+                viewModel.sharePortfolioFile(fileURL: url)
+            } else {
+                showingAlert = true
+                alertMessage = success ? "Portfolio saved successfully!" : "Failed to save portfolio."
+                print("Failed to save portfolio.")
             }
         }
     }

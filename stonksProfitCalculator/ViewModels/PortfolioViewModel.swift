@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class PortfolioViewModel: ObservableObject {
     
@@ -33,6 +34,24 @@ class PortfolioViewModel: ObservableObject {
     
     init() {
         addSubscribers()
+        print("Initializing PortfolioViewModel...")  // Debug statement
+        printSavedCoins()  // Add this line
+    }
+    
+    func printSavedCoins() {
+        print("printSavedCoins called...")  // Debug statement
+        portfolioDataService.$savedEntities
+            .sink { savedEntities in
+                print("Saved Coins:")
+                if savedEntities.isEmpty {
+                    print("No saved coins found.")
+                } else {
+                    for entity in savedEntities {
+                        print("Coin ID: \(entity.coinID), Amount: \(entity.amount), Bought Price: \(entity.boughtPrice)")
+                    }
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func addSubscribers() {
@@ -145,4 +164,86 @@ class PortfolioViewModel: ObservableObject {
     }
     
     
+}
+
+import CoreData
+
+struct EncodablePortfolio: Codable {
+    var coinID: String?
+    var amount: Double
+    var boughtPrice: Double
+}
+
+extension PortfolioViewModel {
+    func savePortfolioToJSON(completion: @escaping (Bool, URL?) -> Void) {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+
+        let encodablePortfolios = mapPortfolioToEncodable(portfolios: portfolioDataService.savedEntities)
+
+        do {
+            let data = try encoder.encode(encodablePortfolios)
+            if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileURL = documentDirectory.appendingPathComponent("portfolio.json")
+                try data.write(to: fileURL)
+                print("Saved to: \(fileURL.absoluteString)")
+                completion(true, fileURL) // Call completion with true and the file URL on successful save
+            } else {
+                completion(false, nil) // Call completion with false and no URL if the URL could not be formed
+            }
+        } catch {
+            print("Error saving portfolio to JSON: \(error.localizedDescription)")
+            completion(false, nil) // Call completion with false and no URL on error
+        }
+    }
+
+    func readPortfolioFromJSON() {
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = documentDirectory.appendingPathComponent("portfolio.json")
+            do {
+                let data = try Data(contentsOf: fileURL)
+                let decodedPortfolios = try JSONDecoder().decode([EncodablePortfolio].self, from: data)
+                print("Read from file: \(decodedPortfolios)")
+            } catch {
+                print("Error reading portfolio from JSON: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func copyPortfolioToJSONToClipboard() {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+
+        let encodablePortfolios = mapPortfolioToEncodable(portfolios: portfolioDataService.savedEntities)
+
+        do {
+            let jsonData = try encoder.encode(encodablePortfolios)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                UIPasteboard.general.string = jsonString
+                print("JSON copied to clipboard.")
+            }
+        } catch {
+            print("Failed to copy portfolio to JSON: \(error)")
+        }
+    }
+    
+    func sharePortfolioFile(fileURL: URL) {
+        // Ensure you run this on the main thread since it involves UI operations
+        DispatchQueue.main.async {
+            let activityVC = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+            // Present the view controller
+            let rootVC = UIApplication.shared.windows.first?.rootViewController
+            rootVC?.present(activityVC, animated: true, completion: nil)
+        }
+    }
+
+    func mapPortfolioToEncodable(portfolios: [Portfolio]) -> [EncodablePortfolio] {
+        return portfolios.map { portfolio in
+            EncodablePortfolio(
+                coinID: portfolio.coinID,
+                amount: portfolio.amount,
+                boughtPrice: portfolio.boughtPrice
+            )
+        }
+    }
 }
