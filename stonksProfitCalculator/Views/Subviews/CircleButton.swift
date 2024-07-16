@@ -13,6 +13,7 @@ enum CircleButtonIcon: String {
     case difference = "align.vertical.bottom"
     case reload = "arrow.triangle.2.circlepath"
     case edit = "plus"
+    case share = "square.and.arrow.up"
 }
 
 struct CircleButton: View {
